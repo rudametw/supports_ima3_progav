@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+cm}{/* À ne pas faire */}
+
+\PYG{k+kt}{int} \PYG{o}{*} \PYG{n+nf}{allouer\PYGZus{}entier}\PYG{p}{(}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{k+kt}{int} \PYG{n}{var\PYGZus{}static} \PYG{p}{;} \PYG{c+c1}{//allocated on the stack}
+	\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{var\PYGZus{}static address is : \PYGZpc{}p}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}
+							  \PYG{o}{\PYGZam{}}\PYG{n}{var\PYGZus{}static}\PYG{p}{)}\PYG{p}{;}
+	\PYG{k}{return} \PYG{o}{\PYGZam{}}\PYG{n}{var\PYGZus{}static} \PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{esc}{\underline{type}} Complexe = \PYG{esc}{\underline{structure}}
+	reelle, imag: Reel
+\PYG{esc}{\underline{fin}}
+\end{Verbatim}

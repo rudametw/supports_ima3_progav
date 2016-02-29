@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{d1}\PYG{p}{.}\PYG{n}{jour} \PYG{o}{=} \PYG{n}{d2}\PYG{p}{.}\PYG{n}{jour}\PYG{p}{;}
+\PYG{n}{scanf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{\PYGZpc{}d}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{d2}\PYG{p}{.}\PYG{n}{jour}\PYG{p}{)}\PYG{p}{;}
+\end{Verbatim}

@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{esc}{\underline{Action}} ajout\PYGZus{}tête(l, val)
+	\PYG{esc}{\underline{D}} : val : \PYGZlt{}T\PYGZgt{}
+	\PYG{esc}{\underline{D/R}} : l : Liste\PYGZus{}chaînée
+	\PYG{esc}{\underline{L}} : p : Ptcellule
+
+	p \PYG{esc}{$\leftarrow$} allouer()
+	p\PYG{esc}{$\uparrow$$\bullet$}valeur \PYG{esc}{$\leftarrow$} val
+	p\PYG{esc}{$\uparrow$$\bullet$}suivant \PYG{esc}{$\leftarrow$} L
+	l \PYG{esc}{$\leftarrow$} p
+\PYG{esc}{\underline{Faction}}
+\end{Verbatim}

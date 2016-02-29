@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{k}{struct} \PYG{n}{Spointer} \PYG{p}{\PYGZob{}}
+	\PYG{k+kt}{int} \PYG{o}{*} \PYG{n}{p}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\PYG{k}{struct} \PYG{n}{Spointer} \PYG{n}{sp1}\PYG{p}{,} \PYG{n}{sp2}\PYG{p}{;}
+\PYG{n}{sp1}\PYG{p}{.}\PYG{n}{p} \PYG{o}{=} \PYG{n}{malloc}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{o}{*}\PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{sp1}\PYG{p}{.}\PYG{n}{p}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{n}{sp1}\PYG{p}{.}\PYG{n}{p}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{10}\PYG{p}{;} \PYG{n}{sp1}\PYG{p}{.}\PYG{n}{p}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{20}\PYG{p}{;}
+\PYG{n}{sp1}\PYG{p}{.}\PYG{n}{p}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{30}\PYG{p}{;}
+
+\PYG{n}{sp2} \PYG{o}{=} \PYG{n}{sp1}\PYG{p}{;}
+\PYG{n}{free}\PYG{p}{(}\PYG{n}{sp1}\PYG{p}{.}\PYG{n}{p}\PYG{p}{)}\PYG{p}{;}
+\end{Verbatim}

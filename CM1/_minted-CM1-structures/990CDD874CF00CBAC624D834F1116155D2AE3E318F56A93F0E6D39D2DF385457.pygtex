@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+c1}{//F est une variable de type Fiche}
+\PYG{n+nl}{F}\PYG{p}{:} \PYG{n}{Fiche}
+  \PYG{c+c1}{//Les accès aux champs sont de type}
+  \PYG{esc}{$\Rightarrow$} \PYG{n}{F}\PYG{p}{.}\PYG{n+nl}{date}\PYG{p}{:} \PYG{n}{Date} \PYG{esc}{$\Rightarrow$} \PYG{n}{F}\PYG{p}{.}\PYG{n}{date}\PYG{p}{.}\PYG{n+nl}{jour}\PYG{p}{:} \PYG{n}{Entier}
+  \PYG{esc}{$\Rightarrow$} \PYG{n}{F}\PYG{p}{.}\PYG{n+nl}{emprunt}\PYG{p}{:} \PYG{n}{Ouvrage} \PYG{esc}{$\Rightarrow$} \PYG{n}{F}\PYG{p}{.}\PYG{n}{emprunt}\PYG{p}{.}\PYG{n+nl}{titre}\PYG{p}{:} \PYG{n}{Chaine}
+\end{Verbatim}

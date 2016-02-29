@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{PtInt} \PYG{n}{p}\PYG{p}{;} \PYG{esc}{$\Leftrightarrow$} \PYG{k+kt}{int} \PYG{o}{*} \PYG{n}{p}\PYG{p}{;}
+\PYG{n}{Matrice} \PYG{n}{m}\PYG{p}{;} \PYG{esc}{$\Leftrightarrow$} \PYG{k+kt}{int} \PYG{n}{m}\PYG{p}{[}\PYG{l+m+mi}{10}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{20}\PYG{p}{]}\PYG{p}{;}
+\PYG{n}{Date} \PYG{n}{d}\PYG{p}{;} \PYG{esc}{$\Leftrightarrow$} \PYG{k}{struct} \PYG{n}{date} \PYG{n}{d}\PYG{p}{;}
+\PYG{n}{Ouvrage} \PYG{n}{o}\PYG{p}{;} \PYG{esc}{$\Leftrightarrow$} \PYG{k}{struct} \PYG{p}{\PYGZob{}}
+                  \PYG{k+kt}{int} \PYG{n}{numero}\PYG{p}{;}
+                  \PYG{k+kt}{char} \PYG{n}{titre}\PYG{p}{[}\PYG{l+m+mi}{50}\PYG{p}{]}\PYG{p}{;}
+               \PYG{p}{\PYGZcb{}} \PYG{n}{o}\PYG{p}{;}
+\end{Verbatim}

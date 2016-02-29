@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{esc}{\underline{type}} \PYG{n}{Ptcellule} \PYG{o}{=} \PYG{esc}{\underline{pointeur de}} \PYG{n}{Cellule}
+
+\PYG{esc}{\underline{type}} \PYG{n}{Cellule} \PYG{o}{=} \PYG{n}{structure}
+	\PYG{n+nl}{valeur} \PYG{p}{:} \PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}
+	\PYG{n+nl}{suivant} \PYG{p}{:} \PYG{n}{Ptcellule}
+\PYG{esc}{\underline{fin}}
+
+\PYG{esc}{\underline{type}} \PYG{n}{Fifo} \PYG{o}{=} \PYG{n}{structure}
+	\PYG{n}{tête}\PYG{p}{,} \PYG{n+nl}{queue} \PYG{p}{:} \PYG{n}{Ptcellule}
+\PYG{esc}{\underline{fin}}
+\end{Verbatim}

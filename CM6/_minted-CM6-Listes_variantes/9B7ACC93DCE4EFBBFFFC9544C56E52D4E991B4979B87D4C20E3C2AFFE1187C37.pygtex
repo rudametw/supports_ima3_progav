@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{esc}{\underline{Fonction}} \PYG{n}{sommet}\PYG{p}{(}\PYG{n}{P}\PYG{p}{)} \PYG{o}{:} \PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}
+	\PYG{n+nl}{D} \PYG{p}{:} \PYG{n+nl}{P} \PYG{p}{:} \PYG{n}{Pile}
+	\PYG{n}{Retourner} \PYG{p}{(}\PYG{n}{P} \PYG{n}{valeur}\PYG{p}{)}
+\PYG{esc}{\underline{Ffonction}}
+\end{Verbatim}

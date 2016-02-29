@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{k}{typedef} \PYG{k}{struct} \PYG{p}{\PYGZob{}}
+	\PYG{k+kt}{int} \PYG{n}{numero}\PYG{p}{;}
+	\PYG{k+kt}{char} \PYG{n}{titre}\PYG{p}{[}\PYG{l+m+mi}{50}\PYG{p}{]}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}} \PYG{n}{Ouvrage}\PYG{p}{;}
+\PYG{n}{Ouvrage} \PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{;} \PYG{c+c1}{//variables}
+\end{Verbatim}

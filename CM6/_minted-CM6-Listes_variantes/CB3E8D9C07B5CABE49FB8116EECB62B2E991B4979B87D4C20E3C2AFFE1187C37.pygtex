@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{esc}{\underline{type}} \PYG{n}{Fifo} \PYG{o}{=} \PYG{esc}{\underline{structure}}
+	\PYG{n+nl}{espace} \PYG{p}{:} \PYG{n}{vecteur} \PYG{p}{[}\PYG{l+m+mf}{0.}\PYG{p}{.}\PYG{n}{MAX}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{n}{de} \PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}
+	\PYG{n}{premier}\PYG{p}{,} \PYG{n+nl}{dernier} \PYG{p}{:} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{1.}\PYG{p}{.}\PYG{n}{MAX}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1} \PYG{p}{\PYGZob{}}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1} \PYG{n}{si} \PYG{n}{file} \PYG{n}{vide}\PYG{p}{\PYGZcb{}}
+\PYG{esc}{\underline{fin}}
+\end{Verbatim}

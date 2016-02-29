@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+	\PYG{esc}{\underline{type}} Ouvrage = \PYG{esc}{\underline{structure}}
+		code: Entier
+		titre: Chaine
+	\PYG{esc}{\underline{fin}}
+\end{Verbatim}

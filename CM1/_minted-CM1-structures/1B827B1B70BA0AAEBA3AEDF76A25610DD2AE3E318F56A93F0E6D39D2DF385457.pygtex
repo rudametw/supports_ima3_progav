@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{esc}{\underline{type}} \PYG{n}{Fiche} \PYG{o}{=} \PYG{esc}{\underline{structure}}
+	\PYG{n+nl}{emprunt} \PYG{p}{:} \PYG{n}{Ouvrage}
+	\PYG{n+nl}{date} \PYG{p}{:} \PYG{n}{Date}
+\PYG{esc}{\underline{fin}}
+\end{Verbatim}

@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int} \PYG{n}{fseek}\PYG{p}{(}\PYG{k+kt}{FILE} \PYG{o}{*}\PYG{n}{fp}\PYG{p}{,} \PYG{k+kt}{long} \PYG{n}{déplacement}\PYG{p}{,}
+\end{Verbatim}

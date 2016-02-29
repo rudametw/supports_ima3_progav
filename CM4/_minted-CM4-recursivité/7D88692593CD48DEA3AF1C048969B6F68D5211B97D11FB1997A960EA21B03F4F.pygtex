@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+	Action inverser()
+		L : c : caractère
+		lire(c)
+		Si c \PYG{esc}{$\ne$} \PYGZsq{}\PYG{esc}{$\bullet$}\PYGZsq{} Alors
+			inverser()
+			écrire(c)
+		Fsi
+	Faction
+\end{Verbatim}

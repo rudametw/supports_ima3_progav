@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{esc}{\underline{type}} Liste\PYGZus{}contigue = \PYG{esc}{\underline{structure}}
+	espace : Vecteur[MAX] de \PYGZlt{}T\PYGZgt{}
+	dernier : Entier
+\PYG{esc}{\underline{fin}}
+\end{Verbatim}

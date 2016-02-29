@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{k}{struct} \PYG{n}{complexe} \PYG{p}{\PYGZob{}}\PYG{k+kt}{float} \PYG{n}{reelle}\PYG{p}{,} \PYG{n}{imag}\PYG{p}{;}\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\PYG{k}{typedef} \PYG{k}{struct} \PYG{n}{complexe} \PYG{n}{Complexe}\PYG{p}{;}
+
+\PYG{c+cm}{/* Prend deux Complexe en paramètre,}
+\PYG{c+cm}{   renvoi leur addition */}
+\PYG{n}{Complexe} \PYG{n+nf}{plus} \PYG{p}{(}\PYG{n}{Complexe} \PYG{n}{c1}\PYG{p}{,} \PYG{n}{Complexe} \PYG{n}{c2}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{n}{Complexe} \PYG{n}{r}\PYG{p}{;}
+	\PYG{n}{r}\PYG{p}{.}\PYG{n}{reelle} \PYG{o}{=} \PYG{n}{c1}\PYG{p}{.}\PYG{n}{reelle} \PYG{o}{+} \PYG{n}{c2}\PYG{p}{.}\PYG{n}{reelle}\PYG{p}{;}
+	\PYG{n}{r}\PYG{p}{.}\PYG{n}{imag} \PYG{o}{=} \PYG{n}{c1}\PYG{p}{.}\PYG{n}{imag} \PYG{o}{+} \PYG{n}{c2}\PYG{p}{.}\PYG{n}{imag}\PYG{p}{;}
+	\PYG{k}{return} \PYG{n}{r}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{sommet}\PYG{p}{(}\PYG{n}{P}\PYG{p}{)} \PYG{o}{:}  \PYG{n}{P}\PYG{p}{.}\PYG{n}{espace}\PYG{p}{[}\PYG{n}{P}\PYG{p}{.}\PYG{n}{dernier}\PYG{p}{]}
+
+\PYG{n}{empiler}\PYG{p}{(}\PYG{n}{P}\PYG{p}{,} \PYG{n}{V}\PYG{p}{)} \PYG{o}{:} \PYG{n}{P}\PYG{p}{.}\PYG{n}{dernier} \PYG{esc}{$\leftarrow$} \PYG{n}{P}\PYG{p}{.}\PYG{n}{dernier} \PYG{esc}{$+$} \PYG{l+m+mi}{1}
+				\PYG{n}{P}\PYG{p}{.}\PYG{n}{espace}\PYG{p}{[}\PYG{n}{P}\PYG{p}{.}\PYG{n}{dernier}\PYG{p}{]} \PYG{esc}{$\leftarrow$} \PYG{n}{V}
+
+\PYG{n}{dépiler}\PYG{p}{(}\PYG{n}{P}\PYG{p}{,} \PYG{n}{V}\PYG{p}{)} \PYG{o}{:} \PYG{n}{V} \PYG{esc}{$\leftarrow$} \PYG{n}{P}\PYG{p}{.}\PYG{n}{espace}\PYG{p}{[}\PYG{n}{P}\PYG{p}{.}\PYG{n}{dernier}\PYG{p}{]}
+				\PYG{n}{P}\PYG{p}{.}\PYG{n}{dernier} \PYG{esc}{$\leftarrow$} \PYG{n}{P}\PYG{p}{.}\PYG{n}{dernier} \PYG{esc}{$-$} \PYG{l+m+mi}{1}
+\end{Verbatim}

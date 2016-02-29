@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+	\PYG{n}{type} \PYG{n}{Liste} \PYG{o}{=} \PYG{n}{pointeur} \PYG{n}{de} \PYG{n}{Cellule}
+	\PYG{n}{type} \PYG{n}{Cellule} \PYG{o}{=} \PYG{n}{structure}
+		 \PYG{n+nl}{valeur} \PYG{p}{:} \PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}
+		 \PYG{n+nl}{suivant} \PYG{p}{:} \PYG{n}{Liste}
+	\PYG{n}{fin}
+\end{Verbatim}

@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{esc}{\underline{Action}} affich (l)
+	\PYG{esc}{\underline{D}} : l : Liste\PYGZus{}chaînée
+	\PYG{esc}{\underline{L}} : p : PtCellule
+	p \PYG{esc}{$\leftarrow$} l
+	\PYG{esc}{\underline{TQ}} p \PYG{esc}{$\ne$}  NULL \PYG{esc}{\underline{Faire}}
+		ecrire(p\PYG{esc}{$\uparrow$$\bullet$}valeur)
+		p \PYG{esc}{$\leftarrow$} p\PYG{esc}{$\uparrow$$\bullet$}suivant
+	\PYG{esc}{\underline{FTQ}}
+\PYG{esc}{\underline{Faction}}
+\end{Verbatim}

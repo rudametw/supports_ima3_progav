@@ -1,0 +1,48 @@
+#include<stdio.h>
+
+struct S { int x; };
+typedef struct S S;
+
+void f(struct S argument) { // struct is required here
+	printf("F1 Argument.x: %d\n",argument.x);
+}
+void f2(S argument) { // struct keyword no longer needed
+	printf("F2 Argument.x: %d\n",argument.x);
+}
+
+struct Coordonees {
+	int x,y;
+};
+typedef struct Coordonees coordy ;
+
+int main(int argc, char *argv[]) {
+
+	struct S s1;
+	S s2;
+	s1.x = 1;
+	s2.x = 2;
+
+	f(s1); f2(s1);
+	f(s2); f2(s2);
+
+	typedef struct {
+		int x,y;
+	} Point ;
+
+	struct Coordonees coord1;
+	coordy cc;
+	cc.x = 55; cc.y = 9;
+	S qsdf; qsdf.x=88;
+	coord1.x=199 ; coord1.y=982;
+
+	Point point ;
+	point.x=20 ; point.y=30 ;
+
+	/* Définition et déclaration de variables */
+	struct Complexe {float reelle, imag;} c1;
+
+	/* Accès aux champs */
+	c1.reelle=6 ; c1.imag=1 ;
+
+	return 0;
+}

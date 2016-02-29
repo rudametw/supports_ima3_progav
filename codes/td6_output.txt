@@ -1,0 +1,7 @@
+22 33 22 33
+33 22 22 33
+22 33 33 22
+
+Pointer addresses
+0x7ffc1a828ce4 0x7ffc1a828ce8 0x7ffc1a828ce8 0x7ffc1a828ce4
+0x7ffc1a828cd8 0x7ffc1a828cd0 0x21 0x16

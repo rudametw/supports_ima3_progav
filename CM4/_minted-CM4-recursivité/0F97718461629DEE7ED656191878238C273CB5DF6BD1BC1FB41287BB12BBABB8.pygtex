@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{k+kt}{void} \PYG{n+nf}{inverse}\PYG{p}{(}\PYG{p}{)}\PYG{p}{\PYGZob{}}
+	\PYG{k+kt}{char} \PYG{n}{c}\PYG{p}{;}
+	\PYG{n}{c} \PYG{o}{=} \PYG{n}{getchar}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+	\PYG{k}{if} \PYG{p}{(}\PYG{n}{c} \PYG{o}{!}\PYG{o}{=} \PYG{l+s+sc}{\PYGZsq{}.\PYGZsq{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n}{inverse}\PYG{p}{(}\PYG{p}{)} \PYG{p}{;} \PYG{n}{putchar}\PYG{p}{(}\PYG{n}{c}\PYG{p}{)}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

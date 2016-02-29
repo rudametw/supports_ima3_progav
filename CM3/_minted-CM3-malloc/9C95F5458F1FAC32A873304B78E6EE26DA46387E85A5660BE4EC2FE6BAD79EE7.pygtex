@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+		\PYG{n}{free}\PYG{p}{(}\PYG{n}{l}\PYG{p}{.}\PYG{n}{espace}\PYG{p}{[}\PYG{n}{l}\PYG{p}{.}\PYG{n}{dernier}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+		\PYG{n}{l}\PYG{p}{.}\PYG{n}{dernier} \PYG{o}{\PYGZhy{}}\PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;}
+\end{Verbatim}

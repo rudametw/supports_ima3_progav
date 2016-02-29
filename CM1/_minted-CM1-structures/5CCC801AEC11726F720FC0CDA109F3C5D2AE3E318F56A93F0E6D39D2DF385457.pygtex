@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{k}{typedef} \PYG{o}{\PYGZlt{}}\PYG{n}{un\PYGZus{}type}\PYG{o}{\PYGZgt{}} \PYG{o}{\PYGZlt{}}\PYG{n}{synonyme\PYGZus{}du\PYGZus{}type}\PYG{o}{\PYGZgt{}}
+\end{Verbatim}

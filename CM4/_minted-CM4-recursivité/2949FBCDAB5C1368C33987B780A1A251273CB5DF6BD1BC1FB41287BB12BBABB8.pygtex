@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{fonction} \PYG{n}{fact}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)} \PYG{o}{:} \PYG{n}{entier}
+	\PYG{n+nl}{D} \PYG{p}{:} \PYG{n+nl}{n} \PYG{p}{:} \PYG{n}{entier}
+	\PYG{n+nl}{L} \PYG{p}{:} \PYG{n+nl}{f} \PYG{p}{:} \PYG{n}{entier}
+	\PYG{n}{si} \PYG{n}{n} \PYG{o}{=} \PYG{l+m+mi}{0} \PYG{n}{alors}
+		\PYG{n}{f} \PYG{esc}{$\leftarrow$} \PYG{l+m+mi}{1}
+	\PYG{n}{sinon}
+		\PYG{n}{f} \PYG{esc}{$\leftarrow$} \PYG{n}{n} \PYG{o}{*} \PYG{n}{fact}\PYG{p}{(}\PYG{n}{n}\PYG{err}{­}\PYG{l+m+mi}{1}\PYG{p}{)}
+	\PYG{n}{fsi}
+	\PYG{n}{retourner}\PYG{p}{(}\PYG{n}{f}\PYG{p}{)}
+\PYG{n}{ffonction}
+\end{Verbatim}

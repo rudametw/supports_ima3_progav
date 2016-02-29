@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{k+kt}{void} \PYG{n+nf}{translater} \PYG{p}{(}\PYG{n}{Point} \PYG{o}{*}\PYG{n}{pp}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{dx}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{n}{pp}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{x} \PYG{o}{=} \PYG{n}{pp}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{x} \PYG{o}{+} \PYG{n}{dx}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
