@@ -1,0 +1,21 @@
+
+--------
+affichage de la liste
+---------
+6 1 2012
+6 5 2012
+23 4 2013
+25 4 2013
+12 5 2014
+4 5 2012
+la liste n'est pas triee
+
+
+---------
+destruction de la liste
+--------------
+
+--------
+affichage de la liste
+---------
+la liste est vide

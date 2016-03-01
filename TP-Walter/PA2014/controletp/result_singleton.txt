@@ -1,0 +1,16 @@
+
+--------
+affichage de la liste
+---------
+4 5 2012
+la liste est triee
+
+
+---------
+destruction de la liste
+--------------
+
+--------
+affichage de la liste
+---------
+la liste est vide

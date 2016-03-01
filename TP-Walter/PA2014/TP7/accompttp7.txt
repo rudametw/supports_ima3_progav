@@ -1,0 +1,23 @@
+//PA 2014, fichiers fournis pour le tp7.
+
+//ajout d'un mot dans une liste chainee triee
+void ajoutAlphab(Liste *pl, char mot[MAXSIZE]) {
+  if ( (*pl==NULL) || (strcmp(mot, (*pl)->val) < 0) ) { // empty list or mot < head => new head
+    ajoutTete(pl,mot);
+  } else {
+    if (strcmp(mot, (*pl)->val) > 0) { // mot > head => add in next's
+      ajoutAlphab(&(*pl)->suiv,mot);
+    } // else mot already in list
+  }
+}
+
+
+//chargement à partir d'un fichier de mots. -> liste ordonnee
+void chargeFichier(FILE *fp, Liste *pl) {
+  char mot[MAXSIZE];
+  fscanf(fp, "%s", mot);
+  while (!feof(fp)) {
+    ajoutAlphab(pl,mot);
+    fscanf(fp, "%s", mot);
+  }
+}

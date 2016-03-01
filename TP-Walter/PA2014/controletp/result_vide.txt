@@ -1,0 +1,16 @@
+
+--------
+affichage de la liste
+---------
+la liste est vide
+la liste est triee
+
+
+---------
+destruction de la liste
+--------------
+
+--------
+affichage de la liste
+---------
+la liste est vide
