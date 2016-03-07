@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+	\PYG{esc}{\underline{Fonction}} \PYG{n}{feuille}\PYG{p}{(}\PYG{n}{A}\PYG{p}{)}
+		\PYG{esc}{\underline{D}} \PYG{o}{:} \PYG{n+nl}{A} \PYG{p}{:} \PYG{n}{ArbreBinaire} \PYG{esc}{\underline{de}} \PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}
+		\PYG{esc}{\underline{Si}} \PYG{n}{vide}\PYG{p}{(}\PYG{n}{A}\PYG{p}{)} \PYG{esc}{\underline{Alors}}
+			\PYG{n}{retourner} \PYG{p}{(}\PYG{n}{faux}\PYG{p}{)}
+		\PYG{esc}{\underline{Sinon}}
+			\PYG{n}{retourner}\PYG{p}{(} \PYG{n}{vide}\PYG{p}{(}\PYG{n}{gauche}\PYG{p}{(}\PYG{n}{A}\PYG{p}{)}\PYG{p}{)} \PYG{n}{et} \PYG{n}{vide}\PYG{p}{(}\PYG{n}{droite}\PYG{p}{(}\PYG{n}{A}\PYG{p}{)}\PYG{p}{)} \PYG{p}{)}
+		\PYG{esc}{\underline{Fsi}}
+	\PYG{esc}{\underline{Ffonction}}
+\end{Verbatim}

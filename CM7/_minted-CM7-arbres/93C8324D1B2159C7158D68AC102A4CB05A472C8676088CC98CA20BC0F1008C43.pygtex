@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+	\PYG{esc}{\underline{type}} \PYG{n}{ArbreBinaire} \PYG{o}{=} \PYG{n}{pointeur} \PYG{esc}{\underline{de}} \PYG{n}{Noeud}
+
+	\PYG{esc}{\underline{type}} \PYG{n}{Noeud} \PYG{o}{=} \PYG{esc}{\underline{structure}}
+			\PYG{n+nl}{val} \PYG{p}{:} \PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}
+			\PYG{n}{gauche}\PYG{p}{,} \PYG{n+nl}{droit}\PYG{p}{:} \PYG{n}{ArbreBinaire}
+	\PYG{esc}{\underline{fin}}
+\end{Verbatim}

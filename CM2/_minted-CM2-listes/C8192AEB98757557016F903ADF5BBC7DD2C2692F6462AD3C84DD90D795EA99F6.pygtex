@@ -1,5 +1,5 @@
 \begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
-\PYG{esc}{\underline{Action}}  sup\PYGZus{}tête ( prec )
+\PYG{esc}{\underline{Action}}  sup\PYGZus{}tête ( l )
 	\PYG{esc}{\underline{D/R}} : l : Liste\PYGZus{}chaînée
 	\PYG{esc}{\underline{L}} : p : Ptcellule
 

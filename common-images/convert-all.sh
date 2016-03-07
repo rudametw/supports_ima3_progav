@@ -16,3 +16,8 @@ inkscape -A liste_variantes5.pdf liste_variantes5.svg
 inkscape -A liste_variantes6.pdf liste_variantes6.svg
 inkscape -A liste_variantes7.pdf liste_variantes7.svg
 inkscape -A liste_variantes8.pdf liste_variantes8.svg
+inkscape -A arbre.pdf arbre.svg
+inkscape -A arbre2.pdf arbre2.svg
+inkscape -A arbre3.pdf arbre3.svg
+inkscape -A arbre4.pdf arbre4.svg
+inkscape -A arbre5.pdf arbre5.svg

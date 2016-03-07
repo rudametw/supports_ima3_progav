@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}stdio.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}ctype.h\PYGZgt{}}
+
+\PYG{k+kt}{int} \PYG{n+nf}{main}\PYG{p}{()}
+\PYG{p}{\PYGZob{}}
+	\PYG{k+kt}{char} \PYG{n}{c}\PYG{p}{;}
+	\PYG{n}{c} \PYG{o}{=} \PYG{n}{getchar}\PYG{p}{();}
+
+	\PYG{k}{while} \PYG{p}{(}\PYG{o}{!} \PYG{n}{isspace}\PYG{p}{(}\PYG{n}{c}\PYG{p}{))}
+	\PYG{p}{\PYGZob{}}
+		\PYG{n}{putchar}\PYG{p}{(}\PYG{n}{c}\PYG{p}{);}
+		\PYG{n}{c} \PYG{o}{=} \PYG{n}{getchar}\PYG{p}{();}
+	\PYG{p}{\PYGZcb{}}
+	\PYG{n}{putchar}\PYG{p}{(}\PYG{l+s+sc}{\PYGZsq{}\PYGZbs{}n\PYGZsq{}}\PYG{p}{);}
+
+	\PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

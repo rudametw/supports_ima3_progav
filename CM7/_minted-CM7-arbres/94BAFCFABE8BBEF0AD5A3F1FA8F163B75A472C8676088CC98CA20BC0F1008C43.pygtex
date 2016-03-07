@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+	\PYG{esc}{\underline{Fonction}} \PYG{n}{nb\PYGZus{}noeuds}\PYG{p}{(}\PYG{n}{A}\PYG{p}{)}
+		\PYG{esc}{\underline{D}} \PYG{o}{:} \PYG{n+nl}{A} \PYG{p}{:} \PYG{n}{ArbreBinaire} \PYG{esc}{\underline{de}} \PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}
+		\PYG{esc}{\underline{Si}} \PYG{n}{vide}\PYG{p}{(}\PYG{n}{A}\PYG{p}{)} \PYG{esc}{\underline{Alors}}
+			\PYG{n}{retourner} \PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)}
+		\PYG{esc}{\underline{Sinon}}
+			\PYG{n}{retourner} \PYG{p}{(} \PYG{l+m+mi}{1} \PYG{o}{+} \PYG{n}{nb\PYGZus{}noeuds}\PYG{p}{(}\PYG{n}{G}\PYG{p}{)} \PYG{o}{+} \PYG{n}{nb\PYGZus{}noeuds}\PYG{p}{(}\PYG{n}{D}\PYG{p}{)} \PYG{p}{)}
+		\PYG{esc}{\underline{Fsi}}
+	\PYG{esc}{\underline{Ffonction}}
+\end{Verbatim}

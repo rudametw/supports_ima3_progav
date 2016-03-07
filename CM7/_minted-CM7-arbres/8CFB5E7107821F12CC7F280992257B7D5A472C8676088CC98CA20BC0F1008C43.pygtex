@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{esc}{\underline{Action}} \PYG{n}{GDR}\PYG{p}{(}\PYG{n}{A}\PYG{p}{)}
+	\PYG{esc}{\underline{D}} \PYG{o}{:} \PYG{n+nl}{A} \PYG{p}{:} \PYG{n}{ArbreBinaire} \PYG{esc}{\underline{de}} \PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}
+	\PYG{esc}{\underline{Si}} \PYG{n}{non} \PYG{n}{vide}\PYG{p}{(}\PYG{n}{A}\PYG{p}{)} \PYG{esc}{\underline{Alors}}
+		\PYG{n}{GDR}\PYG{p}{(}\PYG{n}{gauche}\PYG{p}{(}\PYG{n}{A}\PYG{p}{)}\PYG{p}{)}
+		\PYG{n}{GDR}\PYG{p}{(}\PYG{n}{droite}\PYG{p}{(}\PYG{n}{A}\PYG{p}{)}\PYG{p}{)}
+		\PYG{n}{traiter}\PYG{p}{(}\PYG{n}{valeur}\PYG{p}{(}\PYG{n}{A}\PYG{p}{)}\PYG{p}{)}
+	\PYG{esc}{\underline{Fsi}}
+\PYG{esc}{\underline{Faction}}
+\end{Verbatim}
