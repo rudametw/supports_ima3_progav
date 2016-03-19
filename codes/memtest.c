@@ -13,7 +13,11 @@ int main()
 
 		total += inc;
 		printf("Allocated %d bytes more, totaling %ld\n", inc, total);
-		if(!p) break;
+		if(!p)
+		{
+			printf("NULL malloc pointer");
+			 break;
+		}
 	}
 	printf("\nTotal: %ld\n", total);
 }
