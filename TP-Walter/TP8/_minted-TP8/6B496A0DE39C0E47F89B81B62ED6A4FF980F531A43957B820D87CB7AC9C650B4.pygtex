@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+				dot \PYGZhy{}Tpdf samples/balanced.dot \PYGZhy{}o samples/balanced.pdf
+\end{Verbatim}

@@ -1,0 +1,14 @@
+Salut Walter,
+
+Voilà les slides mis à jour sur les tables de hachage (désolé, j'ai encore zappé hier). Et voilà le lien pour le cours sur les pointeurs de fonctions:
+http://dept-info.labri.fr/ENSEIGNEMENT/programmation1/cours/CM_14___Pointeur_de_fonction.pdf
+
+Et je te met aussi le code que j'ai utilisé pour leur montrer
+* ex1.c --> le problème à résoudre
+* ex2.c --> le code asm en sortie et où est placé le call (montrer que c'est un call de fonction)
+* ex3.c --> le code avec pointeur de fonction et l'asm associé 
+* ex4.c --> le ex1.c résolu avec les pointeurs de fonctions
+
+À toute,
+Vince
+-- 
