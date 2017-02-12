@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k+kt}{FILE} \PYG{o}{*}\PYG{n}{fopen} \PYG{p}{(}\PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{nom}\PYG{p}{,} \PYG{k+kt}{char} \PYG{o}{*}\PYG{n}{mode}\PYG{p}{)}
-\end{Verbatim}

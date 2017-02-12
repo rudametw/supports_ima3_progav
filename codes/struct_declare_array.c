@@ -17,7 +17,7 @@ int main(){
 	Date *pt;
 	scanf("%d", &n);
 	/*pt = (Date *) malloc( n * sizeof(Date));*/
-	pt = malloc( n * sizeof *pt);
+	pt = malloc(n * sizeof *pt);
 
 	/*utilisation: notation equivalent*/
 	scanf("%d%d%d", &(pt[0].j),
