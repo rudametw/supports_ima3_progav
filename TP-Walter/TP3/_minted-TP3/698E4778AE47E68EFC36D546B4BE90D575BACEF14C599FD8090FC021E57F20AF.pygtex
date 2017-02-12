@@ -1,7 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
-\PYG{k}{typedef} \PYG{k}{struct} \PYG{p}{\PYGZob{}}
-	\PYG{k+kt}{char} \PYG{o}{*} \PYG{n}{data}\PYG{p}{;}
-	\PYG{k+kt}{int} \PYG{n}{alloc}\PYG{p}{;}
-	\PYG{k+kt}{int} \PYG{n}{size}\PYG{p}{;}
-\PYG{p}{\PYGZcb{}} \PYG{n}{chaine} \PYG{p}{;}
-\end{Verbatim}

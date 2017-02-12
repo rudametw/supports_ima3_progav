@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
-\PYG{n}{pointeur}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{champ}    \PYG{esc}{$\Longleftrightarrow$}   \PYG{p}{(}\PYG{o}{*}\PYG{n}{pointeur}\PYG{p}{)}\PYG{p}{.}\PYG{n}{champ}
-\end{Verbatim}

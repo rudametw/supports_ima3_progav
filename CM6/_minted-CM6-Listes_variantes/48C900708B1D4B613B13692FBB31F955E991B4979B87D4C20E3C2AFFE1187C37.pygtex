@@ -1,6 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
-\PYG{esc}{\underline{Fonction}} \PYG{n}{fifo\PYGZus{}vide}\PYG{p}{(}\PYG{n}{F}\PYG{p}{)}\PYG{o}{:} \PYG{n}{booléen}
-	\PYG{esc}{\underline{D}} \PYG{o}{:} \PYG{n+nl}{F} \PYG{p}{:} \PYG{n}{Fifo} \PYG{esc}{\underline{de}} \PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}
-	\PYG{n}{retourner}\PYG{p}{(}\PYG{n}{F}\PYG{p}{.}\PYG{n}{premier} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}
-\PYG{esc}{\underline{FFonction}}
-\end{Verbatim}

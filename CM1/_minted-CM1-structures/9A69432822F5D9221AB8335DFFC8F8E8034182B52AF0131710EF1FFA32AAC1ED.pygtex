@@ -1,5 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
-\PYG{esc}{\underline{type}} \PYG{n}{Date} \PYG{o}{=} \PYG{esc}{\underline{structure}}
-	\PYG{n}{jour}\PYG{p}{,} \PYG{n}{mois}\PYG{p}{,} \PYG{n+nl}{annee} \PYG{p}{:} \PYG{n}{Entier}
-\PYG{esc}{\underline{fin}}
-\end{Verbatim}

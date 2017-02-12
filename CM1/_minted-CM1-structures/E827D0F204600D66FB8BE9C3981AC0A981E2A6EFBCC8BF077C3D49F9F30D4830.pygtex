@@ -1,9 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
-\PYG{esc}{\underline{fonction}} plus(c1,c2) : Complexe
-	\PYG{esc}{\underline{donnees}}: c1,c2: Complexe
-	\PYG{esc}{\underline{locales}}: c: Complexe
-	c.reelle:=c1.reelle+c2.reelle
-	c.imag := c1.imag + c2.imag
-	résultat: c
-\PYG{esc}{\underline{finfonction}}
-\end{Verbatim}

@@ -1,9 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
-\PYG{esc}{\underline{Action}} affich(l)
-	\PYG{esc}{\underline{D}} : l : Liste\PYGZus{}contiguë
-	\PYG{esc}{\underline{L}} : i : Entier
-	\PYG{esc}{\underline{Pour}} i de 0 à l.dernier \PYG{esc}{\underline{Faire}}
-		ecrire(l.espace[i])
-	\PYG{esc}{\underline{Fpour}}
-\PYG{esc}{\underline{Faction}}
-\end{Verbatim}

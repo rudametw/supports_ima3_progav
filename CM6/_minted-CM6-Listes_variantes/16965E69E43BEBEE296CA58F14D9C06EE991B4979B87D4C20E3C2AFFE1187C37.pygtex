@@ -1,7 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
-\PYG{esc}{\underline{Action}} \PYG{n}{init\PYGZus{}fifo}\PYG{p}{(}\PYG{n}{F}\PYG{p}{)}
-	\PYG{esc}{\underline{D/R}} \PYG{o}{:} \PYG{n+nl}{F} \PYG{p}{:} \PYG{n}{Fifo} \PYG{esc}{\underline{de}} \PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}
-	\PYG{n}{F}\PYG{p}{.}\PYG{n}{dernier} \PYG{esc}{$\leftarrow$} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}
-	\PYG{n}{F}\PYG{p}{.}\PYG{n}{premier} \PYG{esc}{$\leftarrow$} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}
-\PYG{esc}{\underline{Faction}}
-\end{Verbatim}

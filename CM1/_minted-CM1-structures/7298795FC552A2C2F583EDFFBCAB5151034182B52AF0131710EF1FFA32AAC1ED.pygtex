@@ -1,8 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
-	\PYG{esc}{\underline{type}} \PYG{o}{\PYGZlt{}}\PYG{n}{ST}\PYG{o}{\PYGZgt{}} \PYG{o}{=} \PYG{esc}{\underline{structure}}
-		\PYG{n+nl}{champ1}\PYG{p}{:} \PYG{o}{\PYGZlt{}}\PYG{n}{T1}\PYG{o}{\PYGZgt{}}
-		\PYG{n+nl}{champ2}\PYG{p}{:} \PYG{o}{\PYGZlt{}}\PYG{n}{T2}\PYG{o}{\PYGZgt{}}
-		\PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
-		\PYG{n+nl}{champn}\PYG{p}{:} \PYG{o}{\PYGZlt{}}\PYG{n}{Tn}\PYG{o}{\PYGZgt{}}
-	\PYG{esc}{\underline{fin}}
-\end{Verbatim}

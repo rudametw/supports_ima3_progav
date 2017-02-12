@@ -1,8 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
-\PYG{esc}{\underline{Action}} supp(P)
-	\PYG{esc}{\underline{D/R}} : P : Liste\PYGZus{}contiguë
-	P\PYG{esc}{$\uparrow\bullet$}prec\PYG{esc}{$\uparrow\bullet$}suiv\PYG{esc}{ $\leftarrow$} P\PYG{esc}{$\uparrow\bullet$}suiv
-	P\PYG{esc}{$\uparrow\bullet$}suiv\PYG{esc}{$\uparrow\bullet$}prec\PYG{esc}{ $\leftarrow$} P\PYG{esc}{$\uparrow\bullet$}prec
-	libérer (P)
-\PYG{esc}{\underline{Faction}}
-\end{Verbatim}

@@ -1,8 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
-    \PYG{k}{struct} \PYG{o}{\PYGZlt{}}\PYG{n}{désignateur}\PYG{o}{\PYGZgt{}} \PYG{p}{\PYGZob{}}
-	    \PYG{o}{\PYGZlt{}}\PYG{n}{déclaration} \PYG{n}{de} \PYG{n}{champ1}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
-	    \PYG{o}{\PYGZlt{}}\PYG{n}{déclaration} \PYG{n}{de} \PYG{n}{champ2}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
-	    \PYG{esc}{$\ldots$}
-	    \PYG{o}{\PYGZlt{}}\PYG{n}{déclaration} \PYG{n}{de} \PYG{n}{champn}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
-    \PYG{p}{\PYGZcb{}}\PYG{p}{;} \PYG{c+c1}{//Point\PYGZhy{}virgule obligatoire}
-\end{Verbatim}

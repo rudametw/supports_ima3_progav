@@ -1,6 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
-\PYG{k}{typedef} \PYG{k}{struct} \PYG{n}{Date} \PYG{p}{\PYGZob{}}\PYG{k+kt}{int} \PYG{n}{jour}\PYG{p}{,} \PYG{n}{mois}\PYG{p}{,} \PYG{n}{annee}\PYG{p}{;}\PYG{p}{\PYGZcb{}} \PYG{n}{Date}\PYG{p}{;} \PYG{c+cm}{/* option 1 */}
-\PYG{k}{typedef} \PYG{k}{struct} \PYG{p}{\PYGZob{}}\PYG{k+kt}{int} \PYG{n}{jour}\PYG{p}{,} \PYG{n}{mois}\PYG{p}{,} \PYG{n}{annee}\PYG{p}{;}\PYG{p}{\PYGZcb{}} \PYG{n}{Date}\PYG{p}{;}      \PYG{c+cm}{/* option 2 */}
-\PYG{n}{Date} \PYG{n}{d1} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{18}\PYG{p}{,}\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{l+m+mi}{2012}\PYG{p}{\PYGZcb{}} \PYG{p}{;} \PYG{n}{Date} \PYG{n}{d2} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{24}\PYG{p}{,}\PYG{l+m+mi}{12}\PYG{p}{,}\PYG{l+m+mi}{2015}\PYG{p}{\PYGZcb{}}\PYG{p}{;}   \PYG{c+cm}{/* variables */}
-\PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{Date}\PYG{p}{)}\PYG{p}{;} \PYG{c+cm}{/* taille de la structure Date = 3*sizeof(int) */}
-\end{Verbatim}

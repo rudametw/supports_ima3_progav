@@ -1,8 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
-\PYG{esc}{\underline{Action}} \PYG{n}{dépiler}\PYG{p}{(}\PYG{n}{P}\PYG{p}{,} \PYG{n}{V}\PYG{p}{)}
-	\PYG{esc}{\underline{D/R}} \PYG{o}{:} \PYG{n+nl}{P} \PYG{p}{:} \PYG{n}{Pile}
-	\PYG{esc}{\underline{R}} \PYG{o}{:} \PYG{n+nl}{V} \PYG{p}{:} \PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}
-	\PYG{n}{V} \PYG{esc}{$\leftarrow$} \PYG{n}{P}\PYG{esc}{$\uparrow$$\bullet$}\PYG{n}{valeur}
-	\PYG{n}{supp\PYGZus{}tête}\PYG{p}{(}\PYG{n}{P}\PYG{p}{)}
-\PYG{esc}{\underline{Faction}}
-\end{Verbatim}
