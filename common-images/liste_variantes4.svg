@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="310.39999pt"
+   height="197.44pt"
+   id="svg1430"
+   sodipodi:version="0.32"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="liste_variantes4.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   version="1.1">
+  <defs
+     id="defs1432">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 140.625 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="391.25 : 140.625 : 1"
+       inkscape:persp3d-origin="195.625 : 93.75 : 1"
+       id="perspective2424" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2"
+     inkscape:cx="134.61449"
+     inkscape:cy="86.840779"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:window-width="1789"
+     inkscape:window-height="991"
+     inkscape:window-x="129"
+     inkscape:window-y="16"
+     showgrid="false"
+     inkscape:window-maximized="0"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata1435">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+        <dc:title></dc:title>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/publicdomain/zero/1.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-2.0001068,-1.2907791)">
+    <rect
+       style="fill:#0000ff;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="node1"
+       width="87"
+       height="27"
+       x="152.50011"
+       y="91.790779"
+       inkscape:tile-w="88.000000"
+       inkscape:tile-h="28.000000"
+       inkscape:tile-cx="367.50000"
+       inkscape:tile-cy="327.86218"
+       inkscape:label="#node1" />
+    <use
+       x="0"
+       y="0"
+       inkscape:tiled-clone-of="#node1"
+       xlink:href="#node1"
+       id="node2"
+       transform="translate(150,-90)"
+       width="744.09448"
+       height="1052.3622"
+       inkscape:label="#node2" />
+    <use
+       height="500"
+       width="500"
+       style="opacity:0.85"
+       x="0"
+       y="0"
+       inkscape:tiled-clone-of="#node1"
+       xlink:href="#node1"
+       transform="translate(0,32.2)"
+       id="node4" />
+    <use
+       height="500"
+       width="500"
+       style="opacity:0.7"
+       x="0"
+       y="0"
+       inkscape:tiled-clone-of="#node1"
+       xlink:href="#node1"
+       transform="translate(0,64.4)"
+       id="node5" />
+    <use
+       height="500"
+       width="500"
+       style="opacity:0.55"
+       x="0"
+       y="0"
+       inkscape:tiled-clone-of="#node1"
+       xlink:href="#node1"
+       transform="translate(0,96.6)"
+       id="node6" />
+    <use
+       height="500"
+       width="500"
+       style="opacity:0.4"
+       x="0"
+       y="0"
+       inkscape:tiled-clone-of="#node1"
+       xlink:href="#node1"
+       transform="translate(0,128.8)"
+       id="node7" />
+    <use
+       x="0"
+       y="0"
+       inkscape:tiled-clone-of="#node1"
+       xlink:href="#node1"
+       id="node0"
+       transform="translate(-150,-90)"
+       width="744.09448"
+       height="1052.3622"
+       inkscape:label="#node0" />
+    <path
+       sodipodi:type="star"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="point1"
+       sodipodi:sides="3"
+       sodipodi:cx="353"
+       sodipodi:cy="278.36218"
+       sodipodi:r1="9.2195444"
+       sodipodi:r2="4.6097722"
+       sodipodi:arg1="-0.70862627"
+       sodipodi:arg2="0.33857128"
+       inkscape:flatsided="true"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="M 360,272.36218 354.69615,287.42436 344.30385,275.3 Z"
+       transform="matrix(0.58263,0.222493,-0.110085,1.177467,-7.3738,-342.9808)" />
+    <path
+       sodipodi:type="star"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="path1446"
+       sodipodi:sides="3"
+       sodipodi:cx="353"
+       sodipodi:cy="278.36218"
+       sodipodi:r1="9.2195444"
+       sodipodi:r2="4.6097722"
+       sodipodi:arg1="-0.70862627"
+       sodipodi:arg2="0.33857128"
+       inkscape:flatsided="true"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="M 360,272.36218 354.69615,287.42436 344.30385,275.3 Z"
+       transform="matrix(0.222493,-0.58263,1.177467,0.110085,-126.8403,199.6647)" />
+    <text
+       xml:space="preserve"
+       x="95.397095"
+       y="65.501953"
+       id="text2581"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;line-height:125%;font-family:'Bitstream Vera Sans';text-align:start;writing-mode:lr-tb;text-anchor:start"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan2583"
+         x="95.397095"
+         y="65.501953"
+         style="text-align:center;text-anchor:middle">Empiler</tspan><tspan
+         sodipodi:role="line"
+         x="95.397095"
+         y="89.023087"
+         id="tspan4150"
+         style="font-size:17.5px;text-align:center;text-anchor:middle">(rangement)</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 104.5,17.25 0,0 c 63,0 63.5,47.5 63.5,47.5"
+       id="path2432"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 274.75,24 0,0 c -63,0 -63.5,47.5 -63.5,47.5"
+       id="path3204"
+       inkscape:connector-curvature="0" />
+    <text
+       sodipodi:linespacing="125%"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;line-height:125%;font-family:'Bitstream Vera Sans';text-align:start;writing-mode:lr-tb;text-anchor:start"
+       id="text4152"
+       y="65.501953"
+       x="295.39709"
+       xml:space="preserve"><tspan
+         style="text-align:center;text-anchor:middle"
+         y="65.501953"
+         x="295.39709"
+         id="tspan4154"
+         sodipodi:role="line">Dépiler</tspan><tspan
+         style="font-size:17.5px;text-align:center;text-anchor:middle"
+         id="tspan4156"
+         y="89.023087"
+         x="295.39709"
+         sodipodi:role="line">(utilisation)</tspan></text>
+  </g>
+</svg>

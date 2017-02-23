@@ -1,0 +1,316 @@
+%\documentclass{beamer}
+%\documentclass[12pt,serif]{beamer}
+%\documentclass[12pt]{beamer}
+\documentclass[12pt,svgnames]{beamer}
+%\documentclass[handout,tikz,12pt,svgnames]{beamer}
+
+\usepackage{CM-preamble}
+
+\subtitle{\Huge Introduction et Rappel}
+
+%\date{\today}
+%\date{29 janvier 2016}
+\date{CM0}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+%\begin{frame}
+%  \frametitle{Outline}
+%  \tableofcontents
+%\end{frame}
+
+\begin{frame}
+	\frametitle{Moi...}
+	\begin{itemize}
+		\item Je suis étranger (hors UE)…
+		\item J'ai un accent…
+		\item Je me trompe beaucoup en français
+		\begin{itemize}
+			\item (et en info, et en math, et ...)
+			\item N’hésitez pas à me corriger ou à me demander de répéter
+		\end{itemize}
+		\item Je commence à enseigner
+		\begin{itemize}
+			\item J'accepte des critiques (constructifs) et surtout des recommandations
+			\item N'hésitez pas à poser des questions
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Remarque}
+	\Large Ce cours est très très très largement inspirés (i.e., copié) de ceux de Nathalie Devesa (MdC Polytech'Lille), qui à son tour s'est inspiré de Bernard Carré et de Laure Gonnord.
+\end{frame}
+
+\begin{frame}
+	\frametitle{Volume horaire et évaluation}
+	\begin{columns}
+	\column{.4\textwidth}
+	\begin{block}{Volume horaire}
+		\begin{itemize}
+			\item 22h CM
+			\item 14h TD
+			\item 22h TP 
+			\item 10h ET/Projet
+		\end{itemize}
+	\end{block}{}
+
+	\column{.6\textwidth}
+	\begin{block}{Evaluation}
+		\begin{itemize}
+			\item DS (2h) --- 2 ECTS
+			\item TP noté (2h) --- 1.5 ECTS
+			\item Projet --- 1.25 ECTS
+			\item Total: 4.75 ECTS
+		\end{itemize}
+	\end{block}{}	
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Cont. de Programmation Structurée }
+	\begin{itemize}
+		\item Pr. Laurent Grisoni au S5
+		\item Bases de l'algorithmique
+		\begin{itemize}
+			\item Pseudo-code, décomposition de problèmes en sous-problèmes, complexité
+		\end{itemize}
+
+		\item Bases de la programmation en C
+		\begin{itemize}
+			\item Variables, types de données, boucles, fonctions, tableaux/matrices, tris, pointeurs, paramètres variables
+		\end{itemize}
+		\item Outillage
+		\begin{itemize}
+			\item Compilation, éditeur de texte, ligne de commande, Linux, redirections
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Programmation Avancé}
+	\begin{block}{Objectifs}
+		\begin{itemize}
+		\item Organiser les données pour pouvoir y accéder rapidement et efficacement
+		\item Avoir une connaissance de l'utilisation et l'implémentation des structures de données
+		\item Estimer les coûts (mémoire \& temps)
+		\end{itemize}
+	\end{block}{}
+	\begin{block}{Exemples de structures}
+		\begin{itemize}
+		\item Listes contiguës, listes chaînées, piles, queues, queues de priorités, tas, arbres, arbres binaires, arbres bicolores, tables de hachage, graphes, filtres de bloom, ...
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Rappel --- Types de données \\\footnotesize (Ces valeurs peuvent varier selon l'architecture et le compilateur)}
+	\setlength\extrarowheight{7pt}
+	\scriptsize
+%	\footnotesize
+%	\tiny
+%	{\fontsize{1cm}{0cm}
+%	{\fontsize{5}{12}
+	{
+	\makebox[\textwidth][c]{
+		%\texttt{%
+		%\begin{tabularx}{1.1\linewidth}{ |X|r|c|r|c| }
+		\def\arraystretch{0.7}%  1 is the default, change whatever you need
+		\begin{tabularx}{1.07\linewidth}{ l|rcrc }
+			%\hline
+			%Type & Borne inférieure & Borne inférieure (formule) & Borne supérieure & Borne supérieure (formule)\\
+			\textbf{Type} & \textbf{Min} & \textbf{Min form.} & \textbf{Max} & \textbf{Max formule}\\    \hline
+			\Xhline{2\arrayrulewidth}
+			char 	& -128 				& $-2^{7}$ 	& +127 		& $2^{7}-1$\\	%\hline
+			unsigned char 	& 0 				& $0$ 		& +255 		& $2^{8}-1$\\ 	\hline
+			short 			& -32 768 			& $-2^{15}$ & +32 767 	& $2^{15}-1$\\ 	%\hline
+			unsigned short 	& 0 				& $0$ 		& +65 535 	& $2^{16}-1$\\ 	\hline
+			int (16 bit)	& -32 768 			& $-2^{15}$ & +32 767 	& $2^{15}-1$\\ 	%\hline
+			unsigned int 	& 0 				& $0$		& +65 535 	& $2^{16}-1$\\ 	\hline
+			int (32 bit) 	& -2 147 483 648	& $-2^{31}$	& +2 147 483 647 & $2^{31}-1$\\ %\hline
+			unsigned int 	& 0 				& $0$	 	& +4 294 967 295 & $2^{32}-1$\\ \hline
+			long (32 bit)	& -2 147 483 648	& $-2^{31}$	& +2 147 483 647 & $2^{31}-1$\\ %\hline
+			unsigned long 	& 0 				& $0$	 	& +4 294 967 295 & $2^{32}-1$\\ \hline
+%			long long		& -9 223 372 036 854 775 808 	& $-2^{63}$ & +9 223 372 036 854 775 807	& $2^{63}-1$\\
+%			unsig. long long& 0 				& 0 		& +18 446 744 073 709 551 615 				& $2^{64}-1$\\
+
+			long (64 bit) 	& $-9.22337x10^{18}$ & $-2^{63}$ 	& $+9.22337x10^{18}$ 	& $2^{63}-1$\\
+			unsig. long long& 0 				& 0 			& $+1.844674x10^{19}$& $2^{64}-1$\\ \hline
+			long long		& $-9.22337x10^{18}$ & $-2^{63}$ 	& $+9.22337x10^{18}$ 	& $2^{63}-1$\\
+			unsig. long long& 0 				& 0 			& $+1.844674x10^{19}$& $2^{64}-1$\\
+
+		\end{tabularx}
+	}
+	}
+	%}223 372 036 854 775 808
+\end{frame}
+
+\begin{frame}
+	\frametitle{Rappel --- Taille des données}
+%	\begin{figure}[ht]
+	\inputminted[
+	%	frame=lines,
+	%	framesep=1.5mm,
+	baselinestretch=0.4,
+	fontsize=\footnotesize,
+	linenos
+	]
+	{c}{../codes/size_ofs.c}
+%	\captionof{listing}{size\_ofs.c}
+	\vspace{-0.8cm} \center \small  \texttt{size\_ofs.c}
+%	\caption{\small{Code size_ofs.c}}
+%	\label{lst:firstListing}
+%	\end{figure}
+	%	\vspace{-1.7cm} \begin{center} \line(1,0){500} \end{center}  \vspace{-0.5cm}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Rappel --- Taille des données}
+	\inputminted[
+	%	frame=lines,
+	%	framesep=1.5mm,
+	baselinestretch=0.5,
+	fontsize=\footnotesize,
+	linenos,
+	bgcolor=light-gray
+	]
+	{c}{../codes/size_ofs_output.txt}
+%	\captionof{listing}{Output of size\_ofs.c}
+	\vspace{-0.5cm} \center \small  Output of \texttt{size\_ofs.c}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Rappel --- Pointeurs \small (source: TD Pr. Grisoni)}
+	
+	\inputminted[
+%	frame=lines,
+%	framesep=1.5mm,
+	baselinestretch=0.4,
+	fontsize=\footnotesize,
+	linenos
+	]
+	{c}{../codes/td6.c}
+	%\caption{\small{Classe Animal}}
+	%\label{lst:firstListing}
+	%\end{figure}
+%	\vspace{-1.7cm} \begin{center} \line(1,0){500} \end{center}  \vspace{-0.5cm}
+
+	\pause
+	\vspace{-1em}
+	\inputminted[
+	%	frame=lines,
+%	framesep=1.5mm,
+	baselinestretch=0.5,
+	fontsize=\footnotesize,
+	linenos,
+	bgcolor=light-gray
+	]
+	{c}{../codes/td6_output.txt}
+\end{frame}
+
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Rappel --- Pointeurs 2}
+	\begin{adjustwidth}{-0.5em}{0em}
+		\begin{minted}[
+			mathescape=true,
+			escapeinside=||,			
+			%	frame=lines,
+			%	framesep=1.5mm,
+			%		baselinestretch=0.4,
+					fontsize=\footnotesize,
+					linenos
+			]{c}
+void main() {   
+  int*    x;  // Allouer les pointeurs en mémoire 
+  int*    y;  // (mais pas les valeurs pointés)
+
+  x = malloc(sizeof(int));
+      // Allouer un entier (valeur pointé),
+      // et faites pointer x sur cette espace
+    
+  *x = 42; // Donnez la valeur de 42 à l'espace pointé par x
+           // (Déreferencer x)
+
+  *y = 13; // ERREUR --- y n'a pas d'espace pointé en mémoire
+           //(SEGFAULT)
+
+  y = x; // Faites pointer y sur le même espace mémoire que x
+    
+  *y = 13; // Dereferencez y et assignez 13
+           // (espace pointé par x et y)
+  free(x); // Liberer l'espace alloué
+}
+		\end{minted}				
+	\end{adjustwidth}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%	\frametitle{}
+%	\begin{itemize}
+%		\item
+%		\item
+%		\begin{itemize}
+%			\item
+%		\end{itemize}
+%		\item 
+%		\begin{itemize}
+%			\item
+%		\end{itemize}
+%	\end{itemize}
+%\end{frame}
+
+%
+%\begin{frame}
+%	\frametitle{Possible future directions}
+%	\begin{block}{Automated detection or static analysis}
+%		\begin{itemize}
+%			\item Component coupling, Transactions
+%		\end{itemize}
+%	\end{block}{}
+%%	\pause
+%	\begin{block}{Request tracking}
+%		\begin{itemize}
+%			\item High-level concept for programming applications
+%		\end{itemize}
+%	\end{block}{}
+%%	\pause
+%	\begin{block}{Exception framework}
+%		\begin{itemize}
+%			\item Component-level vs. System-level exceptions
+%			\begin{itemize}
+%				\item Architecture invariants
+%			\end{itemize}
+%		\end{itemize}
+%	\end{block}{}
+%	\begin{alertblock}{Manage change}
+%		\begin{itemize}
+%			%\item Manage change
+%			%\begin{itemize}
+%				\item From $\textbf{Dynamic Dependencies}$ to $\textbf{Dynamic Architecture}$
+%			%\end{itemize}
+%		\end{itemize}
+%	\end{alertblock}{}	
+%\end{frame}
+
+
+%\begin{frame}
+%\begin{center}
+%\Huge The End\\
+%\Huge Thank You!
+%\end{center}
+%\end{frame}
+
+
+\end{document}
+

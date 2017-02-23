@@ -1,0 +1,344 @@
+\RequirePackage[l2tabu, orthodox]{nag}
+
+%\documentclass[a4paper]{article}
+%\documentclass[final, pdftex, a4paper, 12pt, openbib, ]{article}
+\documentclass[final, pdftex, a4paper, openbib, ]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+%\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+%\usepackage{graphicx}
+\usepackage{alltt}
+\usepackage{float}
+%\usepackage{times}
+%\usepackage{a4wide}
+\usepackage{upquote,textcomp}
+\usepackage{geometry}
+%\usepackage{hyperref}
+\usepackage[
+pdftex,
+final,                      % if you do    want to have clickable-colorful links
+pdfstartview = FitV,
+linktocpage  = false,       % ToC, LoF, LoT place hyperlink on page number, rather than entry text
+breaklinks   = true,        % so long urls are correctly broken across lines
+% pagebackref  = false,     % add page number in bibliography and link to position in document where cited
+]{hyperref}
+\usepackage{mathtools}
+\geometry{a4paper, portrait, margin=2cm}
+%\addtolength{\textheight}{2 cm}
+%\addtolength{\oddsidemargin}{-1cm}
+%\addtolength{\topmargin}{-1cm}
+%\addtolength{\textwidth}{1 cm}
+
+%Good solution for monospaces
+%\usepackage{pxfonts} % Or palatino or mathpazo, changes all fonts to something sans
+%\usepackage{eulervm} % only changes math fonts, i checked
+%\usepackage[ttdefault=true]{AnonymousPro} %Only changes tt fonts
+% WHICH ONE TO CHOOSE?
+\usepackage{pslatex}
+%\usepackage[ttdefault=true]{AnonymousPro} %Only changes tt fonts
+% \usepackage[varg, cmintegrals, cmbraces, ]{newtxtext,newtxmath} % libertine, uprightGreek (U.S.) or slantedGreek (ISO), 
+% \usepackage{tgtermes}
+% \usepackage{txfonts}
+% \usepackage{mathptmx}
+% \usepackage[scaled=.90]{helvet}
+% \usepackage{courier}
+% \usepackage{textcomp}     % required for special glyphs
+% \usepackage{bm}   
+
+
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}% redefines the caption setup of the figures environment in the beamer class.
+
+%Inconsoloata, a little too light.
+%\usepackage{inconsolata}
+%\renewcommand{\ttdefault}{Consolas}
+%\usepackage{fontspec} %Doesn't work with pdflatex
+%\setmonofont{Consolas}
+
+
+
+%\renewcommand*\familydefault{\ttdefault} %% Only if the base font of the document is to be typewriter style
+
+%\newcommand\Fontvi{\fontsize{6}{7.2}\selectfont}
+
+%Make tabularx center cells vertically
+%\def\tabularxcolumn#1{m{#1}}
+%\renewcommand{\tabularxcolumn}[1]{>{\small}m{#1}}
+
+%%Syntax hilighting
+%\usepackage{fancyvrb}
+\usepackage{minted}
+%\usepackage[newfloat]{minted}
+\usemintedstyle{borland}
+%\usepackage{etoolbox}
+%\AtBeginEnvironment{minted}{\singlespacing%
+%	\fontsize{14}{14}\selectfont}
+%\newminted{java}{fontsize=\footnotesize}
+\usepackage{caption}
+
+%\usepackage{multicol}
+%\usepackage{vwcol}
+%\usepackage{lipsum}
+%\usepackage{microtype}
+%\setlength{\columnseprule}{0.4pt}
+%\renewcommand{\columnseprulecolor}{\color{red}}
+\newcommand{\BAD}[1]{{\color{red}#1}}
+\newcommand{\GOOD}[1]{{\color{darkgreen}#1}}
+
+
+%\title{GBIAAL 4$^{\mbox{\`eme}}$ année \\ Devoir Surveillé --- Base de données \\ 13 janvier 2016  \\ 1 heure}
+\title{IMA 3$^{\mbox{\`eme}}$ année\\ Programmation Avancé
+%\\TP1 Structures, Listes contiguës, Redirections}
+}
+\author{\huge \textbf{TP1 Structures, Listes contiguës, Redirections}}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+\date{}
+
+\usepackage{graphicx}
+\usepackage{colortbl,array}
+\usepackage{tabularx}
+\definecolor{warningbackground}{RGB}{252,226,158}
+
+\newcommand{\alertwarningbox}[1]{
+    \centering
+    \begin{tabularx}{0.9\linewidth}{
+        >{\columncolor{warningbackground}}c
+        >{\columncolor{warningbackground}}X}
+        \raisebox{\dimexpr2\baselineskip-\height}
+        {\includegraphics[scale=0.8]{attention.pdf}}&
+        \raisebox{\tabcolsep}{\strut}#1\raisebox{-\tabcolsep}{\strut}
+    \end{tabularx}
+}
+
+
+\usepackage{xcolor}
+
+%\definecolor{infobackground}{RGB}{217,237,247}
+%\definecolor{infoforeground}{RGB}{58,135,173}
+%\definecolor{infoborder}{RGB}{188,232,241}
+
+\definecolor{infobackground}{RGB}{217,237,247}
+\definecolor{infoforeground}{RGB}{30,50,70}
+\definecolor{infoborder}{RGB}{30,50,70}
+
+\definecolor{infobackground}{RGB}{217,237,247}
+\definecolor{infoforeground}{RGB}{30, 80, 150}
+\definecolor{infoborder}{RGB}{47, 87, 232}
+
+
+\usepackage{environ}
+\usepackage{tikz}
+\usetikzlibrary{fit,backgrounds,calc}
+
+\NewEnviron{alertinfo}[1]
+{
+\begin{center}
+    \begin{tikzpicture}
+    \node[inner sep=0pt,
+          draw=infoborder,
+          line width=1pt,
+          fill=infobackground] (box) {\parbox[t]{0.99\textwidth}
+        {%
+            \begin{minipage}{.12\textwidth}
+                \centering\tikz[scale=3]
+                \node[scale=1]
+                {
+                    \includegraphics[scale=0.25]{\images/information.pdf}
+                };
+            \end{minipage}%
+           \begin{minipage}{.86\textwidth}
+                \vskip 10pt
+                \textbf{\textcolor{infoforeground}{\large #1}}\par\smallskip
+                \textcolor{infoforeground}{\large \BODY}
+                \par\smallskip
+                \par\smallskip
+            \end{minipage}\hfill
+        }%
+    };
+    \end{tikzpicture}
+\end{center}
+}
+
+\usepackage{titling}
+
+
+\newcommand{\codes}{../codes/TP1}
+\newcommand{\images}{../images}
+
+
+
+\begin{document}
+%\vspace{-15cm}
+\posttitle{\par\end{center}}
+\setlength{\droptitle}{-45pt}
+\maketitle
+%\thispagestyle{empty}
+
+%\section{Schéma conceptuel}
+\vspace{-1.7cm}
+\section{Objectifs}
+
+\begin{itemize}
+	\item Savoir déclarer un type “structure” en C, déclarer des variables de ce nouveau type et utiliser ces variables dans des fonctions C.
+	\item Savoir implémenter les listes contiguës en C en utilisant les structures, écrire les fonctions de base pour ajouter et retirer des éléments.
+	\item Utiliser les redirections de l'entrée standard pour automatiser certains traitements de données.
+\end{itemize}
+
+\textbf{Remarque : } Cet énoncé s’appuie sur les énoncés des TD1 et TD2 de PA, certains des algorithmes ont été décrits en pseudo-code.
+
+\paragraph{Contexte}
+Nous travaillerons sur un exemple simple de gestion d’un annuaire de personnes.
+Chaque personne est représentée par une structure contenant les informations suivantes:
+\begin{itemize}
+\item son nom, prénom et numéro de téléphone sous la forme de chaînes de caractères \textit{de taille statiquement fixée}.
+\item sa date de naissance sous la forme d’une structure jour, mois, année (entiers).
+Un annuaire de personnes sera représenté par une liste contiguë de \texttt{MAX\_PERSONNES} (constante valant 100, par exemple).
+\end{itemize}
+
+
+\section{Questions du TP \large (à faire impérativement)}
+%\fbox{\begin{minipage}{0.9\textwidth}
+%\paragraph{IMPORTANT !} Toutes les questions de cette partie sont nécessaires pour le TP2. Si vous ne finissez pas le TP dans la séance, il faudra le finir chez vous, sous peine de ne pouvoir faire le TP2.
+%\end{minipage}}
+
+%\alertwarningbox{
+%	\textbf{\large IMPORTANT !} Toutes les questions de cette partie sont nécessaires pour le TP2. Si vous ne finissez pas le TP dans la séance, il faudra le finir chez vous, sous peine de ne pouvoir faire le TP2.
+%}
+
+\begin{alertinfo}{IMPORTANT !}
+Toutes les questions de cette partie sont nécessaires pour le TP2. Si vous ne finissez pas le TP1 dans la séance, il faudra le finir chez vous, sous peine de ne pouvoir faire le TP2.
+\end{alertinfo}
+
+Toutes les questions seront testées au fur et à mesure (appels dans le main), \textit{comme d’habitude} !
+Avant de commencer, créer un répertoire de travail pour la Programmation Avancée, et
+créer un sous-répertoire TP1 \textit{à la ligne de commande}.
+
+
+\subsection{Type \texttt{Date}}
+Dans un fichier \texttt{annu1.c} :
+\begin{enumerate}
+	\item Définir le type \texttt{Date} permettant de représenter une date de naissance.
+	\item Écrire une fonction \texttt{lire\_date} qui permet de lire une date au clavier et retourne une valeur de type \texttt{Date}.
+	\item Écrire une fonction \texttt{affiche\_date} qui affiche une date passée en paramètre.
+	Passer à la suite seulement si ces fonctions sont testées et fonctionnent (écrire donc un \texttt{main}).
+\end{enumerate}
+
+
+\subsection{Types \texttt{Personne} et \texttt{Annuaire}}
+\begin{enumerate}
+	\item Définir le type \texttt{Personne}.
+	\item Écrire une fonction \texttt{lire\_personne} qui permet de lire les données d’une personne au clavier.\\
+	%\textbf{La fonction aura obligatoirement le prototype suivant :}\\
+	La fonction aura le prototype suivant :\\
+	\centerline{\texttt{ int lire\_personne(Personne* ptr\_pers)}\\}
+	Après récupération des informations de \texttt{Personne} (nom, prénom,\ldots) à l’aide de la fonction \texttt{scanf}, cette fonction retournera la valeur entière \texttt{0}.
+	\item Écrire une fonction \texttt{affiche\_personne} qui affiche une personne \texttt{p} passée en paramètre.
+	Tester.
+	\item Définir le type \texttt{Annuaire}, et déclarer un annuaire dans le \texttt{main}.
+\end{enumerate}
+
+
+\subsection{Initialisation de la structure \texttt{Annuaire}, et utilisation}
+Pour initialiser la structure \texttt{Annuaire}, et afin d’éviter les longues saisies à la main à chaque lancement de notre programme, nous allons écrire des informations dans un fichier texte, en mettant une information par ligne. Dans ce TP, la lecture de ces informations sera faite à partir de \texttt{scanf} (lecture sur le terminal), mais ces informations seront écrites sur le terminal à travers une redirection de l’entrée standard vers un fichier fourni (cf TP5 de Programmation Structurée).
+
+\paragraph{Comprendre les redirections (révision)}
+Récupérer sur le compte de Walter Rudametkin les fichiers \texttt{redirect.c} et \texttt{entiers.txt} disponibles à l’adresse : \url{~wrudamet/public/IMA3/TP1/}\\
+Regarder le code source de \texttt{redirect.c}, compiler, comprendre le code, le tester sans redirection (arrêter en faisant control+d), puis en lançant \texttt{./nomdubinaire~<~entiers.txt}.
+
+\paragraph{Récupération des données de l’annuaire}
+\begin{enumerate}
+\item Récupérer l’annuaire \texttt{annu.txt} à la même adresse que précédemment.
+\item En s’inspirant de \texttt{redirect.c}, écrire une fonction qui lit une suite de personnes (par redirection de l’entrée standard sur le fichier texte \texttt{annu.txt} précédemment récupéré) et les range dans un annuaire par ajout en queue. On écrira une fonction \texttt{construire\_annuaire} qui effectuera des appels à \texttt{lire\_personne}.
+La fonction \texttt{lire\_personne} doit donc être modifiée pour pouvoir retourner \texttt{1} (et terminer) si la fin de fichier est atteinte lors de l’appel à \texttt{scanf} pour un nom de personne.
+\item Écrire une fonction qui affiche toutes les personnes d’un annuaire donné avec leur indice de rangement.
+\item Tester !
+\end{enumerate}
+
+\section{Questions s’il vous reste du temps}
+Nous allons trier l’annuaire :
+\begin{enumerate}
+\item Écrire une fonction \texttt{compare\_dates} qui compare 2 dates \texttt{d1} et \texttt{d2} données et retourne :
+\vspace{-1em}
+\[
+\hspace{-4cm}
+\texttt{compare\_dates(d1,d2)}= 
+\begin{cases}
+\texttt{ 0}, & \text{si \texttt{d1=d2}}\\
+\texttt{ 1}, & \text{si \texttt{d1>d2}}\\
+\texttt{-1}, & \text{si \texttt{d1<d2}}
+\end{cases}
+\]
+\vspace{-1em}
+%$\bullet$ 0 si d1 = d2
+%$\bullet$ -1 si d1 < d2
+%$\bullet$ 1 sinon.
+\item Écrire une fonction qui trie un annuaire selon la date par la méthode du tri bulle, telle que vue en TD.
+\item Écrire une fonction qui trie un annuaire selon le nom.
+\item Tester : trier l’annuaire obtenu précédemment et affichez le (avant et après) !
+\end{enumerate}
+
+\section{Annexes}
+
+\begin{figure}[!h]
+	\begin{minipage}[b]{0.6\textwidth}
+		\centering
+		\inputminted[
+		%frame=lines,
+		%framesep=2.5mm,
+		%baselinestretch=0.8,
+		fontsize=\small,
+		linenos,
+		tabsize=2,
+		%firstline=14,lastline=28
+		%bgcolor=light-gray
+		]
+		{c}{\codes/redirect.c}
+		\caption{redirect.c}
+	\end{minipage}
+	\hspace{-0.6cm}
+	\vrule{}
+	\hspace{0.6cm}
+	\begin{minipage}[b]{0.2\textwidth}
+%		\centering
+		\inputminted[
+		%frame=lines,
+		%framesep=2.5mm,
+		%baselinestretch=0.8,
+		fontsize=\small,
+		linenos,
+		tabsize=2,
+		%firstline=14,lastline=28
+		%bgcolor=light-gray
+		]
+		{c}{\codes/entiers.txt}
+		\centering
+%		\captionof{listing}{entiers.txt}
+%		\captionsetup[justification=justified,singlelinecheck=false]
+		\captionsetup{justification=raggedright, singlelinecheck=false}
+		\caption{entiers.txt}
+	\end{minipage}
+	\hspace{-1cm}
+	\vrule{}
+	\hspace{0.6cm}
+	\begin{minipage}[b]{0.15\textwidth}
+		\centering
+		\inputminted[
+		%frame=lines,
+		%framesep=2.5mm,
+		%baselinestretch=0.8,
+		fontsize=\small,
+		linenos,
+		tabsize=2,
+		%firstline=14,lastline=28
+		%bgcolor=light-gray
+		]
+		{c}{\codes/annu.txt}
+		\captionsetup{justification=raggedright, singlelinecheck=false}
+		\caption{annu.txt}
+	\end{minipage}
+%	\captionof{listing}{SomeCaption}
+	\label{lst:representation_examples}
+\end{figure}
+\end{document}

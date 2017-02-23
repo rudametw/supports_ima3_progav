@@ -1,0 +1,252 @@
+\RequirePackage[l2tabu, orthodox]{nag}
+
+%\documentclass[a4paper]{article}
+%\documentclass[final, pdftex, a4paper, 12pt, openbib, ]{article}
+\documentclass[final, pdftex, a4paper, openbib, ]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+%\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+%\usepackage{graphicx}
+\usepackage{alltt}
+\usepackage{float}
+%\usepackage{times}
+%\usepackage{a4wide}
+\usepackage{upquote,textcomp}
+\usepackage{geometry}
+%\usepackage{hyperref}
+\usepackage[
+pdftex,
+final,                      % if you do    want to have clickable-colorful links
+pdfstartview = FitV,
+linktocpage  = false,       % ToC, LoF, LoT place hyperlink on page number, rather than entry text
+breaklinks   = true,        % so long urls are correctly broken across lines
+% pagebackref  = false,     % add page number in bibliography and link to position in document where cited
+]{hyperref}
+\usepackage{mathtools}
+\geometry{a4paper, portrait, margin=2cm}
+%\addtolength{\textheight}{2 cm}
+%\addtolength{\oddsidemargin}{-1cm}
+%\addtolength{\topmargin}{-1cm}
+%\addtolength{\textwidth}{1 cm}
+
+%Good solution for monospaces
+%\usepackage{pxfonts} % Or palatino or mathpazo, changes all fonts to something sans
+%\usepackage{eulervm} % only changes math fonts, i checked
+%\usepackage[ttdefault=true]{AnonymousPro} %Only changes tt fonts
+% WHICH ONE TO CHOOSE?
+\usepackage{pslatex}
+%\usepackage[ttdefault=true]{AnonymousPro} %Only changes tt fonts
+% \usepackage[varg, cmintegrals, cmbraces, ]{newtxtext,newtxmath} % libertine, uprightGreek (U.S.) or slantedGreek (ISO), 
+% \usepackage{tgtermes}
+% \usepackage{txfonts}
+% \usepackage{mathptmx}
+% \usepackage[scaled=.90]{helvet}
+% \usepackage{courier}
+% \usepackage{textcomp}     % required for special glyphs
+% \usepackage{bm}   
+
+
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}% redefines the caption setup of the figures environment in the beamer class.
+
+%Inconsoloata, a little too light.
+%\usepackage{inconsolata}
+%\renewcommand{\ttdefault}{Consolas}
+%\usepackage{fontspec} %Doesn't work with pdflatex
+%\setmonofont{Consolas}
+
+
+
+%\renewcommand*\familydefault{\ttdefault} %% Only if the base font of the document is to be typewriter style
+
+%\newcommand\Fontvi{\fontsize{6}{7.2}\selectfont}
+
+%Make tabularx center cells vertically
+%\def\tabularxcolumn#1{m{#1}}
+%\renewcommand{\tabularxcolumn}[1]{>{\small}m{#1}}
+
+%%Syntax hilighting
+%\usepackage{fancyvrb}
+\usepackage{minted}
+%\usepackage[newfloat]{minted}
+\usemintedstyle{borland}
+%\usepackage{etoolbox}
+%\AtBeginEnvironment{minted}{\singlespacing%
+%	\fontsize{14}{14}\selectfont}
+%\newminted{java}{fontsize=\footnotesize}
+\usepackage{caption}
+
+%\usepackage{multicol}
+%\usepackage{vwcol}
+%\usepackage{lipsum}
+%\usepackage{microtype}
+%\setlength{\columnseprule}{0.4pt}
+%\renewcommand{\columnseprulecolor}{\color{red}}
+\newcommand{\BAD}[1]{{\color{red}#1}}
+\newcommand{\GOOD}[1]{{\color{darkgreen}#1}}
+
+
+\usepackage{graphicx}
+\usepackage{colortbl,array}
+\usepackage{tabularx}
+\definecolor{warningbackground}{RGB}{252,226,158}
+
+\newcommand{\alertwarningbox}[1]{
+    \centering
+    \begin{tabularx}{0.9\linewidth}{
+        >{\columncolor{warningbackground}}c
+        >{\columncolor{warningbackground}}X}
+        \raisebox{\dimexpr2\baselineskip-\height}
+        {\includegraphics[scale=0.8]{attention.pdf}}&
+        \raisebox{\tabcolsep}{\strut}#1\raisebox{-\tabcolsep}{\strut}
+    \end{tabularx}
+}
+
+
+\usepackage{xcolor}
+
+%\definecolor{infobackground}{RGB}{217,237,247}
+%\definecolor{infoforeground}{RGB}{58,135,173}
+%\definecolor{infoborder}{RGB}{188,232,241}
+
+\definecolor{infobackground}{RGB}{217,237,247}
+\definecolor{infoforeground}{RGB}{30,50,70}
+\definecolor{infoborder}{RGB}{30,50,70}
+
+\definecolor{infobackground}{RGB}{217,237,247}
+\definecolor{infoforeground}{RGB}{30, 80, 150}
+\definecolor{infoborder}{RGB}{47, 87, 232}
+
+
+\usepackage{environ}
+\usepackage{tikz}
+\usetikzlibrary{fit,backgrounds,calc}
+
+\NewEnviron{alertinfo}[1]
+{
+\begin{center}
+    \begin{tikzpicture}
+    \node[inner sep=0pt,
+          draw=infoborder,
+          line width=1pt,
+          fill=infobackground] (box) {\parbox[t]{0.99\textwidth}
+        {%
+            \begin{minipage}{.12\textwidth}
+                \centering\tikz[scale=3]
+                \node[scale=1]
+                {
+%                    \includegraphics[scale=0.25]{\images/information.pdf}
+                    \includegraphics[scale=0.15]{\images/information.pdf}                    
+                };
+            \end{minipage}%
+           \begin{minipage}{.86\textwidth}
+%                \vskip 10pt
+                \textbf{\textcolor{infoforeground}{\large #1}}\par\smallskip
+                \textcolor{infoforeground}{\large \BODY}
+                \par\smallskip
+                \par\smallskip
+            \end{minipage}\hfill
+        }%
+    };
+    \end{tikzpicture}
+\end{center}
+}
+
+\usepackage{titling}
+\usepackage{soul}
+
+\definecolor{Light}{gray}{.93}
+\sethlcolor{Light}
+\let\OldTexttt\texttt	
+\renewcommand{\texttt}[1]{\OldTexttt{\hl{#1}}}
+
+\newcommand{\codes}{../codes/TP8}
+\newcommand{\images}{../images}
+
+%\title{GBIAAL 4$^{\mbox{\`eme}}$ année \\ Devoir Surveillé --- Base de données \\ 13 janvier 2016  \\ 1 heure}
+\title{IMA 3$^{\mbox{\`eme}}$ année\\ Programmation Avancé
+	%\\TP1 Structures, Listes contiguës, Redirections}
+}
+\author{\huge \textbf{TP8 Arbres d'entiers}}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+\date{}
+
+
+\begin{document}
+%\vspace{-15cm}
+\posttitle{\par\end{center}}
+\setlength{\droptitle}{-45pt}
+\maketitle
+%\thispagestyle{empty}
+
+%\section{Schéma conceptuel}
+\vspace{-1.7cm}
+\section{Objectifs}
+
+\begin{itemize}
+	\item Savoir créer et utiliser une bibliothèque d'arbres d'entiers
+	\item Savoir coder quelques algorithmes de base sur les arbres
+\end{itemize}
+
+%\paragraph{Contexte et préparation : } Avant de commencer, récupérez le fichier \url{~wrudamet/public/IMA3/TP6/tp6_gdb.tgz} à la ligne de commande. Désarchivez\footnote{Vous pouvez utiliser la commande \texttt{tar} pour décompresser et désarchivez ce fichier} le dans votre répertoire de \textit{Programmation Avancé} (toujours à la ligne de commande !).
+
+\paragraph{Préparation : } Avant de commencer, copier le répertoire \url{~wrudamet/public/IMA3/TP8/} qui contient :
+
+\begin{itemize}
+	\item Les fichiers \texttt{trees.c} et \texttt{trees.h}, contenant des fonctions de base de traitement d'arbres
+	\item Un fichier \texttt{main.c} utilisant ces fonctions
+	\item Un sous-répertoire \texttt{samples/} qui contient des fichiers de données \texttt{.txt} et des fichiers \texttt{.dot} et \texttt{.pdf} qui permettent de visualiser les arbres correspondant à ces données (section 2).
+	\item Un sous répertoire \texttt{part2/} contenant un autre \texttt{main.c}.
+\end{itemize}
+
+%\begin{alertinfo}{}
+%	\textbf{IMPORTANT : Ce TP sera réutilisé dans le futur. Il servira d'inspiration pour le TP8 et votre librairie sera entièrement repris pour le TP9}
+%\end{alertinfo}
+
+\section{Fonctions de base dans les ABR}
+Dans cette première partie, il vous est demandé d'implémenter les fonctions suivantes non implémentées dans \texttt{tree.h}, en utilisant le \texttt{main} fourni pour tester :
+
+\begin{enumerate}
+	\item Ajout d'un élément dans un ABR (arbre binaire de recherche, donc ordonné !). (Fait en cours)
+	\item Construction d'un ABR à partir d'un fichier de données. Pour cette fonction, on s'inspirera de la fonction \texttt{charge\_fichier} donnée dans le TP7 (attention, on ajoute des entiers et non des chaînes)
+	\item Impression d'un ABR par parcours récursif (fait en cours)
+	\item Vérifier que la fonction de parcours précédente donne la même suite de valeurs pour les trois fichiers \texttt{unspecified.txt}, \texttt{balanced.txt}, \texttt{degenerated.txt} alors que ce sont des arbres différents (voir les dessins dans le répertoire \texttt{samples/})
+	\item Écrire une autre fonction d'impression qui imprime les couples (père, fils) d'un arbre donné. On fera attention à ne pas imprimer les sous-arbres vides
+	\item Vérifier que l'impression donne des arbres correspondant aux fichiers pdf fournis dans le répertoire \texttt{samples/}
+	\item Archiver le fichier \texttt{trees.o} dans une bibliothèque \texttt{libtrees.a} (commande \texttt{ar}).
+\end{enumerate}
+
+
+\section{ Impression des arbres sous forme graphique}
+Les fichiers \texttt{.pdf} ont été générés à partir des fichiers \texttt{.dot} (fournis dans \texttt{samples/}).
+Le format \texttt{.dot} est un format de représentation textuelle simple d'arbres\footnote{Et plus généralement de graphes exploitables par des logiciels tels que \url{http://www.graphviz.org}}.
+Visualisez le format de ces fichiers dans votre éditeur de texte préféré ou par la commande \texttt{less}\footnote{digraph signifie \textit{directed graph}, les arbres en font partie du fait de leur orientation \texttt{pere->fils}}.
+À partir de ce format \texttt{.dot}, la commande \texttt{dot} permet de générer une version visualisable (.pdf, .png, \ldots) comme suit (en pdf par exemple) :
+
+\begin{minted}[mathescape=true,escapeinside=||,tabsize=4,
+%fontsize=\footnotesize,
+]{bash}
+				dot -Tpdf samples/balanced.dot -o samples/balanced.pdf
+\end{minted}
+
+L'objectif est alors de générer de tels fichiers pour des arbres construits à partir de fichiers de données (tels que ceux fournis dans \texttt{samples/*.txt}).
+					
+\paragraph{Préparation :} Vous pouvez copier votre bibliothèque \texttt{libtrees.a} dans le répertoire \texttt{part2/}. Dans ce répertoire, un \texttt{main.c} plus conséquent est fourni qui :
+\begin{enumerate}
+	\item Génère, par appel à la fonction \texttt{generate\_dot}, les fichiers \texttt{.dot} correspondants aux fichiers de données dont les noms ont été passés en paramètre.
+	\item Transforme ces fichiers \texttt{.dot} en \texttt{.pdf} par appel système à la commande \texttt{dot}.
+\end{enumerate}
+
+\paragraph{Travail à faire :}
+\begin{enumerate}
+	\item Programmer la fonction \texttt{recursive\_dot} qui traite le cas général
+	\item Tester ensuite par la commande : \texttt{./trees ../samples/*.txt}
+Vous devez retrouver les fichiers \texttt{.dot} et \texttt{.pdf} fournis.
+\end{enumerate}
+
+%\section{Annexes}
+%\vspace{-0.5cm}
+
+\end{document}

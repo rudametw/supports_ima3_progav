@@ -1,0 +1,285 @@
+%\documentclass{beamer}
+%\documentclass[12pt,serif]{beamer}
+%\documentclass[12pt]{beamer}
+% Declare that this style file requires at least LaTeX version 2e.
+\NeedsTeXFormat{LaTeX2e}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+%\PassOptionsToPackage{gray}{xcolor}
+
+% Provide the name of your page, the date it was last updated, and a comment about what it's used for
+\ProvidesPackage{CM-preamble}[2016/01/20 Programmation avance Style]
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\title[IMA3-PA]{Programmation avancée}
+
+%\subtitle{\Huge Introduction et Rappel}
+
+\author{Walter Rudametkin}
+\institute[Polytech'Lille]{
+Walter.Rudametkin@polytech-lille.fr\\
+\url{https://rudametw.github.io/teaching/}\\
+\vspace{0.5cm}Bureau F011\\
+Polytech'Lille\\
+
+}
+\date{\today}
+
+%\usepackage[dvipsnames]{xcolor}
+%\usepackage[table]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{shadows}
+\usetikzlibrary{calc}
+\usetikzlibrary{matrix,backgrounds}
+
+%Array image stuff and  lists!!!
+%https://tex.stackexchange.com/questions/86766/array-of-linked-lists-like-in-data-structure
+\usetikzlibrary{positioning}
+\tikzset{
+	node/.style = { 
+		draw, 
+		fill=orange!40, 
+		minimum height=6mm, 
+		minimum width=6mm,
+		node distance=8mm
+	},
+	bignode/.style = { 
+		draw, 
+		fill=orange!40, 
+		minimum height=8mm, 
+		minimum width=8mm,
+		node distance=12mm
+	},
+	link/.style = {
+		-stealth,
+		shorten >=1pt
+		,line width = 0.28mm
+	},
+	array element/.style = {
+		draw, fill=white,
+		minimum width = 8mm,
+		minimum height = 8mm
+	}
+}
+\def\ArrayList#1{%
+	\foreach \element in \list {
+		\node[node, right = of aux, name=\element] {\element};
+		\draw[link] (aux) -- (\element);
+		\coordinate (aux) at (\element.east);
+	} 
+}
+\def\LinkedList#1{%
+	\foreach \element in \list {
+		\node[bignode, right = of aux, name=\element] {\element};
+		\node[bignode, name=aux2, anchor=west] at ([xshift=-.4pt] \element.east) {};
+		\draw[link] (aux) -- (\element);
+		\coordinate (aux) at (aux2);
+	}
+%	\fill (aux) circle(2pt);
+%	\draw (aux) circle(1cm);
+	\draw[line width = 0.28mm] ($ (aux) + (0.4,0.4) $) -- ($ (aux) + (-0.4,-0.4) $);
+}
+
+
+\usepackage{mathabx}
+% Now paste your code from the preamble here
+%\documentclass[12pt,svgnames]{beamer}
+%\documentclass[professionalfont]{beamer} %
+\usepackage[T1]{fontenc}
+%\usepackage{selinput}
+\usepackage{tabularx}
+\usepackage{makecell}
+%\usepackage[dvipsnames]{xcolor}
+\definecolor{light-gray}{gray}{0.9}
+\definecolor{dark-red}{gray}{1.9}
+%\usepackage{listings}
+
+%\usepackage{algorithm}% http://ctan.org/pkg/algorithms
+%\usepackage{algpseudocode}% http://ctan.org/pkg/algorithmicx
+%\usepackage{algpseudocode}
+\usepackage{float}
+\usepackage[lined,french,onelanguage]{algorithm2e}
+
+%Available font sizes are 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt. Default font size is 11pt (which corresponds to 22pt at the full screen mode).
+
+%\usetheme{Boadilla}
+%\usecolortheme[named=blue]{structure}
+
+%\usetheme{Warsaw}
+%\usecolortheme{albatross}
+
+%\usetheme{Antibes}
+%\usecolortheme{albatross}
+
+%\usetheme{default}
+%\usecolortheme{whale}
+\usefonttheme{professionalfonts} % using non standard fonts for beamer
+%\usefonttheme{serif} % default family is serif
+%\usepackage{fontspec}
+%\setmainfont{Liberation Serif}
+
+
+%\usepackage[english]{babel}
+%\usepackage{times}
+%\usepackage{serif}
+%\usepackage[T1]{fontenc}
+%\usepackage{graphicx}
+%\usefonttheme{serif}
+
+%%% WORKS
+%\usepackage{ascii}
+%\usepackage[T1]{fontenc}
+%\usepackage{dejavu}
+%\usefonttheme[onlymath]{serif}
+%\usepackage{bookman}
+%\documentclass [serif]{beamer} %
+
+%Good solution for monospaces
+\usepackage{pxfonts} % Or palatino or mathpazo, changes all fonts to something sans
+\usepackage{eulervm} % only changes math fonts, i checked
+\usepackage[ttdefault=true]{AnonymousPro} %Only changes tt fonts
+
+%Inconsoloata, a little too light.
+%\usepackage{inconsolata}
+%\renewcommand{\ttdefault}{Consolas}
+%\usepackage{fontspec} %Doesn't work with pdflatex
+%\setmonofont{Consolas}
+
+
+
+%\renewcommand*\familydefault{\ttdefault} %% Only if the base font of the document is to be typewriter style
+
+%\newcommand\Fontvi{\fontsize{6}{7.2}\selectfont}
+
+%Make tabularx center cells vertically
+%\def\tabularxcolumn#1{m{#1}}
+%\renewcommand{\tabularxcolumn}[1]{>{\small}m{#1}}
+
+%%Syntax hilighting
+%\usepackage{fancyvrb}
+\usepackage{minted}
+%\usepackage[newfloat]{minted}
+\usemintedstyle{borland}
+%\usepackage{etoolbox}
+%\AtBeginEnvironment{minted}{\singlespacing%
+%	\fontsize{14}{14}\selectfont}
+%\newminted{java}{fontsize=\footnotesize}
+\usepackage{caption}
+
+\usepackage{multicol}
+\setlength{\columnseprule}{0.4pt}
+%\renewcommand{\columnseprulecolor}{\color{red}}
+\newcommand{\BAD}[1]{{\color{red}#1}}
+\newcommand{\GOOD}[1]{{\color{darkgreen}#1}}
+
+\newcommand{\IMAGE}{{\color{red} \huge TODO: IMAGE}}
+
+\usepackage{changepage}
+%\usepackage{enumitem}
+
+%Added strikeout, \sout to use
+\usepackage[normalem]{ulem}
+
+
+% % % French algorithm language % % % % %
+%\renewcommand{\algorithmicrequire}{\textbf{Entrée:}}
+%\renewcommand{\algorithmicensure}{\textbf{Sortie:}}
+%\renewcommand{\algorithmiccomment}[1]{\{#1\}}
+%\renewcommand{\algorithmicend}{\textbf{fin}}
+%\renewcommand{\algorithmicif}{\textbf{si}}
+%\renewcommand{\algorithmicthen}{\textbf{alors}}
+%\renewcommand{\algorithmicelse}{\textbf{sinon}}
+%\renewcommand{\algorithmicfor}{\textbf{pour}}
+%\renewcommand{\algorithmicforall}{\textbf{pour tout}}
+%\renewcommand{\algorithmicdo}{\textbf{faire}}
+%\renewcommand{\algorithmicwhile}{\textbf{tant que}}
+%\newcommand{\algorithmicelsif}{\algorithmicelse\ \algorithmicif}
+%\newcommand{\algorithmicendif}{\algorithmicend\ \algorithmicif}
+%\newcommand{\algorithmicendfor}{\algorithmicend\ \algorithmicfor}
+
+\newcommand{\myline}{\begin{center} \noindent\makebox[\linewidth]{\rule{\paperwidth}{0.5pt}}\end{center}}
+
+
+% Finally, we'll use \endinput to indicate that LaTeX can stop reading this file. LaTeX will ignore anything after this line.
+\endinput
+
+
+
+
+% % % % % % % % %
+% Nowhere to put this stuff ?
+
+
+% % % % % % %French better example with algorithm2e
+\begin{frame}
+	\scalebox{.7}{                        %new code
+		\begin{algorithm}[H]              %new code
+			\DontPrintSemicolon
+			\KwIn{Labels: set of all labels}
+			\KwIn{F: combinatorial logic function}
+			\KwIn{X: set of inputs to F with values in 0,1}
+			\KwOut{$Sh_F$: truth table for shadow F}
+			\Sortie{$Sh_F$: truth table for shadow F}
+			\Retour{$Sh_F$: truth table for shadow F}\\
+			\For{each XRow $\in$ XSet}{
+				\For{each LRow $\in$ LSet}{
+					CandidateSet $\gets$ $\phi$\;
+					\For{each $label \in Labels$} {
+						$C \gets \phi$\;
+						\For{each $l_i \in LRow$} {
+							\If{\underline{Lat.conflictsWith}($l_i$,label)}{
+								$C \gets C \cup \{x_i\}$ \;
+							}
+						}
+						\If{!\underline{isAffectedBy}(F,$X_{row}$,C)}{
+							CandidateSet $\gets$ CandidateSet $\cap$ \{label\} \;
+						}
+					}
+					$SHF_{row} \gets$ Lat.ChooseMin(CandidateSet) \;
+					Output $X_{row}$, $T_{row}$, $SHF_{row}$ \;
+				}
+			}
+		\end{algorithm}
+	}
+\end{frame}
+
+
+
+% % % IN FRENCH TOOO! Works with algorithmicx. Needs to uncomment French lines in preamble !!!!!!!! % % % %
+%\begin{frame}
+%		\begin{algorithm}[H]
+%  	\begin{algorithmic}
+%\While {S n'est pas vide}
+%\State {Pop out top vertex from S. Let v=S.pop().}
+%\EndWhile
+%
+%\If {Expression 1} 
+%\If {Expression 2}
+%\State Statement 1.
+%\State Statement 2. 
+%\EndIf
+%\ElsIf {Expression 3}
+%\State  Statement 3.
+%\State  Statement 4.
+%\Else
+%\State  Statement 4.
+%\EndIf
+%
+%  	\end{algorithmic}
+%  \end{algorithm}
+%\end{frame}
+
+
+%\begin{frame}[fragile]
+%	\frametitle{Structures cartésiennes}
+%	\begin{algorithm}[H]
+%		\begin{algorithmic}[1]
+%			qsdfqsdfqsdf
+%		\end{algorithmic}
+%		\caption{pseudocode for the calculation of }
+%		\label{alg:seq}
+%	\end{algorithm}
+%\end{frame}
+

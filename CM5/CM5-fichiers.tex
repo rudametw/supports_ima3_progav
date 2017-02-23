@@ -1,0 +1,428 @@
+%\documentclass[12pt,serif]{beamer}
+%\documentclass[tikz,12pt,svgnames]{beamer}
+\documentclass[table,handout,tikz,12pt,svgnames]{beamer}
+\usepackage{CM-preamble}
+\subtitle{\Huge Les Fichiers en C}
+\date{CM5}
+
+%README TODO STUFF
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+
+%\begin{frame}[fragile=singleslide]
+%	\frametitle{Les fichiers en C}
+%		\begin{block}{Pas de fichiers dans le langage C}
+%			\begin{itemize}
+%				\item Bibliothèque standard \texttt{libc.so/libc.a} :\\inclure le fichier entête \texttt{<stdio.h>}
+%			\end{itemize}
+%		\end{block}
+%		\begin{block}{Fichier C = une suite d'octets (= flot)}
+%			\begin{itemize}
+%			\item Pas de fichiers typés
+%			\item Fichiers texte
+%			\begin{itemize}
+%				\item Les octets représentent des caractères codant les données\footnotesize(souvent le très limité ASCII, mais aussi le populaire et recommandé \textbf{UTF-8})
+%				\small
+%				\item Standard -- Éditables -- Imprimables
+%			\end{itemize}
+%			\end{itemize}
+%		\end{block}
+%\end{frame}
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Les fichiers en C}
+		\begin{block}{Pas de fichiers dans le langage C}
+			\begin{itemize}
+				\item Bibliothèque standard \texttt{libc.so/libc.a} :\\inclure le fichier entête \texttt{<stdio.h>}
+			\end{itemize}
+		\end{block}
+		\begin{block}{Fichier C = une suite d'octets (= flot)}
+			\begin{itemize}
+			\item Pas de fichiers typés
+%			\item Fichiers texte
+			\end{itemize}
+		\end{block}
+		\begin{block}{Fichiers texte}
+			\begin{itemize}
+				\item Les octets représentent des caractères codant les données\footnotesize(souvent le très limité ASCII, mais aussi le populaire et recommandé \textbf{UTF-8})
+				\small
+				\item Standard -- Éditables -- Imprimables
+%			\end{itemize}
+			\end{itemize}
+		\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Fichiers Binaires}
+%	\begin{block}{Fichiers binaires}
+	\vspace{-0.75cm}
+		\begin{itemize}
+			\item Octets représentent la copie exacte des données en mémoire sur un système donné
+			\item Non standard -- Non éditables -- Non imprimables
+			\item Mais lecture / écriture plus rapides (pas d'analyse)
+			\item En général, plus compacts
+			\begin{itemize}
+				\item \small ex: 654875 = 6 octets (\texttt{char}), 2/4 octets (\texttt{short}/\texttt{int})
+			\end{itemize}
+		\end{itemize}
+%	\end{block}
+	\begin{block}{Pas d'attribut \textit{texte} ou \textit{binaire} sur un fichier \\(\small dépend de l'interprétation des octets)}
+		\begin{itemize}
+			\item N'intervient pas à la déclaration
+			\item Lié aux opérations applicables
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Le type \texttt{FILE}}
+	\begin{block}{}
+		{\includegraphics[scale=0.9]{../common-images/file1.pdf}}		
+		\begin{itemize}
+			\item Défini dans \texttt{<stdio.h>}
+			\item Structure C contenant
+			\begin{itemize}
+				\item Identification du fichier associé (descripteur)
+				\item Position du curseur dans le fichier
+				\item Tampon de lecture / écriture
+				\item Indication de mode d'ouverture \ldots
+			\end{itemize}
+			\item Opérations sont effectuées sur un \texttt{FILE *} fourni à l'ouverture
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Fichiers texte: ouverture}
+	\begin{block}{}
+		\begin{itemize}
+			\item Défini dans \texttt{<stdio.h>}
+			\item \mintinline{C}{FILE * fopen(char *nom, char *mode)} où
+%			\item \texttt{FILE * fopen(char *nom, char *mode)} où
+%			\\où \texttt{mode} = \texttt{r}: lecture, \texttt{w}: création, \texttt{a}: allongement
+			\vspace{-0.5em}
+			\small
+			\[
+			\hspace{-4cm}
+			\texttt{mode}= 
+			\begin{cases}
+			\texttt{r}: & \text{lecture}\\
+			\texttt{w}: & \text{création/écriture}\\
+			\texttt{a}: & \text{allongement}
+			\end{cases}
+			\]
+			\vspace{-1em}
+		\end{itemize}
+	\end{block}
+	{\includegraphics[scale=0.6]{../common-images/file2.pdf}}
+\end{frame}
+
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Fichiers texte: ouverture/fermeture}
+	\begin{block}{Retour}
+		\begin{itemize}
+			\item \texttt{FILE * } si tout va bien
+			\item \texttt{NULL} si erreur (ex: fichier inexistant, pas les droits de lecture ou écriture, \ldots)
+		\end{itemize}
+	\end{block}
+	\begin{block}{Fermeture}
+		\begin{itemize}
+			\item \texttt{fclose(FILE *fp)}
+			\item Déconnecte fp du fichier physique
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+%NATHALIE: tester pointeur avant fermeture! Sinon, segfault
+\begin{frame}[fragile=singleslide]
+	\frametitle{Fichiers texte: exemple}
+		\begin{block}{} %Gestion dynamique de la mémoire}
+			\vspace{-0.5cm}
+			\inputminted[
+			%		frame=lines,
+			%		framesep=2.5mm,
+			baselinestretch=0.7,
+			fontsize=\footnotesize,
+			linenos,
+			tabsize=2,
+			%		bgcolor=light-gray
+			]
+			{c}{../codes/file1.c}
+		\end{block}
+		\footnotesize
+		\begin{block}{} %Gestion dynamique de la mémoire}
+				\begin{columns}[b]
+%					\hspace{-0.3cm}
+					\begin{column}{0.7\textwidth}
+						\underline{\textit{si toto.txt existe}}\\
+						\texttt{toto.txt accessible:fp=0x1d12010\\Fermer toto}
+					\end{column}
+					\hspace{-2cm}
+					\vrule{}
+					\hspace{0.5cm}	
+					\begin{column}{0.4\textwidth}
+						\underline{\textit{si toto.txt n'existe pas}}\\						
+						\texttt{toto.txt inaccessible: fp=(nil)}
+					\end{column}
+				\end{columns}
+		\end{block}					
+\end{frame}
+
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Fichiers texte: utilisation}
+	\begin{block}{}
+		\begin{itemize}
+			\item Généralisation des manipulations effectuées sur l'entrée/sortie standard (\texttt{stdin}, \texttt{stdout})
+			\item Dans \texttt{<stdio.h>}
+			\begin{itemize}
+				\item entrée standard : \texttt{FILE * stdin}
+				\item sortie standard : \texttt{FILE * stdout}
+			\end{itemize}
+			\item Connexion à l'exécution aux entrées / sorties standard fournies par le système (console par défaut, redirigeables par \texttt{< >})
+			\item Lectures écritures à partir de la position suivant le curseur
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+%NATHALIE: non null for feof is incorrect, it's non zéro
+\begin{frame}[fragile=singleslide]
+	\frametitle{Fichiers texte: lecture}
+	\begin{block}{}
+		\begin{itemize}
+
+			\item \texttt{char getc (FILE *fp)}
+			\begin{itemize}
+				\item \texttt{getchar()} $\Leftrightarrow$ \texttt{getc(stdin)}
+			\end{itemize}
+
+			\item \texttt{int fscanf(FILE *fp, char *format, \ldots)}
+			\begin{itemize}
+				\item scanf(\ldots) $\Leftrightarrow$ fscanf(stdin, \ldots)
+				\item Retourne le nombre d'items lus
+			\end{itemize}
+			
+			\item \texttt{char * fgets(char *chaine, int taille,} \\
+			\hspace{7em} \texttt{FILE *fp)}
+			\item \texttt{int feof(FILE *fp)}
+			\begin{itemize}
+				\item Retourne une valeur différent à zéro si la fin du fichier a été rencontrée lors d'une opération de lecture (valeur lue indéterminée)
+			\end{itemize}
+			
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Fichiers texte: mode écriture/allongement}
+	\begin{block}{}
+		\begin{itemize}
+			\item \texttt{int putc(char c, FILE *fp)}
+			\begin{itemize}
+				\item \texttt{putchar(c)} $\Leftrightarrow$ \texttt{putc(c, stdout)}
+			\end{itemize}
+			\item \texttt{int fprintf(FILE *fp, char *format, \ldots)}
+			\item \texttt{int fputs(char *chaine, FILE *fp)}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+%NATHALIE: tester pointeur avant fermeture! Sinon, segfault
+\begin{frame}[fragile=singleslide]
+	\frametitle{Fichiers texte: exemple}
+	\begin{block}{} %Gestion dynamique de la mémoire}
+		\vspace{-0.5cm}
+		\inputminted[
+		%		frame=lines,
+		%		framesep=2.5mm,
+		baselinestretch=0.7,
+		fontsize=\footnotesize,
+		linenos,
+		tabsize=4,
+		%		bgcolor=light-gray
+		]
+		{c}{../codes/file3.c}
+	\end{block}	
+\end{frame}
+
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Fichiers binaires: ouverture}
+%	\begin{block}{}
+		\begin{itemize}
+			\item Octets représentent la copie exacte du codage des données en mémoire
+		\end{itemize}
+	\begin{block}{Ouverture}
+		\begin{itemize}
+			\item \mintinline{c}{FILE *fopen (char *nom, char *mode)} où
+			\vspace{-0.5em}
+			\small
+			\[
+			\hspace{-4cm}
+			\texttt{mode}= 
+			\begin{cases}
+			\texttt{rb}: & \text{lecture}\\
+			\texttt{wb}: & \text{création/écriture}\\
+			\texttt{ab}: & \text{allongement}\\
+			\texttt{rb+}: & \text{lecture/écriture}	\\\ldots
+			\end{cases}
+			\]
+			\vspace{-1em}
+		\end{itemize}
+	\end{block}
+	{\includegraphics[scale=0.48]{../common-images/file3.pdf}}
+\end{frame}
+
+%NATHALIE: cast de trop dans fwrite & sizeof(<T>)
+\begin{frame}[fragile=singleslide]
+	\frametitle{Fichiers binaires: fermeture/écriture}
+	\begin{block}{Fermeture \footnotesize(idem fichiers texte)}
+		\begin{itemize}
+			\item \texttt{fclose(FILE *fp)}
+			\item \texttt{int feof(FILE *fp)}
+		\end{itemize}
+	\end{block}
+	\begin{block}{Écriture (mode création ou lecture/écriture)}
+		\begin{itemize}
+			\item \texttt{int fwrite(void *pt, int taille, int nb,}\\
+			\hspace{6em} \texttt{FILE *fp)}\\
+			Écrit sur le fichier \texttt{fp}, à partir de la position suivant le curseur, \texttt{nb} objets, chacun de taille \texttt{taille}, qui se trouvent contiguëment dans la zone mémoire pointée par \texttt{pt}.
+			\item Utilisation courante :\\
+			\texttt{FILE *fp; <T> x; \\fwrite(\&x, sizeof(x), 1, fp);}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Fichiers binaires: écriture}
+	\begin{block}{Mode lecture/écriture}
+		\begin{itemize}
+			\vspace{2cm}
+%			\item %\huge TODO IMAGE\\
+%			\normalsize
+			\item \texttt{char x = '?';}\\
+			\texttt{fwrite(\&x, 1, 1, fp);}
+			\vspace{3cm}			
+%			\item \huge TODO IMAGE
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Fichiers binaires: lecture}
+	\begin{block}{}
+		\begin{itemize}
+			\item \texttt{int fread(void *pt, int taille, int nb, FILE *fp)}\\
+			Lire nb objets de taille <taille> et les copier dans l'espace pointé par pt\\
+			\vspace{1cm}
+			\item Utilisation courante :\\
+			\texttt{<T> x; \\fread(\&x, sizeof(<T>), 1, fp);}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Fichiers binaire: lecture}
+	\begin{block}{} %Gestion dynamique de la mémoire}
+		\vspace{-0.5cm}
+		\inputminted[
+		%		frame=lines,
+		%		framesep=2.5mm,
+		baselinestretch=0.7,
+		fontsize=\footnotesize,
+		linenos,
+		tabsize=4,
+		%		bgcolor=light-gray
+		]
+		{c}{../codes/file_binary_persons.c}
+	\end{block}	
+\end{frame}
+
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Fichiers binaires: accès direct}
+	\begin{block}{}
+		\begin{itemize}
+			\item \mintinline{c}{int fseek(FILE *fp, long déplacement,}\\
+			\hspace{11em}\mintinline{c}{int origine)}
+%			\normalsize où
+%			\vspace{-0.5em}
+			\small
+			\[
+			\hspace{-0cm}
+			\text{où   }
+			\hspace{0.5em}
+			\texttt{    origine}= 
+			\begin{cases}
+			\texttt{SEEK\_SET}: & \text{début}\\
+			\texttt{SEEK\_CUR}: & \text{position courant}\\
+			\texttt{SEEK\_END}: & \text{fin}
+			\end{cases}
+			\]
+%			\vspace{-1em}
+			\item Positionne le curseur pour la prochaine lecture ou écriture
+			\item Position = déplacement + origine
+			\item Usage courant : \\
+			\texttt{fseek(fp, i*sizeof(<T>), SEEK\_SET);}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Fichiers: conclusion}
+	\begin{block}{}
+		\begin{itemize}
+			\item \textit{Texte} ou \textit{binaire} n'est pas un attribut de fichier
+			\item Un fichier texte peut être exploité en binaire comme simple suite d'octets
+			\begin{itemize}
+				\item ex : \texttt{fseek(fp, i*sizeof(char), SEEK\_SET);}
+				\item ex : utilisation de \texttt{fread} ou \texttt{fwrite} sur un fichier texte
+			\end{itemize}
+			\item Exploitation d'un fichier binaire en texte ?????
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+%mode	description	starts..
+%r	rb		open for reading (The file must exist)	beginning
+%w	wb		open for writing (creates file if it doesn't exist). Deletes content and overwrites the file.	beginning
+%a	ab		open for appending (creates file if it doesn't exist)	end
+%r+	rb+	r+b	open for reading and writing (The file must exist)	beginning
+%w+	wb+	w+b	open for reading and writing. If file exists deletes content and overwrites the file, otherwise creates an empty new file	beginning
+%a+	ab+	a+b	open for reading and writing (append if file exists)	end
+
+
+%TODO: ANNEXE CON TODOS LOS TIPOS DE APERTURA
+
+%\begin{frame}[fragile=singleslide]
+%\end{frame}
+%\begin{frame}[fragile=singleslide]
+%\end{frame}
+
+
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % %
+% END
+% % % % % % % % % % % % % % % % % % % % % % % % % % %
+\end{document}
+% % % % % % % % % % % % % % % % % % % % % % % % % % %
+% END
+% % % % % % % % % % % % % % % % % % % % % % % % % % %

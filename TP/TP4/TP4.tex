@@ -1,0 +1,235 @@
+\RequirePackage[l2tabu, orthodox]{nag}
+
+%\documentclass[a4paper]{article}
+%\documentclass[final, pdftex, a4paper, 12pt, openbib, ]{article}
+\documentclass[final, pdftex, a4paper, openbib, ]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+%\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+%\usepackage{graphicx}
+\usepackage{alltt}
+\usepackage{float}
+%\usepackage{times}
+%\usepackage{a4wide}
+\usepackage{upquote,textcomp}
+\usepackage{geometry}
+%\usepackage{hyperref}
+\usepackage[
+pdftex,
+final,                      % if you do    want to have clickable-colorful links
+pdfstartview = FitV,
+linktocpage  = false,       % ToC, LoF, LoT place hyperlink on page number, rather than entry text
+breaklinks   = true,        % so long urls are correctly broken across lines
+% pagebackref  = false,     % add page number in bibliography and link to position in document where cited
+]{hyperref}
+\usepackage{mathtools}
+\geometry{a4paper, portrait, margin=2cm}
+%\addtolength{\textheight}{2 cm}
+%\addtolength{\oddsidemargin}{-1cm}
+%\addtolength{\topmargin}{-1cm}
+%\addtolength{\textwidth}{1 cm}
+
+%Good solution for monospaces
+%\usepackage{pxfonts} % Or palatino or mathpazo, changes all fonts to something sans
+%\usepackage{eulervm} % only changes math fonts, i checked
+%\usepackage[ttdefault=true]{AnonymousPro} %Only changes tt fonts
+% WHICH ONE TO CHOOSE?
+\usepackage{pslatex}
+%\usepackage[ttdefault=true]{AnonymousPro} %Only changes tt fonts
+% \usepackage[varg, cmintegrals, cmbraces, ]{newtxtext,newtxmath} % libertine, uprightGreek (U.S.) or slantedGreek (ISO), 
+% \usepackage{tgtermes}
+% \usepackage{txfonts}
+% \usepackage{mathptmx}
+% \usepackage[scaled=.90]{helvet}
+% \usepackage{courier}
+% \usepackage{textcomp}     % required for special glyphs
+% \usepackage{bm}   
+
+
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}% redefines the caption setup of the figures environment in the beamer class.
+
+%Inconsoloata, a little too light.
+%\usepackage{inconsolata}
+%\renewcommand{\ttdefault}{Consolas}
+%\usepackage{fontspec} %Doesn't work with pdflatex
+%\setmonofont{Consolas}
+
+
+
+%\renewcommand*\familydefault{\ttdefault} %% Only if the base font of the document is to be typewriter style
+
+%\newcommand\Fontvi{\fontsize{6}{7.2}\selectfont}
+
+%Make tabularx center cells vertically
+%\def\tabularxcolumn#1{m{#1}}
+%\renewcommand{\tabularxcolumn}[1]{>{\small}m{#1}}
+
+%%Syntax hilighting
+%\usepackage{fancyvrb}
+\usepackage{minted}
+%\usepackage[newfloat]{minted}
+\usemintedstyle{borland}
+%\usepackage{etoolbox}
+%\AtBeginEnvironment{minted}{\singlespacing%
+%	\fontsize{14}{14}\selectfont}
+%\newminted{java}{fontsize=\footnotesize}
+\usepackage{caption}
+
+%\usepackage{multicol}
+%\usepackage{vwcol}
+%\usepackage{lipsum}
+%\usepackage{microtype}
+%\setlength{\columnseprule}{0.4pt}
+%\renewcommand{\columnseprulecolor}{\color{red}}
+\newcommand{\BAD}[1]{{\color{red}#1}}
+\newcommand{\GOOD}[1]{{\color{darkgreen}#1}}
+
+
+\usepackage{graphicx}
+\usepackage{colortbl,array}
+\usepackage{tabularx}
+\definecolor{warningbackground}{RGB}{252,226,158}
+
+\newcommand{\alertwarningbox}[1]{
+    \centering
+    \begin{tabularx}{0.9\linewidth}{
+        >{\columncolor{warningbackground}}c
+        >{\columncolor{warningbackground}}X}
+        \raisebox{\dimexpr2\baselineskip-\height}
+        {\includegraphics[scale=0.8]{attention.pdf}}&
+        \raisebox{\tabcolsep}{\strut}#1\raisebox{-\tabcolsep}{\strut}
+    \end{tabularx}
+}
+
+
+\usepackage{xcolor}
+
+%\definecolor{infobackground}{RGB}{217,237,247}
+%\definecolor{infoforeground}{RGB}{58,135,173}
+%\definecolor{infoborder}{RGB}{188,232,241}
+
+\definecolor{infobackground}{RGB}{217,237,247}
+\definecolor{infoforeground}{RGB}{30,50,70}
+\definecolor{infoborder}{RGB}{30,50,70}
+
+\definecolor{infobackground}{RGB}{217,237,247}
+\definecolor{infoforeground}{RGB}{30, 80, 150}
+\definecolor{infoborder}{RGB}{47, 87, 232}
+
+
+\usepackage{environ}
+\usepackage{tikz}
+\usetikzlibrary{fit,backgrounds,calc}
+
+\NewEnviron{alertinfo}[1]
+{
+\begin{center}
+    \begin{tikzpicture}
+    \node[inner sep=0pt,
+          draw=infoborder,
+          line width=1pt,
+          fill=infobackground] (box) {\parbox[t]{0.99\textwidth}
+        {%
+            \begin{minipage}{.12\textwidth}
+                \centering\tikz[scale=3]
+                \node[scale=1]
+                {
+                    \includegraphics[scale=0.25]{\images/information.pdf}
+%                    \includegraphics[scale=0.15]{\images/information.pdf}                    
+                };
+            \end{minipage}%
+           \begin{minipage}{.86\textwidth}
+%                \vskip 10pt
+                \textbf{\textcolor{infoforeground}{\large #1}}\par\smallskip
+                \textcolor{infoforeground}{\large \BODY}
+                \par\smallskip
+                \par\smallskip
+            \end{minipage}\hfill
+        }%
+    };
+    \end{tikzpicture}
+\end{center}
+}
+
+\usepackage{titling}
+
+
+\newcommand{\codes}{../codes/TP4}
+\newcommand{\images}{../images}
+
+
+%\title{GBIAAL 4$^{\mbox{\`eme}}$ année \\ Devoir Surveillé --- Base de données \\ 13 janvier 2016  \\ 1 heure}
+\title{IMA 3$^{\mbox{\`eme}}$ année\\ Programmation Avancé
+	%\\TP1 Structures, Listes contiguës, Redirections}
+}
+\author{\huge \textbf{TP4 Listes chaînées avec algorithmes itératifs}}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+\date{}
+
+
+\begin{document}
+%\vspace{-15cm}
+\posttitle{\par\end{center}}
+\setlength{\droptitle}{-45pt}
+\maketitle
+%\thispagestyle{empty}
+
+%\section{Schéma conceptuel}
+\vspace{-1.7cm}
+\section{Objectifs}
+
+\begin{itemize}
+	\item Savoir déclarer et construire des listes chaînées en C.
+	\item Savoir reconnaître et implémenter les algorithmes classiques de listes chaînées à l'aide de fonctions itératives.
+\end{itemize}
+
+%\textbf{Contexte et préparation : } Le contexte de ce TP est le même que celui du TP1, à savoir une application de gestion d'annuaire.
+
+\paragraph{Contexte et préparation : } Nous allons utiliser les listes chaînées (non ordonnées, puis ordonnées) pour représenter des ensembles\footnote{Un \textit{ensemble} est une \textbf{collection} ou un groupement d'\textbf{objets distincts} ; ces objets s'appellent les éléments de cet ensemble.} d'entiers. Les opérations classiques sur les ensembles d'entiers seront réalisées à l'aide d'algorithmes classiques sur les listes, en version itérative.
+
+\begin{alertinfo}{}
+	\textbf{IMPORTANT}\\Les 2 principales causes de \textit{segmentation fault} avec les listes chaînées :
+	\begin{itemize}
+		\item une liste non initialisée ;
+		\item un accès à \texttt{P->val} ou \texttt{P->suiv} avec \texttt{P=NULL} .
+	\end{itemize}
+\end{alertinfo}
+
+
+\section{Questions du TP \large (à faire impérativement)}
+
+Toutes les questions seront testées au fur et à mesure (appels dans le main), comme d'habitude !
+
+
+\subsection{En direct du cours et/ou TD – Listes non triées}
+	\begin{enumerate}
+		\item Déclarer une liste chaînée.
+		\item Écrire la fonction de création d'une liste chaînée par ajout en tête.
+		\item Écrire une fonction d'impression d'une liste chaînée.
+		\item Écrire une fonction qui teste si une liste chaînée est triée.
+		\item Écrire une fonction de suppression de la cellule de tête d'une liste chaînée.
+		\item Écrire une fonction de désallocation d'une liste.
+		\item Tester les fonctions précédentes. Vérifier avec \textit{valgrind} l'absence de fuite mémoire à l'exécution.
+	\end{enumerate}
+
+
+\subsection{Listes triées}
+On va maintenant faire en sorte de maintenir une liste triée \textbf{sans doublon}.
+
+	\begin{enumerate}
+		\item Écrire un algorithme d'insertion d'un entier dans une liste triée par ordre croissant. On ne fera l'insertion que si l'élément n'existe pas déjà dans la liste.
+		\item Écrire une fonction qui permet de créer une liste d'entiers triée par lecture dans un fichier. Les entiers contenus sur le fichier peuvent être négatifs et dans n'importe quel ordre.
+	\end{enumerate}
+
+\section{Questions s’il vous reste du temps}
+Écrire des fonctions pour :
+	\begin{enumerate}
+		\item Tester si une liste quelconque ne contient pas de doublons.
+		\item Faire l'union de deux ensembles (c.a.d., l'union de deux listes sans doublon).
+		\item Faire l'intersection de deux ensembles.
+		\item Transformer une liste quelconque en un ensemble (supprimer les doublons).
+	\end{enumerate}
+\end{document}

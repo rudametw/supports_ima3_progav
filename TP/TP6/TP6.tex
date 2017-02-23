@@ -1,0 +1,254 @@
+\RequirePackage[l2tabu, orthodox]{nag}
+
+%\documentclass[a4paper]{article}
+%\documentclass[final, pdftex, a4paper, 12pt, openbib, ]{article}
+\documentclass[final, pdftex, a4paper, openbib, ]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+%\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+%\usepackage{graphicx}
+\usepackage{alltt}
+\usepackage{float}
+%\usepackage{times}
+%\usepackage{a4wide}
+\usepackage{upquote,textcomp}
+\usepackage{geometry}
+%\usepackage{hyperref}
+\usepackage[
+pdftex,
+final,                      % if you do    want to have clickable-colorful links
+pdfstartview = FitV,
+linktocpage  = false,       % ToC, LoF, LoT place hyperlink on page number, rather than entry text
+breaklinks   = true,        % so long urls are correctly broken across lines
+% pagebackref  = false,     % add page number in bibliography and link to position in document where cited
+]{hyperref}
+\usepackage{mathtools}
+\geometry{a4paper, portrait, margin=2cm}
+%\addtolength{\textheight}{2 cm}
+%\addtolength{\oddsidemargin}{-1cm}
+%\addtolength{\topmargin}{-1cm}
+%\addtolength{\textwidth}{1 cm}
+
+%Good solution for monospaces
+%\usepackage{pxfonts} % Or palatino or mathpazo, changes all fonts to something sans
+%\usepackage{eulervm} % only changes math fonts, i checked
+%\usepackage[ttdefault=true]{AnonymousPro} %Only changes tt fonts
+% WHICH ONE TO CHOOSE?
+\usepackage{pslatex}
+%\usepackage[ttdefault=true]{AnonymousPro} %Only changes tt fonts
+% \usepackage[varg, cmintegrals, cmbraces, ]{newtxtext,newtxmath} % libertine, uprightGreek (U.S.) or slantedGreek (ISO), 
+% \usepackage{tgtermes}
+% \usepackage{txfonts}
+% \usepackage{mathptmx}
+% \usepackage[scaled=.90]{helvet}
+% \usepackage{courier}
+% \usepackage{textcomp}     % required for special glyphs
+% \usepackage{bm}   
+
+
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}% redefines the caption setup of the figures environment in the beamer class.
+
+%Inconsoloata, a little too light.
+%\usepackage{inconsolata}
+%\renewcommand{\ttdefault}{Consolas}
+%\usepackage{fontspec} %Doesn't work with pdflatex
+%\setmonofont{Consolas}
+
+
+
+%\renewcommand*\familydefault{\ttdefault} %% Only if the base font of the document is to be typewriter style
+
+%\newcommand\Fontvi{\fontsize{6}{7.2}\selectfont}
+
+%Make tabularx center cells vertically
+%\def\tabularxcolumn#1{m{#1}}
+%\renewcommand{\tabularxcolumn}[1]{>{\small}m{#1}}
+
+%%Syntax hilighting
+%\usepackage{fancyvrb}
+\usepackage{minted}
+%\usepackage[newfloat]{minted}
+\usemintedstyle{borland}
+%\usepackage{etoolbox}
+%\AtBeginEnvironment{minted}{\singlespacing%
+%	\fontsize{14}{14}\selectfont}
+%\newminted{java}{fontsize=\footnotesize}
+\usepackage{caption}
+
+%\usepackage{multicol}
+%\usepackage{vwcol}
+%\usepackage{lipsum}
+%\usepackage{microtype}
+%\setlength{\columnseprule}{0.4pt}
+%\renewcommand{\columnseprulecolor}{\color{red}}
+\newcommand{\BAD}[1]{{\color{red}#1}}
+\newcommand{\GOOD}[1]{{\color{darkgreen}#1}}
+
+
+\usepackage{graphicx}
+\usepackage{colortbl,array}
+\usepackage{tabularx}
+\definecolor{warningbackground}{RGB}{252,226,158}
+
+\newcommand{\alertwarningbox}[1]{
+    \centering
+    \begin{tabularx}{0.9\linewidth}{
+        >{\columncolor{warningbackground}}c
+        >{\columncolor{warningbackground}}X}
+        \raisebox{\dimexpr2\baselineskip-\height}
+        {\includegraphics[scale=0.8]{attention.pdf}}&
+        \raisebox{\tabcolsep}{\strut}#1\raisebox{-\tabcolsep}{\strut}
+    \end{tabularx}
+}
+
+
+\usepackage{xcolor}
+
+%\definecolor{infobackground}{RGB}{217,237,247}
+%\definecolor{infoforeground}{RGB}{58,135,173}
+%\definecolor{infoborder}{RGB}{188,232,241}
+
+\definecolor{infobackground}{RGB}{217,237,247}
+\definecolor{infoforeground}{RGB}{30,50,70}
+\definecolor{infoborder}{RGB}{30,50,70}
+
+\definecolor{infobackground}{RGB}{217,237,247}
+\definecolor{infoforeground}{RGB}{30, 80, 150}
+\definecolor{infoborder}{RGB}{47, 87, 232}
+
+
+\usepackage{environ}
+\usepackage{tikz}
+\usetikzlibrary{fit,backgrounds,calc}
+
+\NewEnviron{alertinfo}[1]
+{
+\begin{center}
+    \begin{tikzpicture}
+    \node[inner sep=0pt,
+          draw=infoborder,
+          line width=1pt,
+          fill=infobackground] (box) {\parbox[t]{0.99\textwidth}
+        {%
+            \begin{minipage}{.12\textwidth}
+                \centering\tikz[scale=3]
+                \node[scale=1]
+                {
+%                    \includegraphics[scale=0.25]{\images/information.pdf}
+                    \includegraphics[scale=0.15]{\images/information.pdf}                    
+                };
+            \end{minipage}%
+           \begin{minipage}{.86\textwidth}
+%                \vskip 10pt
+                \textbf{\textcolor{infoforeground}{\large #1}}\par\smallskip
+                \textcolor{infoforeground}{\large \BODY}
+                \par\smallskip
+                \par\smallskip
+            \end{minipage}\hfill
+        }%
+    };
+    \end{tikzpicture}
+\end{center}
+}
+
+\usepackage{titling}
+\usepackage{soul}
+
+%\definecolor{Light}{gray}{.96}
+\definecolor{Light}{gray}{.93}
+\sethlcolor{Light}
+\let\OldTexttt\texttt
+\renewcommand{\texttt}[1]{\OldTexttt{\hl{#1}}}
+
+
+\newcommand{\codes}{../codes/TP6}
+\newcommand{\images}{../images}
+
+
+%\title{GBIAAL 4$^{\mbox{\`eme}}$ année \\ Devoir Surveillé --- Base de données \\ 13 janvier 2016  \\ 1 heure}
+\title{IMA 3$^{\mbox{\`eme}}$ année\\ Programmation Avancé
+	%\\TP1 Structures, Listes contiguës, Redirections}
+}
+\author{\huge \textbf{TP6 Debug avec \textit{gdb} et \textit{ddd}}}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+\date{}
+
+
+\begin{document}
+%\vspace{-15cm}
+\posttitle{\par\end{center}}
+\setlength{\droptitle}{-45pt}
+\maketitle
+%\thispagestyle{empty}
+
+%\section{Schéma conceptuel}
+\vspace{-1.7cm}
+\section{Objectifs}
+
+\begin{itemize}
+	\item Découvrir et appliquer les principes du débogage avec \texttt{gdb} et \texttt{ddd}. Utilisation sous emacs.
+\end{itemize}
+
+%\paragraph{Contexte et préparation : } Avant de commencer, récupérez le fichier \url{~wrudamet/public/IMA3/TP6/tp6_gdb.tgz} à la ligne de commande. Désarchivez\footnote{Vous pouvez utiliser la commande \texttt{tar} pour décompresser et désarchivez ce fichier} le dans votre répertoire de \textit{Programmation Avancé} (toujours à la ligne de commande !).
+
+\paragraph{Contexte et préparation : } Avant de commencer, récupérez le fichier \url{~wrudamet/public/IMA3/TP6/tp6_gdb.tgz} à la ligne de commande. Désarchivez le dans votre répertoire de \textit{Programmation Avancé} (vous pouvez utiliser la commande \texttt{tar} pour décompresser et désarchivez ce fichier !).
+
+
+%\begin{alertinfo}{}
+%	\textbf{IMPORTANT :}
+%\end{alertinfo}
+
+\section{Tutoriel \texttt{gdb}}
+
+\textit{Source : Matthieu Moy pour Ensimag}\\
+Ouvrir le fichier \texttt{gdb-tutorial2.c} avec \texttt{emacs} et faire ce tutoriel.
+
+
+\section{Programmes à déboguer}
+
+\subsection{Debug assisté}
+
+\textit{Source : Tanguy Risset pour INSA Lyon}\\
+Le programme contenu dans le source \texttt{buginsa.c} prend en argument un entier \texttt{n}, crée un tableau de taille \texttt{n}, l'initialise puis désalloue le tableau. Mais il « \textit{segfaulte} ». \textbf{Pourquoi} ?
+
+\begin{enumerate}
+	\item Lancez \texttt{gdb} et chargez le binaire.
+	\item Lancez l'exécution avec la valeur 3 comme argument (\texttt{run 3}), repérer la ligne où a lieu l'erreur.
+	\item Afficher la pile d'appels de fonction menant à l'erreur (commande \texttt{backtrace}).
+	\item Tapez \texttt{help breakpoints} pour avoir la liste des commandes permettant d'utiliser les points d'arrêt.\\
+	Mettez un point d'arrêt au début de la fonction de traitement.
+	\item Relancez le programme.
+	\item Lorsque vous êtes arrêté dans la fonction de traitement, mettez une surveillance de la variable \texttt{i} : \\
+	entrez la commande \texttt{watch i} pour afficher \texttt{i} à chaque arrêt.
+	\item Tapez \texttt{cont} pour continuer, surveillez l'exécution jusqu'à ce que vous trouviez le problème.
+\end{enumerate}
+
+
+\subsection{Autres bugs à trouver}
+
+\textit{Source : Antoine Miné pour ENS Ulm}
+
+\begin{enumerate}
+	\item Utilisez l'interface graphique \texttt{ddd} pour trouver et corriger les bugs de \texttt{listsegf.c} et \texttt{list.c}. On utilisera les fonctions de dessin des listes pour regarder leur évolution au cours de l'exécution du programme. Vous pouvez consulter le tutoriel d'utilisation de \texttt{ddd} : \url{http://hiko-seijuro.developpez.com/articles/ddd/}
+	\item Ouvrir le fichier \texttt{exo-bug.c}. Le programme recherche un élément dans un tableau trié de taille \texttt{nb} par dichotomie. Corriger ses 2 bogues. Pour arrêter une exécution avec \texttt{emacs/gdb}, il faut taper \texttt{CTRL-c/CTRL-c} (deux fois).
+\end{enumerate}
+
+
+\section{Questions s’il vous reste du temps}
+
+Trouvez et corrigez le bug de :
+\begin{itemize}
+	\item \texttt{boucle.c}
+	\item \texttt{perror.c}
+	\item \texttt{scan.c}
+	\item \texttt{prime.c}
+\end{itemize}
+
+
+%\section{Annexes}
+%\vspace{-0.5cm}
+
+\end{document}

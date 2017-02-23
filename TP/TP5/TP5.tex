@@ -1,0 +1,248 @@
+\RequirePackage[l2tabu, orthodox]{nag}
+
+%\documentclass[a4paper]{article}
+%\documentclass[final, pdftex, a4paper, 12pt, openbib, ]{article}
+\documentclass[final, pdftex, a4paper, openbib, ]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+%\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+%\usepackage{graphicx}
+\usepackage{alltt}
+\usepackage{float}
+%\usepackage{times}
+%\usepackage{a4wide}
+\usepackage{upquote,textcomp}
+\usepackage{geometry}
+%\usepackage{hyperref}
+\usepackage[
+pdftex,
+final,                      % if you do    want to have clickable-colorful links
+pdfstartview = FitV,
+linktocpage  = false,       % ToC, LoF, LoT place hyperlink on page number, rather than entry text
+breaklinks   = true,        % so long urls are correctly broken across lines
+% pagebackref  = false,     % add page number in bibliography and link to position in document where cited
+]{hyperref}
+\usepackage{mathtools}
+\geometry{a4paper, portrait, margin=2cm}
+%\addtolength{\textheight}{2 cm}
+%\addtolength{\oddsidemargin}{-1cm}
+%\addtolength{\topmargin}{-1cm}
+%\addtolength{\textwidth}{1 cm}
+
+%Good solution for monospaces
+%\usepackage{pxfonts} % Or palatino or mathpazo, changes all fonts to something sans
+%\usepackage{eulervm} % only changes math fonts, i checked
+%\usepackage[ttdefault=true]{AnonymousPro} %Only changes tt fonts
+% WHICH ONE TO CHOOSE?
+\usepackage{pslatex}
+%\usepackage[ttdefault=true]{AnonymousPro} %Only changes tt fonts
+% \usepackage[varg, cmintegrals, cmbraces, ]{newtxtext,newtxmath} % libertine, uprightGreek (U.S.) or slantedGreek (ISO), 
+% \usepackage{tgtermes}
+% \usepackage{txfonts}
+% \usepackage{mathptmx}
+% \usepackage[scaled=.90]{helvet}
+% \usepackage{courier}
+% \usepackage{textcomp}     % required for special glyphs
+% \usepackage{bm}   
+
+
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}% redefines the caption setup of the figures environment in the beamer class.
+
+%Inconsoloata, a little too light.
+%\usepackage{inconsolata}
+%\renewcommand{\ttdefault}{Consolas}
+%\usepackage{fontspec} %Doesn't work with pdflatex
+%\setmonofont{Consolas}
+
+
+
+%\renewcommand*\familydefault{\ttdefault} %% Only if the base font of the document is to be typewriter style
+
+%\newcommand\Fontvi{\fontsize{6}{7.2}\selectfont}
+
+%Make tabularx center cells vertically
+%\def\tabularxcolumn#1{m{#1}}
+%\renewcommand{\tabularxcolumn}[1]{>{\small}m{#1}}
+
+%%Syntax hilighting
+%\usepackage{fancyvrb}
+\usepackage{minted}
+%\usepackage[newfloat]{minted}
+\usemintedstyle{borland}
+%\usepackage{etoolbox}
+%\AtBeginEnvironment{minted}{\singlespacing%
+%	\fontsize{14}{14}\selectfont}
+%\newminted{java}{fontsize=\footnotesize}
+\usepackage{caption}
+
+%\usepackage{multicol}
+%\usepackage{vwcol}
+%\usepackage{lipsum}
+%\usepackage{microtype}
+%\setlength{\columnseprule}{0.4pt}
+%\renewcommand{\columnseprulecolor}{\color{red}}
+\newcommand{\BAD}[1]{{\color{red}#1}}
+\newcommand{\GOOD}[1]{{\color{darkgreen}#1}}
+
+
+\usepackage{graphicx}
+\usepackage{colortbl,array}
+\usepackage{tabularx}
+\definecolor{warningbackground}{RGB}{252,226,158}
+
+\newcommand{\alertwarningbox}[1]{
+    \centering
+    \begin{tabularx}{0.9\linewidth}{
+        >{\columncolor{warningbackground}}c
+        >{\columncolor{warningbackground}}X}
+        \raisebox{\dimexpr2\baselineskip-\height}
+        {\includegraphics[scale=0.8]{attention.pdf}}&
+        \raisebox{\tabcolsep}{\strut}#1\raisebox{-\tabcolsep}{\strut}
+    \end{tabularx}
+}
+
+
+\usepackage{xcolor}
+
+%\definecolor{infobackground}{RGB}{217,237,247}
+%\definecolor{infoforeground}{RGB}{58,135,173}
+%\definecolor{infoborder}{RGB}{188,232,241}
+
+\definecolor{infobackground}{RGB}{217,237,247}
+\definecolor{infoforeground}{RGB}{30,50,70}
+\definecolor{infoborder}{RGB}{30,50,70}
+
+\definecolor{infobackground}{RGB}{217,237,247}
+\definecolor{infoforeground}{RGB}{30, 80, 150}
+\definecolor{infoborder}{RGB}{47, 87, 232}
+
+
+\usepackage{environ}
+\usepackage{tikz}
+\usetikzlibrary{fit,backgrounds,calc}
+
+\NewEnviron{alertinfo}[1]
+{
+\begin{center}
+    \begin{tikzpicture}
+    \node[inner sep=0pt,
+          draw=infoborder,
+          line width=1pt,
+          fill=infobackground] (box) {\parbox[t]{0.99\textwidth}
+        {%
+            \begin{minipage}{.12\textwidth}
+                \centering\tikz[scale=3]
+                \node[scale=1]
+                {
+                    \includegraphics[scale=0.25]{\images/information.pdf}
+%                    \includegraphics[scale=0.15]{\images/information.pdf}                    
+                };
+            \end{minipage}%
+           \begin{minipage}{.86\textwidth}
+%                \vskip 10pt
+                \textbf{\textcolor{infoforeground}{\large #1}}\par\smallskip
+                \textcolor{infoforeground}{\large \BODY}
+                \par\smallskip
+                \par\smallskip
+            \end{minipage}\hfill
+        }%
+    };
+    \end{tikzpicture}
+\end{center}
+}
+
+\usepackage{titling}
+
+
+\newcommand{\codes}{../codes/TP5}
+\newcommand{\images}{../images}
+
+
+%\title{GBIAAL 4$^{\mbox{\`eme}}$ année \\ Devoir Surveillé --- Base de données \\ 13 janvier 2016  \\ 1 heure}
+\title{IMA 3$^{\mbox{\`eme}}$ année\\ Programmation Avancé
+	%\\TP1 Structures, Listes contiguës, Redirections}
+}
+\author{\huge \textbf{TP5 Listes chaînées avec algorithmes récursifs}}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+\date{}
+
+
+\begin{document}
+%\vspace{-15cm}
+\posttitle{\par\end{center}}
+\setlength{\droptitle}{-45pt}
+\maketitle
+%\thispagestyle{empty}
+
+%\section{Schéma conceptuel}
+\vspace{-1.7cm}
+\section{Objectifs}
+
+\begin{itemize}
+	\item Savoir déclarer et construire des listes chaînées en C.
+	\item Savoir reconnaître et implémenter les algorithmes classiques de listes chaînées à l'aide de fonctions récursives.
+\end{itemize}
+
+%\textbf{Contexte et préparation : } Le contexte de ce TP est le même que celui du TP1, à savoir une application de gestion d'annuaire.
+
+\paragraph{Contexte et préparation : } Nous utilisons le même contexte que le TP précédent, mais nous désirons cette fois coder des multiensembles\footnote{\url{https://fr.wikipedia.org/wiki/Multiensemble}}, c'est à dire des ensembles qui peuvent contenir plusieurs fois le même élément.
+
+%\begin{alertinfo}{}
+%	\textbf{IMPORTANT}\\Les 2 principales causes de \textit{segmentation fault} avec les listes chaînées :
+%	\begin{itemize}
+%		\item une liste non initialisée ;
+%		\item un accès à \texttt{P->val} ou \texttt{P->suiv} avec \texttt{P=NULL} .
+%	\end{itemize}
+%\end{alertinfo}
+
+
+\section{Questions du TP \large (à faire impérativement)}
+
+Toutes les questions seront testées au fur et à mesure (appels dans le main), comme d'habitude !
+
+
+\subsection{Copier/coller rapides}
+		
+Récupérer dans le TP précédent le code de :
+	\begin{itemize}
+		\item déclaration d'une liste chaînée d'entier ,
+		\item la fonction d'ajout en tête ,
+		\item la fonction de suppression en tête ,
+		\item la fonction d'impression (affichage) de la liste.
+	\end{itemize}
+
+
+\subsection{Construction d'un multiensemble à partir d'un fichier}
+Un multiensemble sera représenté par une liste de couple \textit{(entier, multiplicité)} : par exemple, si l'entier 3 apparaît 5 fois dans le multiensemble, la liste contiendra une cellule dont le champs valeur sera le couple \texttt{(3,5)}.
+	\begin{enumerate}
+		\item Adapter le code récupéré du TP précédent aux multiensembles.
+		\item Écrire une fonction \textbf{\underline{\textit{récursive}}} d'insertion d'un entier dans un multiensemble trié (par ordre croissant sur les entiers). Si l'élément apparaît dans le multiensemble, on augmente sa multiplicité, sinon, on
+		insère une nouvelle cellule.
+		\item Utiliser cette fonction pour construire un multiensemble à partir d'un fichier d'entiers (les entiers étant rangés dans un ordre quelconque dans le fichier).
+	\end{enumerate}
+
+
+\subsection{Fonctions récursives}
+
+Écrire les foncions récursives suivantes :
+\begin{enumerate}
+	\item Vérifier qu'un multiensemble est trié croissant.
+	\item Détruire un multiensemble (utiliser \textit{valgrind} pour vérifier).
+	\item Rechercher la multiplicité d'un entier donné dans un multiensemble.
+	\item Calculer le cardinal d'un multiensemble\footnote{Par exemple, le cardinal du multi-ensemble où l’entier 3 apparaît 5 fois et l’entier 8 apparaît 2 fois est 7}.
+\end{enumerate}
+
+
+
+\section{Questions s’il vous reste du temps}
+Coder les opérations usuelles sur les multiensembles, c'est à dire :
+	\begin{itemize}
+		\item union,
+		\item intersection,
+		\item différence,
+	\end{itemize}
+en récursif, bien sûr !!!
+\end{document}

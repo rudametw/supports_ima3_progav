@@ -1,0 +1,332 @@
+%\documentclass[12pt,serif]{beamer}
+%\documentclass[tikz,12pt,svgnames]{beamer}
+\documentclass[table,handout,tikz,12pt,svgnames]{beamer}
+\usepackage{CM-preamble}
+\subtitle{\Huge Allocation Dynamique}
+%\date{8 février 2016}
+\date{CM3}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Allocation de mémoire}
+		\begin{block}{Variables automatiques} %Gestion dynamique de la mémoire}
+			\begin{itemize}
+			\item Var de bloc, paramètres
+			\item Crées automatiquement à l'exécution
+			\item Allocation dynamique sur la pile
+			\end{itemize}
+		\end{block}
+		\begin{block}{Variables dynamiques} %Gestion dynamique de la mémoire}
+			\begin{itemize}
+			\item Créées et détruites dynamiquement et explicitement
+			\item Fonctions \texttt{malloc} et \texttt{free}
+			\item Allocation sur le tas (heap)
+			\end{itemize}
+		\end{block}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Erreur d'allocation }
+\begin{minted}[mathescape=true,escapeinside=||,tabsize=4]{c}
+/* À ne pas faire */	
+
+int * allouer_entier() {
+	int var_static ; //allocated on the stack
+	printf("var_static address is : %p\n",
+							  &var_static);
+	return &var_static ;
+}			
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Allocation dynamique --- malloc}
+		\begin{block}{Fonction \texttt{malloc}} %Gestion dynamique de la mémoire}
+			\begin{itemize}
+				\item \texttt{void * malloc (size\_t taille);}
+				\begin{itemize}
+					\item Alloue dynamiquement dans le tas un espace de \texttt{taille} octets
+					\item Résultat : \textit{pointeur non typé} vers la zone allouée
+					\item Pointeur peut être converti automatiquement vers le type désiré (conversion implicite)
+					\item Besoin de \texttt{\#include<stdlib.h>}
+				\end{itemize}
+			\end{itemize}
+		\end{block}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Allocation dynamique --- Exemples}
+		\begin{block}{Allocation dynamique d'un entier} %Gestion dynamique de la mémoire}
+			\begin{minted}[mathescape=true,escapeinside=||,tabsize=4]{c}			
+	int *pt;
+	//pt = (int *) malloc(sizeof(int));
+	pt = malloc(sizeof(int));
+	*pt = 42; //utilisation
+			\end{minted}
+		\end{block}
+		\begin{block}{Allocation dynamique d'un tableau d'entiers}
+%			\begin{itemize}
+			\begin{minted}[mathescape=true,escapeinside=||,tabsize=4]{c}
+	int n; int *pt;
+	scanf("%d", &n);
+	pt = (int *) malloc(n*sizeof(int)); 
+	//Accès
+	*pt = 11;          //premier élément
+	*(pt+1) = 22 ;     //deuxième
+	pt[2] = 33 ;       //troisième
+	*(pt+n-1) = 9876 ; //dernier
+			\end{minted}
+		\end{block}
+\end{frame}
+
+%\begin{frame}[fragile=singleslide]
+%	\frametitle{Allocation dynamique --- Structures}
+%		\begin{block}{} %Gestion dynamique de la mémoire}
+%			\begin{minted}[mathescape=true,escapeinside=||,tabsize=4]{c}	
+%typedef struct {
+%	int j,m,a;
+%} Date;
+%
+%Date *pDate= (Date *) malloc(sizeof(Date));
+%
+%/*ex. utilisation :*/
+%scanf("%d%d%d"&(pDate->j),
+%				   &(pDate->m),
+%				   &(pDate->a));
+%			\end{minted}
+%		\end{block}
+%\end{frame}
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Allocation dynamique --- Structures}
+		\begin{block}{} %Gestion dynamique de la mémoire}
+		\vspace{-0.5cm}
+		\inputminted[
+%		frame=lines,
+%		framesep=2.5mm,
+		baselinestretch=0.7,
+		fontsize=\footnotesize,
+		linenos,
+		tabsize=4,
+%		bgcolor=light-gray
+		]
+		{c}{../codes/struct_declare.c}
+		\end{block}
+\end{frame}
+
+%\begin{frame}[fragile=singleslide]
+%	\frametitle{Allocation dynamique --- Structures}
+%		\begin{block}{Tableau de structures} %Gestion dynamique de la mémoire}
+%			\begin{minted}[mathescape=true,escapeinside=||,tabsize=2]{c}
+%	int n; Date *pt; /*variables*/
+%	scanf("%d", &n); /*taille du tableau*/
+%	
+%	/*pt = (Date *) malloc( n * sizeof(Date));*/
+%	pt = malloc( n * sizeof *pt);
+%	
+%	/*utilisation:*/
+%	scanf("%d%d%d", &(pt[0].j), &pt[0].m, &pt[0].a);
+%
+%	printf("Date %d/%d/%d\n", pt[0].j,
+%													  pt[0].m,
+%													  pt[0].a);
+%	free(pt); pt = NULL;
+%			\end{minted}
+%		\end{block}
+%\end{frame}
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Allocation dynamique --- Structures}
+		\begin{block}{Tableau de structures} %Gestion dynamique de la mémoire}
+%		\vspace{-0.5cm}
+		\inputminted[
+%		frame=lines,
+%		framesep=2.5mm,
+%		baselinestretch=0.8,
+		fontsize=\small,
+%		linenos,
+		tabsize=2,
+		firstline=16,lastline=27
+%		bgcolor=light-gray
+		]
+		{c}{../codes/struct_declare_array.c}
+		\end{block}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Allocation dynamique --- Liste contiguë}
+%		\begin{block}{}
+%		\vspace{-0.5cm}
+		\inputminted[
+%		frame=lines,
+%		framesep=2.5mm,
+%		baselinestretch=0.8,
+		fontsize=\small,
+%		linenos,
+		tabsize=2,
+		firstline=14,lastline=28
+%		bgcolor=light-gray
+		]
+		{c}{../codes/alloc_listes_double_pointer.c}
+%		\end{block}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Allocation dynamique --- Liste contiguë}
+%		\begin{block}{}
+%		\vspace{-0.5cm}
+		\inputminted[
+%		frame=lines,
+%		framesep=2.5mm,
+%		baselinestretch=0.8,
+		fontsize=\small,
+%		linenos,
+		tabsize=2,
+		firstline=44,lastline=58
+%		bgcolor=light-gray
+		]
+		{c}{../codes/alloc_listes_double_pointer.c}
+%		\end{block}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Fonction \texttt{free}}
+	\begin{block}{} %Gestion dynamique de la mémoire}
+		\begin{itemize}
+			\item \texttt{void free(void *ptr);}
+			\begin{itemize}
+				\item libère l'espace mémoire pointé par \texttt{ptr} (précédemment 
+				alloué)
+			\end{itemize}
+		\end{itemize}
+	\end{block}
+	\begin{block}{}
+		\begin{itemize}
+			\item Exemple d'utilisation:\\\textit{Suppression du dernier élément de la liste}
+		\end{itemize}
+		\begin{minted}[mathescape=true,escapeinside=||,tabsize=4]{c}			
+		free(l.espace[l.dernier]);
+		l.dernier -= 1;
+		\end{minted}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Listes chaînées --- Implantation en C}
+%		\begin{block}{}
+%		\vspace{-0.5cm}
+		\inputminted[
+%		frame=lines,
+%		framesep=2.5mm,
+%		baselinestretch=0.8,
+		fontsize=\small,
+%		linenos,
+		tabsize=2,
+		firstline=4,lastline=10
+%		bgcolor=light-gray
+		]
+		{c}{../codes/alloc_implantation.c}
+%		\end{block}
+	\vspace{-0.9cm} \begin{center} \noindent\makebox[\linewidth]{\line(2,0){500}} \end{center}  \vspace{-0.7cm}
+		\inputminted[
+%		frame=lines,
+%		framesep=2.5mm,
+%		baselinestretch=0.8,
+		fontsize=\small,
+%		linenos,
+		tabsize=2,
+		firstline=13,lastline=14
+		]
+		{c}{../codes/alloc_implantation.c}
+	\vspace{-0.9cm} \begin{center} \noindent\makebox[\linewidth]{\line(2,0){500}} \end{center}  \vspace{-0.7cm}
+		\inputminted[
+%		frame=lines,
+%		framesep=2.5mm,
+%		baselinestretch=0.8,
+		fontsize=\small,
+%		linenos,
+		tabsize=2,
+		firstline=16,lastline=20
+		]
+		{c}{../codes/alloc_implantation.c}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Listes chaînées --- Implantation en C}
+%		\begin{block}{}
+%		\vspace{-0.5cm}
+		\inputminted[
+%		frame=lines,
+%		framesep=2.5mm,
+%		baselinestretch=0.8,
+		fontsize=\small,
+%		linenos,
+		tabsize=2,
+		firstline=29,lastline=32
+%		bgcolor=light-gray
+		]
+		{c}{../codes/alloc_implantation.c}
+%		\end{block}
+		\begin{center} \noindent\makebox[\linewidth]{\line(2,0){500}} \end{center} 
+		\inputminted[
+%		frame=lines,
+%		framesep=2.5mm,
+%		baselinestretch=0.8,
+		fontsize=\small,
+%		linenos,
+		tabsize=2,
+		firstline=35,lastline=39
+		]
+		{c}{../codes/alloc_implantation.c}
++\end{frame}
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Listes chaînées --- Recherche d'un élément}
+		\inputminted[
+%		frame=lines,
+%		framesep=2.5mm,
+%		baselinestretch=0.8,
+%		fontsize=\small,
+%		linenos,
+		tabsize=4,
+		firstline=44,lastline=54
+		]
+		{c}{../codes/alloc_implantation.c}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Listes chaînées --- Exemple: ajout en tête}
+		\inputminted[
+%		frame=lines,
+%		framesep=2.5mm,
+%		baselinestretch=0.8,
+%		fontsize=\small,
+%		linenos,
+		tabsize=4,
+		firstline=57,lastline=73
+		]
+		{c}{../codes/alloc_implantation.c}
+\end{frame}
+%
+%\begin{frame}
+%\huge \center END
+%\end{frame}
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % %
+% END
+% % % % % % % % % % % % % % % % % % % % % % % % % % %
+\end{document}
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % %
+% END
+% % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+	\vspace{-0.9cm} \begin{center} \noindent\makebox[\linewidth]{\line(2,0){500}} \end{center}  \vspace{-0.7cm}
+	\vspace{-0.9cm} \begin{center} \noindent\makebox[\linewidth]{\rule{\paperwidth}{1.5pt}}  \end{center}  \vspace{-0.7cm}	

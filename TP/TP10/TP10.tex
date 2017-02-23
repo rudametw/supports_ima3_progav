@@ -1,0 +1,263 @@
+\RequirePackage[l2tabu, orthodox]{nag}
+
+%\documentclass[a4paper]{article}
+%\documentclass[final, pdftex, a4paper, 12pt, openbib, ]{article}
+\documentclass[final, pdftex, a4paper, openbib, ]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+%\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+%\usepackage{graphicx}
+\usepackage{alltt}
+\usepackage{float}
+%\usepackage{times}
+%\usepackage{a4wide}
+\usepackage{upquote,textcomp}
+\usepackage{geometry}
+%\usepackage{hyperref}
+\usepackage[
+pdftex,
+final,                      % if you do    want to have clickable-colorful links
+pdfstartview = FitV,
+linktocpage  = false,       % ToC, LoF, LoT place hyperlink on page number, rather than entry text
+breaklinks   = true,        % so long urls are correctly broken across lines
+% pagebackref  = false,     % add page number in bibliography and link to position in document where cited
+]{hyperref}
+\usepackage{mathtools}
+\geometry{a4paper, portrait, margin=2cm}
+%\addtolength{\textheight}{2 cm}
+%\addtolength{\oddsidemargin}{-1cm}
+%\addtolength{\topmargin}{-1cm}
+%\addtolength{\textwidth}{1 cm}
+
+%Good solution for monospaces
+%\usepackage{pxfonts} % Or palatino or mathpazo, changes all fonts to something sans
+%\usepackage{eulervm} % only changes math fonts, i checked
+%\usepackage[ttdefault=true]{AnonymousPro} %Only changes tt fonts
+% WHICH ONE TO CHOOSE?
+\usepackage{pslatex}
+%\usepackage[ttdefault=true]{AnonymousPro} %Only changes tt fonts
+% \usepackage[varg, cmintegrals, cmbraces, ]{newtxtext,newtxmath} % libertine, uprightGreek (U.S.) or slantedGreek (ISO), 
+% \usepackage{tgtermes}
+% \usepackage{txfonts}
+% \usepackage{mathptmx}
+% \usepackage[scaled=.90]{helvet}
+% \usepackage{courier}
+% \usepackage{textcomp}     % required for special glyphs
+% \usepackage{bm}   
+
+
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}% redefines the caption setup of the figures environment in the beamer class.
+
+%Inconsoloata, a little too light.
+%\usepackage{inconsolata}
+%\renewcommand{\ttdefault}{Consolas}
+%\usepackage{fontspec} %Doesn't work with pdflatex
+%\setmonofont{Consolas}
+
+
+
+%\renewcommand*\familydefault{\ttdefault} %% Only if the base font of the document is to be typewriter style
+
+%\newcommand\Fontvi{\fontsize{6}{7.2}\selectfont}
+
+%Make tabularx center cells vertically
+%\def\tabularxcolumn#1{m{#1}}
+%\renewcommand{\tabularxcolumn}[1]{>{\small}m{#1}}
+
+%%Syntax hilighting
+%\usepackage{fancyvrb}
+\usepackage{minted}
+%\usepackage[newfloat]{minted}
+\usemintedstyle{borland}
+%\usepackage{etoolbox}
+%\AtBeginEnvironment{minted}{\singlespacing%
+%	\fontsize{14}{14}\selectfont}
+%\newminted{java}{fontsize=\footnotesize}
+\usepackage{caption}
+
+%\usepackage{multicol}
+%\usepackage{vwcol}
+%\usepackage{lipsum}
+%\usepackage{microtype}
+%\setlength{\columnseprule}{0.4pt}
+%\renewcommand{\columnseprulecolor}{\color{red}}
+\newcommand{\BAD}[1]{{\color{red}#1}}
+\newcommand{\GOOD}[1]{{\color{darkgreen}#1}}
+
+
+\usepackage{graphicx}
+\usepackage{colortbl,array}
+\usepackage{tabularx}
+\definecolor{warningbackground}{RGB}{252,226,158}
+
+\newcommand{\alertwarningbox}[1]{
+    \centering
+    \begin{tabularx}{0.9\linewidth}{
+        >{\columncolor{warningbackground}}c
+        >{\columncolor{warningbackground}}X}
+        \raisebox{\dimexpr2\baselineskip-\height}
+        {\includegraphics[scale=0.8]{attention.pdf}}&
+        \raisebox{\tabcolsep}{\strut}#1\raisebox{-\tabcolsep}{\strut}
+    \end{tabularx}
+}
+
+
+\usepackage{xcolor}
+
+%\definecolor{infobackground}{RGB}{217,237,247}
+%\definecolor{infoforeground}{RGB}{58,135,173}
+%\definecolor{infoborder}{RGB}{188,232,241}
+
+\definecolor{infobackground}{RGB}{217,237,247}
+\definecolor{infoforeground}{RGB}{30,50,70}
+\definecolor{infoborder}{RGB}{30,50,70}
+
+\definecolor{infobackground}{RGB}{217,237,247}
+\definecolor{infoforeground}{RGB}{30, 80, 150}
+\definecolor{infoborder}{RGB}{47, 87, 232}
+
+
+\usepackage{environ}
+\usepackage{tikz}
+\usetikzlibrary{fit,backgrounds,calc}
+
+\NewEnviron{alertinfo}[1]
+{
+\begin{center}
+    \begin{tikzpicture}
+    \node[inner sep=0pt,
+          draw=infoborder,
+          line width=1pt,
+          fill=infobackground] (box) {\parbox[t]{0.99\textwidth}
+        {%
+            \begin{minipage}{.12\textwidth}
+                \centering\tikz[scale=3]
+                \node[scale=1]
+                {
+%                    \includegrapTable de hachage, utilisation de bibliothèque
+hics[scale=0.25]{\images/information.pdf}
+                    \includegraphics[scale=0.15]{\images/information.pdf}                    
+                };
+            \end{minipage}%
+           \begin{minipage}{.86\textwidth}
+%                \vskip 10pt
+                \textbf{\textcolor{infoforeground}{\large #1}}\par\smallskip
+                \textcolor{infoforeground}{\large \BODY}
+                \par\smallskip
+                \par\smallskip
+            \end{minipage}\hfill
+        }%
+    };
+    \end{tikzpicture}
+\end{center}
+}
+
+\usepackage{titling}
+\usepackage{soul}
+
+\definecolor{Light}{gray}{.92}
+\sethlcolor{Light}
+\let\OldTexttt\texttt	
+\renewcommand{\texttt}[1]{\OldTexttt{\hl{#1}}}
+
+\newcommand{\codes}{../codes/TP9}
+\newcommand{\images}{../images}
+
+%\title{GBIAAL 4$^{\mbox{\`eme}}$ année \\ Devoir Surveillé --- Base de données \\ 13 janvier 2016  \\ 1 heure}
+\title{IMA 3$^{\mbox{\`eme}}$ année\\ Programmation Avancé
+	%\\TP1 Structures, Listes contiguës, Redirections}
+}
+\author{\huge \textbf{TP10 Un peu de généricité}\\
+		\huge \textbf{et fonctions à nb variable d'arguments}}
+\author{\huge \textbf{TP10}\\
+	\LARGE \textbf{Un peu de généricité et fonctions à nombre variable d'arguments}}	
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+\date{}
+
+
+\begin{document}
+%\vspace{-15cm}
+\posttitle{\par\end{center}}
+\setlength{\droptitle}{-45pt}
+\maketitle
+%\thispagestyle{empty}
+
+%\section{Schéma conceptuel}
+\vspace{-1cm}
+\section{Objectifs}
+
+\begin{itemize}
+	\item Savoir passer une fonction en paramètre
+	\item Savoir utiliser les \texttt{void *}
+\end{itemize}
+On écrira un fichier \texttt{.c} par exercice.
+
+%\paragraph{Contexte et préparation : }
+
+%\begin{alertinfo}{}
+%	\textbf{IMPORTANT : Ce TP sera réutilisé dans le futur. Il servira d'inspiration pour le TP8 et votre librairie sera entièrement repris pour le TP9}
+%\end{alertinfo}
+
+\section{Passer une fonction en paramètre}
+
+Pour rendre générique des fonctions (e.g., traitement des nœuds d'un arbre binaire lors d'un parcours), on peut passer des fonctions en paramètre d'autres fonctions.
+On pourra se référer par exemple au document \url{http://www.newty.de/ftp/zip/f_fpt.pdf} (section2, parti C uniquement)
+
+
+\subsection{Exo1 : utilisation simple}
+\begin{enumerate}
+	\item Écrire une fonction \texttt{fois\_deux} qui retourne un entier égal au double de l'entier passé en paramètre.\\
+	Quelle est la signature de cette fonction ?
+	\item Écrire une fonction \texttt{appliquer\_tableau(int f(int), int t[], int size)} qui applique la fonction \texttt{f} à chacun des éléments du tableau \texttt{t}.
+	
+%	\item Tester dans le main :\\
+%	\texttt{int tab[]=\{1,2,3,4\} ;}\\
+%	\texttt{appliquer\_tableau(fois\_deux, tab, 4) ;}
+	
+	\item Tester dans le main :
+	\begin{minted}[mathescape=true,escapeinside=||,tabsize=4,
+	%fontsize=\footnotesize,
+	]{c}
+	int tab[]={1,2,3,4} ;
+	appliquer_tableau(fois_deux, tab, 4) ;
+	\end{minted}	
+\end{enumerate}
+
+
+\subsection{Exo2 : modifier la fonction de comparaison d'un tri d'entiers}
+\begin{enumerate}
+	\item Récupérer dans vos codes de TP précédents un tri de tableau d'entiers.
+	\item Que faut-il modifier pour faire un tri décroissant ?
+	\item Écrire une fonction \texttt{superieur(int a, int b)} qui renvoie \texttt{1} si \texttt{a} est strictement supérieur à \texttt{b}, \texttt{0} si \texttt{a=b}, \texttt{-1}	sinon.
+	\item Ecrire une fonction inferieur sur le même principe.
+	\item Rendre votre fonction de tri générique en passant une fonction \texttt{compare} en paramètre.
+	\item Tester dans le main.
+\end{enumerate}
+
+
+\section{Faire de la généricité}
+
+La généricité d'une fonction repose sur son indépendance vis-à-vis du type, et éventuellement du nombre de ses arguments.
+C'est un concept important car il permet d'augmenter le niveau d'abstraction du langage\footnote{\url{https://fr.wikipedia.org/wiki/Généricité}}.
+
+\subsection{Exo3 : utilisation de qsort}
+
+La \texttt{libc} fournit une fonction de tri générique sur n'importe quel tableau (entiers, de caractères, ...) pourvu qu'on lui passe la fonction de comparaison en paramètre.
+
+\begin{enumerate}
+	\item Consulter le manuel de la fonction \texttt{qsort} (commande \texttt{man}).\\
+	Note : \texttt{const} signifie que l'argument n'est pas modifié dans la fonction.\\
+	A votre avis, à quoi correspondent les \texttt{void *} ?
+	\item Utiliser cette fonction pour trier un tableau d'entier en utilisant la fonction \texttt{compare} de l'exercice précédent.
+	On modifiera la fonction pour qu'elle ait le bon type :
+	\texttt{int compare (const void * pa, const void * pb)}
+	\item Utiliser cette fonction pour trier un tableau de chaînes de caractères en utilisant \texttt{strcmp}.
+\end{enumerate}
+
+
+
+\end{document}
+
