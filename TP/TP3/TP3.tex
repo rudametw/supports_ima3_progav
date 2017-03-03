@@ -194,27 +194,33 @@ breaklinks   = true,        % so long urls are correctly broken across lines
 
 \begin{alertinfo}{}
 	\textbf{IMPORTANT :} Ce TP est assez court, assurez-vous que vous comprenez bien pourquoi vos programmes
-	fonctionnent (ou pas !).
+	fonctionnent (ou pas !).\\ \\
+	Pour minimiser les risques de faire planter votre PC, lancez votre programme en utilisant la plus faible priorité possible avec les commandes \texttt{ionice} et \texttt{nice}.\\
+	E.g., \texttt{ionice -c3 nice -n19 ./programme}
 \end{alertinfo}
 
 
 \section{Questions du TP \large (à faire impérativement)}
 
-Toutes les questions seront testées au fur et à mesure (appels dans le main), comme d'habitude !
+Toutes les questions sont à tester au fur et à mesure (appels dans le main), comme d'habitude !
 
 
 \subsection{Allocation statique vs dynamique}
 \begin{enumerate}
-	\item Dans un fichier \texttt{alloc\_statique.c} déclarer et initialiser une matrice d'entiers \texttt{M} de taille \texttt{SIZE*SIZE} avec \texttt{SIZE} constante (égale à 400 par exemple), et \texttt{M[i][j]=i+j}. Compiler et tester. Augmenter la taille et observer les limites de l'allocation sur la pile.
-	\item Dans le même fichier, déclarer maintenant la matrice \texttt{M} comme variable globale, et tester les limites d'allocation dans la zone de données.
+	\item Dans un fichier \texttt{alloc\_statique.c} déclarer une fonction avec une matrice d'entiers \texttt{M} de taille \texttt{SIZE*SIZE} avec \texttt{SIZE} constante (par exemple, égale à 400 pour commencer), et initialiser la matrice tel que \texttt{M[i][j]=i+j}.
+	Compiler et tester. Augmenter la constante \texttt{SIZE} et observer les limites de l'allocation sur la pile.
+	Noter à quelle taille votre code cesse de fonctionner, et à combien de bytes/kilobytes cela correspond.
+	\item Dans le même fichier, déclarer maintenant la matrice \texttt{M} comme variable globale, et tester les limites d'allocation dans la zone de données. Donner les limites.
 	\item Dans un fichier \texttt{alloc\_dynamique.c}, déclarer \texttt{(int *v)}, allouer et initialiser un vecteur de \texttt{SIZE} entiers.
-	\item Dans le fichier \texttt{alloc\_dynamique.c}, déclarer \texttt{(int **mat)}, allouer et initialiser une matrice de taille \texttt{SIZE*SIZE} : la matrice est un \textit{vecteur de vecteur}.
+	\item Dans le fichier \texttt{alloc\_dynamique.c}, déclarer \texttt{(int **mat)}, allouer et initialiser une matrice de taille \texttt{SIZE*SIZE} : la matrice est un \textit{vecteur de vecteurs}.
+	Pour faciliter ces allocations, vous pouvez utiliser un boucle qui alloue un vecteur à chaque itération et l'assigne à la matrice.
 	\item Tester les limites d'allocation sur le tas en affichant le total de la taille mémoire allouée la première
 	fois que \texttt{malloc} retourne \texttt{NULL}.
-	\item Désallouer proprement la matrice. Vérifier qu'il n'y a pas de fuite mémoire avec l'utilitaire \textit{valgrind}.
+	Pour trouver les limites, changer la taille des vecteurs (par exemple, allouez 1 mégaoctet par itération, 10 mégaoctets par itération, 100 mégaoctets par itération, 1 gigaoctet par itération, ...).
+	\item Désallouer proprement la matrice. Vérifier qu'il n'y a pas de fuite mémoire avec l'utilitaire \textit{valgrind}\footnote{Regardez la documentation pour apprendre à utiliser valgrind \url{http://valgrind.org/docs/manual/quick-start.html\#quick-start.intro}}.
 \end{enumerate}
 
-
+\pagebreak
 \subsection{Realloc \small \textit{(Un exercice de F. Boulier pour GIS)}}
 Le programme suivant lit une chaîne de caractères au clavier et l'imprime sur la sortie standard.
 
