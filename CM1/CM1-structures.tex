@@ -137,7 +137,7 @@
 |\underline{fonction}| plus(c1,c2) : Complexe
 	|\underline{donnees}|: c1,c2: Complexe
 	|\underline{locales}|: c: Complexe
-	c.reelle:=c1.reelle+c2.reelle
+	c.reelle := c1.reelle + c2.reelle
 	c.imag := c1.imag + c2.imag
 	résultat: c
 |\underline{finfonction}|
@@ -160,7 +160,7 @@ c3 := plus(c1,c2)
 		\begin{block}{}
 			\item Le types des champs est quelconque
 			\begin{itemize}
-				\item Même des structures
+				\item Ils peuvent même être des structures
 			\end{itemize}
 			\begin{minted}[
 			mathescape=true,
@@ -238,7 +238,7 @@ F: Fiche
 	\vspace{-0.2cm} \myline \vspace{-1.2cm}
 	\begin{block}{}
 		\begin{minted}[mathescape=true,	escapeinside=||,]{c}
-//Accés
+//Accès
 locations : vecteur[N] de Fiche
 f: Fiche ; f |$\leftarrow$| locations[3]
     |$\Rightarrow$| f.date: Date |$\Rightarrow$| f.date.jour: Entier
@@ -274,7 +274,7 @@ f: Fiche ; f |$\leftarrow$| locations[3]
 		\end{block}
 		où:
 		\item \texttt{<désignateur>} est le nom (facultatif) du modèle
-		\item \texttt{<declarations de champ>} comme des déclarations de var mais sans init
+		\item \texttt{<declarations de champ>} comme des déclarations de var mais sans initialisation
 	\end{itemize}
 \end{frame}
 
@@ -338,7 +338,7 @@ struct complexe c3;
 			]{c} 
 typedef <un_type> <synonyme_du_type>
 			\end{minted}
-			\texttt{<un\_type>} à la même syntaxe qu'une déclaration de variable, et  \texttt{<synonyme\_du\_type>} désigne le nouveau nom du type
+			\texttt{<un\_type>} a la même syntaxe qu'une déclaration de variable, et  \texttt{<synonyme\_du\_type>} désigne le nouveau nom du type
 		\end{block}
 		\vspace{-0.3cm}
 		\begin{block}{}
@@ -477,6 +477,7 @@ sizeof(Date); /* taille de la structure Date = 3*sizeof(int) */
 			]{c} 
 d1.jour = d2.jour;
 scanf("%d",&d2.jour);
+/* équivalent à scanf("%d", &(d2.jour)); */
 			\end{minted}				
 		\end{block}
 	\end{itemize}
@@ -634,7 +635,8 @@ Ouvrage x,y; //variables
 		\begin{block}{}
 			\item \texttt{y.titre = x.titre    } {\includegraphics[scale=0.40]{../common-images/attention.pdf}} \BAD{IMPOSSIBLE} 
 			\begin{itemize}
-				\item Utilisez les fonctions de C dédiés : \texttt{strcpy, strncpy, strncat, \ldots}
+				\item Copiez les caractères un par un
+				\item Ou utilisez les fonctions de C dédiés : \texttt{strcpy, strncpy, strncat, \ldots}
 			\end{itemize}
 			\vspace{0.5cm}
 			\begin{adjustwidth}{-1.6em}{-1.5em}
@@ -699,7 +701,7 @@ Fiche f = {{23,"H. Potter"}, {12,5,2006}}; //C99
 	\vspace{-0.7cm}
 	\begin{itemize}
 		\begin{block}{}
-			\item Utilisation pareil que les tableaux "normales"
+			\item Utilisation similaire aux tableaux "normaux"
 %			\item \texttt{f.emprunt.titre} de type \texttt{char []}
 		\end{block}
 %	\vspace{.3cm}
@@ -728,8 +730,8 @@ tableau_fiches[1]=f2; tableau_fiches[2]=f3;
 			\end{adjustwidth}
 	\begin{itemize}
 		\begin{block}{Accès aux champs}
-			\item \texttt{tableau\_fiches[2].date.mois)} de type \texttt{int}
-			\item \texttt{tableau\_fiches[0].emprunt.titre)} de type \texttt{char []}
+			\item \texttt{tableau\_fiches[2].date.mois} de type \texttt{int}
+			\item \texttt{tableau\_fiches[0].emprunt.titre} de type \texttt{char []}
 		\end{block}
 	\end{itemize}
 \end{frame}
@@ -739,7 +741,7 @@ tableau_fiches[1]=f2; tableau_fiches[2]=f3;
 	\vspace{-0.7cm}
 	\begin{itemize}
 		\begin{block}{}
-			\item Toujours pareil que les tableaux "normales"
+			\item Toujours pareil que pour les tableaux "normaux"
 		\end{block}
 %	\vspace{.3cm}
 	\end{itemize}
@@ -764,11 +766,11 @@ Fiche tableau_fiches [3] = {
 	\vspace{-0.7cm}
 	\begin{itemize}
 		\begin{block}{}
-			\item Attention aux accolades, initialisation des sous structures et tableaux en nécessitent aussi !
-			\item Ça ne marche QUE si on définit et initialise les variables d'un coup
+			\item Attention aux accolades, l'initialisation des sous structures et tableaux en nécessite aussi !
+			\item Ça ne marche QUE si on définit et initialise toutes les variables d'un coup
 		\end{block}
 		\begin{block}{Astuce}
-			\item En créer des fonctions utilitaires qui prennent des valeurs en paramètre et renvoient des structures
+			\item Créer des fonctions utilitaires qui prennent des valeurs en paramètre et renvoient des structures
 		\end{block}
 	\end{itemize}
 \end{frame}
@@ -780,7 +782,7 @@ Fiche tableau_fiches [3] = {
 		\begin{block}{}
 			\item \textit{Passage par valeur} (données)
 			\begin{itemize}
-			\item L'affectation entre structures étant possible, leur passage par valeur également ainsi qu'en résultat de fonction.
+			\item L'affectation entre structures étant possible, le passage par valeur ou en tant que résultat de fonction l'est aussi.
 			\end{itemize}
 		\end{block}
 	\vspace{.3cm}	

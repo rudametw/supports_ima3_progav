@@ -16,10 +16,10 @@
 	\frametitle{Structures de Données}
 		\begin{block}{Représentation de collections d'informations en fonction de :}
 			\begin{itemize}
-			\item traitements privilégiés à effectuer
+			\item traitements à privilégier
 			\item contraintes
 			\begin{itemize}
-				\item espace / temps
+				\item espace disponible / temps d'éxecution
 				\item outils disponibles (selon les différents langages)
 			\end{itemize}
 			\item propriétés
@@ -34,7 +34,7 @@
 
 \begin{frame}[fragile=singleslide]
 	\frametitle{Structures de Données}
-	\begin{block}{Traitements types}
+	\begin{block}{Traitements typiques}
 		\begin{itemize}
 			\item Tris
 			\item Recherche d'informations
@@ -179,8 +179,9 @@
 
 \begin{frame}[fragile=singleslide]
 	\frametitle{Les listes contiguës --- Recherche}
-%	\begin{block}{Soit \texttt{N} le nombre d'éléments de la liste}
-%	\end{block}
+	\begin{block}{}
+        Soit \texttt{N} le nombre d'éléments de la liste
+	\end{block}
 	\begin{block}{Par position}
 		\begin{itemize}
 			\item Accès direct en temps constant : Coût = 1
@@ -205,8 +206,8 @@
 				\end{itemize}
 			\end{itemize}
 	\end{block}
-	\begin{block}{Soit \texttt{N} le nombre d'éléments de la liste}
-	\end{block}
+	% \begin{block}{Soit \texttt{N} le nombre d'éléments de la liste}
+	% \end{block}
 \end{frame}
 
 
@@ -256,14 +257,14 @@
 		\begin{itemize}
 			\item Éléments rangés n'importe où en mémoire\\
 			\ldots dans des cellules mémoire gérées dynamiquement\\
-			\ldots repérées par pointeur
+			\ldots repérées par des pointeurs
 		\end{itemize}
 	\end{block}
 	\begin{block}{Chaînées}
 		\begin{itemize}
 			\item Chaque cellule repère la cellule suivante
-			\item Pointeur sur la première cellule définit la liste
-			\item Dernière cellule ne repère aucune cellule : pointeur \texttt{NULL}
+			\item Un pointeur sur la première cellule définit la liste
+			\item La dernière cellule ne repère aucune cellule : pointeur \texttt{NULL}
 			\item \texttt{NULL} = valeur de la liste vide
 		\end{itemize}
 	\end{block}
@@ -311,7 +312,7 @@ l : Liste_chaînée
 	\frametitle{Les listes chaînées :\\ Gestion dynamique des cellules}
 	\begin{block}{} %Notation algorithmique sur les pointeurs}
 		\begin{itemize}
-			\item \texttt{\underline{Fonction} allouer () : Ptcellule}
+			\item \texttt{\underline{Fonction} allouer() : Ptcellule}
 			\begin{itemize}
 				\item Fonction qui alloue dynamiquement une cellule 
 				\item Résultat : pointeur sur la cellule allouée
@@ -332,13 +333,14 @@ l : Liste_chaînée
 		\begin{itemize}
 			\item Par position
 			\begin{itemize}
-				\item Parcours du chaînage jusqu'au kième (coût = k)
+				\item Parcours du chaînage jusqu'au kième élément \\
+                (coût = k)
 			\end{itemize}
 			\item Par valeur
 			\begin{itemize}
 				\item Séquentielle (coût min : 1, max : N)
 				\item Séquentielle ordonnée (coût min : 1, max : N)
-				\item Pas de dichotomie
+				\item Pas de dichotomie possible
 			\end{itemize}
 		\end{itemize}
 	\end{block}
@@ -381,7 +383,7 @@ l : Liste_chaînée
 %			\item Ajout / Suppression de cellules
 			\item Modification locale du chaînage
 			\begin{itemize}
-				\item Pas de décalage de cellules
+				\item Pas besoin de décalage de cellules
 			\end{itemize}
 		\end{itemize}
 		\item Coût : constant \small(quelques affectations de pointeurs)
@@ -415,7 +417,7 @@ l : Liste_chaînée
 |\underline{Faction}|
 		\end{minted}
 	\end{block}
-	\begin{block}{Cas limite: liste vide}\end{block}	
+	\begin{block}{Cas limite : liste vide}\end{block}	
 \end{frame}
 
 \begin{frame}[fragile=singleslide]

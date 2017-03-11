@@ -24,8 +24,8 @@ l.dernier = -1;
 scanf("%d", &n); //nb de pointeurs à Date
 
 l.espace = malloc (n * sizeof *l.espace);
-//Alternative
-l.espace = (PtDate *) malloc (n * sizeof (PtDate));
+/* Alternative
+l.espace = (PtDate *) malloc (n * sizeof (PtDate)); */
 
 printf("\nSizeof : %lu %lu %lu %lu\n", sizeof l.espace,sizeof *l.espace, sizeof **l.espace, sizeof (PtDate));
 /*printf("Address : %p %d %d %p\n", l.espace,(l.espace[0]->j),((*l.espace)->j),(&l.espace));*/
@@ -50,7 +50,7 @@ for(int i=0 ; i<n ; i++){
 	l.espace[l.dernier]->m=i;
 	l.espace[l.dernier]->a=i;
 }
-printf("\nDernier date: %d\n", l.dernier);
+printf("\nIndice du dernier : %d\n", l.dernier);
 for(int i=0 ; i<=l.dernier ; i++){
 	printf("Date[%d] %d/%d/%d\n",i,l.espace[i]->j,
                                  l.espace[i]->m,

@@ -35,7 +35,7 @@
 		\end{itemize}
 		\item Je commence à enseigner
 		\begin{itemize}
-			\item J'accepte des critiques (constructifs) et surtout des recommandations
+			\item J'accepte des critiques (constructives) et surtout des recommandations
 			\item N'hésitez pas à poser des questions
 		\end{itemize}
 	\end{itemize}
@@ -44,7 +44,7 @@
 
 \begin{frame}
 	\frametitle{Remarque}
-	\Large Ce cours est très très très largement inspirés (i.e., copié) de ceux de Nathalie Devesa (MdC Polytech'Lille), qui à son tour s'est inspiré de Bernard Carré et de Laure Gonnord.
+	\Large Ce cours est très très très largement inspiré (i.e., copié) de ceux de Nathalie Devesa (MdC Polytech'Lille), qui à son tour s'est inspiré de Bernard Carré et de Laure Gonnord.
 \end{frame}
 
 \begin{frame}
@@ -184,7 +184,7 @@
 	]
 	{c}{../codes/size_ofs_output.txt}
 %	\captionof{listing}{Output of size\_ofs.c}
-	\vspace{-0.5cm} \center \small  Output of \texttt{size\_ofs.c}
+    \vspace{-0.5cm} \center \small Sortie de \texttt{size\_ofs.c} (exemple)
 \end{frame}
 
 \begin{frame}
@@ -230,24 +230,24 @@
 					linenos
 			]{c}
 void main() {   
-  int*    x;  // Allouer les pointeurs en mémoire 
+  int*    x;  // Alloue les pointeurs en mémoire 
   int*    y;  // (mais pas les valeurs pointés)
 
   x = malloc(sizeof(int));
-      // Allouer un entier (valeur pointé),
-      // et faites pointer x sur cette espace
+      // Alloue un entier (valeur pointé),
+      // et fait pointer x sur cette espace
     
-  *x = 42; // Donnez la valeur de 42 à l'espace pointé par x
-           // (Déreferencer x)
+  *x = 42; // Donne la valeur de 42 à l'espace pointée par x
+           // (déreferencer x)
 
-  *y = 13; // ERREUR --- y n'a pas d'espace pointé en mémoire
-           //(SEGFAULT)
+  *y = 13; // ERREUR (SEGFAULT)
+           // il n'y a pas d'espace pointé en mémoire
 
-  y = x; // Faites pointer y sur le même espace mémoire que x
+  y = x; // Fait pointer y sur le même espace mémoire que x
     
-  *y = 13; // Dereferencez y et assignez 13
+  *y = 13; // Déréférence y et assigne 13
            // (espace pointé par x et y)
-  free(x); // Liberer l'espace alloué
+  free(x); // Libère l'espace alloué
 }
 		\end{minted}				
 	\end{adjustwidth}
