@@ -13,6 +13,7 @@ CM8-Vincent_Aranega/CM8-pointeur-de-fonction.pdf:
 	wget http://dept-info.labri.fr/ENSEIGNEMENT/programmation1/cours/CM_14___Pointeur_de_fonction.pdf -O "$@"
 
 # COMMON IMAGES
+
 common-images: $(patsubst %.svg,%.pdf,$(wildcard common-images/*))
 
 common-images/%.pdf: common-images/%.svg
@@ -39,7 +40,7 @@ PDFs/CM%-handouts-6pp.pdf: CM%.pdf
 	cd PDFs; pdflatex CM-handouts-6pp.tex "$(shell basename "$<")"
 	mv PDFs/CM-handouts-6pp.pdf "$@"
 
-PDFs/CM%.pdf: CM%.pdf
+PDFs/CM%.pdf: CM%.pdf slides.pdf
 	cp "$<" "$@"
 
 clean:
