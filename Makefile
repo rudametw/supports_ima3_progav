@@ -44,9 +44,11 @@ PDFs/CM%.pdf: CM%.pdf slides.pdf
 	cp "$<" "$@"
 
 clean:
+#	rm -f PDFs/*.pdf CM*/*.pdf *.log *.aux *_minted-* *.synctex.gz *.bbl *.blg *.nav *.out *.snm *.toc common-images/*.pdf
 	rm -fv CM[0-9]/*.pdf CM[0-9]/*.log CM[0-9]/*.aux CM[0-9]/*.synctex.gz CM[0-9]/*.bbl CM[0-9]/*.blg CM[0-9]/*.nav CM[0-9]/*.out CM[0-9]/*.snm CM[0-9]/*.toc common-images/*.pdf
 	rm -fv PDFs/*.pdf PDFs/*.log PDFs/*.aux
-	rm -rfv CM*/*_minted-*
+	echo Removing minted directories: CM*/*_minted-*
+	rm -rf CM*/*_minted-*
 
 # Rules that do not represent a file
 .PHONY: base 1pp 4pp 6pp clean
