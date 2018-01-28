@@ -40,8 +40,11 @@ PDFs/CM%-handouts-6pp.pdf: CM%.pdf
 	cd PDFs; pdflatex CM-handouts-6pp.tex "$(shell basename "$<")"
 	mv PDFs/CM-handouts-6pp.pdf "$@"
 
-PDFs/CM%.pdf: CM%.pdf slides.pdf
+PDFs/CM%.pdf: CM%.pdf
 	cp "$<" "$@"
+
+fixPageNumbers:
+	rm -fv CM[0-7]/CM*pdf
 
 clean:
 #	rm -f PDFs/*.pdf CM*/*.pdf *.log *.aux *_minted-* *.synctex.gz *.bbl *.blg *.nav *.out *.snm *.toc common-images/*.pdf
