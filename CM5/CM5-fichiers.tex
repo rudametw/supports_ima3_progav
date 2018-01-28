@@ -36,20 +36,21 @@
 
 \begin{frame}[fragile=singleslide]
 	\frametitle{Les fichiers en C}
-		\begin{block}{Pas de fichiers dans le langage C}
+		\begin{block}{Pas de fichiers de base dans le langage C}
 			\begin{itemize}
-				\item Bibliothèque standard \texttt{libc.so/libc.a} :\\inclure le fichier entête \texttt{<stdio.h>}
+				\item Mais dans la bibliothèque standard \texttt{libc.so/libc.a}\\
+                    en incluant le fichier d'en-tête \texttt{<stdio.h>}
 			\end{itemize}
 		\end{block}
-		\begin{block}{Fichier C = une suite d'octets (= flot)}
+		\begin{block}{Un fichier C = une suite d'octets (= flot)}
 			\begin{itemize}
-			\item Pas de fichiers typés
+                \item Pas de types de fichiers (e.g. image, tableau \ldots)
 %			\item Fichiers texte
 			\end{itemize}
 		\end{block}
 		\begin{block}{Fichiers texte}
 			\begin{itemize}
-				\item Les octets représentent des caractères codant les données\footnotesize(souvent le très limité ASCII, mais aussi le populaire et recommandé \textbf{UTF-8})
+				\item Les octets représentent des caractères codant les données \footnotesize(souvent le très limité ASCII, mais aussi le populaire et recommandé \textbf{UTF-8})
 				\small
 				\item Standard -- Éditables -- Imprimables
 %			\end{itemize}
@@ -63,7 +64,7 @@
 %	\begin{block}{Fichiers binaires}
 	\vspace{-0.75cm}
 		\begin{itemize}
-			\item Octets représentent la copie exacte des données en mémoire sur un système donné
+			\item Les octets représentent la copie exacte des données en mémoire sur un système donné
 			\item Non standard -- Non éditables -- Non imprimables
 			\item Mais lecture / écriture plus rapides (pas d'analyse)
 			\item En général, plus compacts
@@ -114,9 +115,9 @@
 			\hspace{-4cm}
 			\texttt{mode}= 
 			\begin{cases}
-			\texttt{r}: & \text{lecture}\\
-			\texttt{w}: & \text{création/écriture}\\
-			\texttt{a}: & \text{allongement}
+			\texttt{'r'}: & \text{lecture}\\
+			\texttt{'w'}: & \text{création/écriture}\\
+            \texttt{'a'}: & \text{allongement (ajout à la fin du fichier)}
 			\end{cases}
 			\]
 			\vspace{-1em}
@@ -138,6 +139,8 @@
 		\begin{itemize}
 			\item \texttt{fclose(FILE *fp)}
 			\item Déconnecte fp du fichier physique
+			\item Libère la mémoire du programme associée au fichier
+			\item Permet aux autres applications d'utiliser le fichier
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -171,7 +174,7 @@
 					\hspace{0.5cm}	
 					\begin{column}{0.4\textwidth}
 						\underline{\textit{si toto.txt n'existe pas}}\\						
-						\texttt{toto.txt inaccessible: fp=(nil)}
+						\texttt{toto.txt inaccessible: fp=NULL}
 					\end{column}
 				\end{columns}
 		\end{block}					
@@ -188,8 +191,8 @@
 				\item entrée standard : \texttt{FILE * stdin}
 				\item sortie standard : \texttt{FILE * stdout}
 			\end{itemize}
-			\item Connexion à l'exécution aux entrées / sorties standard fournies par le système (console par défaut, redirigeables par \texttt{< >})
-			\item Lectures écritures à partir de la position suivant le curseur
+        \item Connexion à l'exécution aux entrées / sorties standard fournies par le système (console par défaut, redirigeables par \texttt{<}, \texttt{>} ou \texttt{|})
+			\item Lectures et écritures à partir de la position suivant le curseur
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -379,6 +382,7 @@
 			\item Position = déplacement + origine
 			\item Usage courant : \\
 			\texttt{fseek(fp, i*sizeof(<T>), SEEK\_SET);}
+            \item \texttt{stdin} et \texttt{stdout} ne supportent pas \texttt{fseek}
 		\end{itemize}
 	\end{block}
 \end{frame}

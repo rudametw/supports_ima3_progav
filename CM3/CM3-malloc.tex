@@ -16,9 +16,9 @@
 	\frametitle{Allocation de mémoire}
 		\begin{block}{Variables automatiques} %Gestion dynamique de la mémoire}
 			\begin{itemize}
-			\item Var de bloc, paramètres
+                \item Variables de bloc, paramètress de fonctions
 			\item Crées automatiquement à l'exécution
-			\item Allocation dynamique sur la pile
+            \item Allocation dynamique sur la pile (stack)
 			\end{itemize}
 		\end{block}
 		\begin{block}{Variables dynamiques} %Gestion dynamique de la mémoire}
@@ -36,10 +36,12 @@
 /* À ne pas faire */	
 
 int * allouer_entier() {
-	int var_static ; //allocated on the stack
+	int var_static ; // alloué sur la pile
 	printf("var_static address is : %p\n",
 							  &var_static);
 	return &var_static ;
+    /* var_static est libéré lors
+    de la fin de la fonction */
 }			
 \end{minted}
 \end{frame}

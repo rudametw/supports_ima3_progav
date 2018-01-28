@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-/* UTILISER DANS CM3!!!!*/
+/* UTILISÉ DANS CM3!!!!*/
 //Définition
 typedef struct cellule {
 	int valeur;
