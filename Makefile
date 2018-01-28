@@ -8,6 +8,8 @@ base: ${base}
 
 CM%.pdf: CM%.tex common-images
 	cd "$(shell dirname "$<")"; pdflatex -shell-escape "$(shell basename "$<")"
+#Second run to fix the damn page numbers problem
+	cd "$(shell dirname "$<")"; pdflatex -shell-escape "$(shell basename "$<")"
 
 CM8-Vincent_Aranega/CM8-pointeur-de-fonction.pdf:
 	wget http://dept-info.labri.fr/ENSEIGNEMENT/programmation1/cours/CM_14___Pointeur_de_fonction.pdf -O "$@"
