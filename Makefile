@@ -8,6 +8,8 @@ base: ${base}
 
 CM%.pdf: CM%.tex common-images
 	cd "$(shell dirname "$<")"; pdflatex -shell-escape "$(shell basename "$<")"
+#Second run to fix the damn page numbers problem
+	cd "$(shell dirname "$<")"; pdflatex -shell-escape "$(shell basename "$<")"
 
 CM8-Vincent_Aranega/CM8-pointeur-de-fonction.pdf:
 	wget http://dept-info.labri.fr/ENSEIGNEMENT/programmation1/cours/CM_14___Pointeur_de_fonction.pdf -O "$@"
@@ -43,10 +45,15 @@ PDFs/CM%-handouts-6pp.pdf: CM%.pdf
 PDFs/CM%.pdf: CM%.pdf slides.pdf
 	cp "$<" "$@"
 
+fixPageNumbers:
+	rm -fv CM[0-7]/CM*pdf
+
 clean:
+#	rm -f PDFs/*.pdf CM*/*.pdf *.log *.aux *_minted-* *.synctex.gz *.bbl *.blg *.nav *.out *.snm *.toc common-images/*.pdf
 	rm -fv CM[0-9]/*.pdf CM[0-9]/*.log CM[0-9]/*.aux CM[0-9]/*.synctex.gz CM[0-9]/*.bbl CM[0-9]/*.blg CM[0-9]/*.nav CM[0-9]/*.out CM[0-9]/*.snm CM[0-9]/*.toc common-images/*.pdf
 	rm -fv PDFs/*.pdf PDFs/*.log PDFs/*.aux
-	rm -rfv CM*/*_minted-*
+	echo Removing minted directories: CM*/*_minted-*
+	rm -rf CM*/*_minted-*
 
 # Rules that do not represent a file
 .PHONY: base 1pp 4pp 6pp clean
