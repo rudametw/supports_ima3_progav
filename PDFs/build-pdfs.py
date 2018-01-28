@@ -43,7 +43,7 @@ def compile_pdfs(templates=template_files, pdfs=pdf_files):
         for pdf in pdfs:
             count+=1
             print ('JOB '+ str(count) + ': pdflatex ' + tmplt + ' ' + pdf);
-            ret = subprocess.call("pdflatex -interaction=nonstopmode " + " " + tmplt+".tex" + " " +  pdf, shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
+            ret = subprocess.call("pdflatex -interaction=nonstopmode -shell-escape " + " " + tmplt+".tex" + " " +  pdf, shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
             if ret != 0:
                 if ret < 0:
                     print ("       Killed by signal", -ret)
