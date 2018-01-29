@@ -653,7 +653,7 @@ Ouvrage x,y; //variables
 strcpy(y.titre, x.titre);
 
 strncpy(y.titre, x.titre, 50); //donnez la taille
-array2[50 - 1] = '\0';   //garantir fin de chaine
+y.titre[50 - 1] = '\0';   //garantir fin de chaine
 
 /* Ou concatener avec une chaine vide: */
 *y.titre = '\0'; strncat(y.titre, x.titre, 50-1);
