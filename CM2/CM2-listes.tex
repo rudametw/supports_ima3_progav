@@ -180,28 +180,28 @@
 \begin{frame}[fragile=singleslide]
 	\frametitle{Les listes contiguës --- Recherche}
 	\begin{block}{}
-        Soit \texttt{N} le nombre d'éléments de la liste
+        Soit $N$ le nombre d'éléments de la liste
 	\end{block}
 	\begin{block}{Par position}
 		\begin{itemize}
-			\item Accès direct en temps constant : Coût = 1
+			\item Accès direct en temps constant : Coût = $1$
 		\end{itemize}
 	\end{block}
 	\begin{block}{Par valeur}
 			\begin{itemize}
 				\item Non ordonnée $\Rightarrow$ recherche séquentielle
 				\begin{itemize}
-					\item coût min : 1, coût max : N
+					\item coût min : $1$, coût max : $N$
 				\end{itemize}
 				\item Ordonnée
 				\begin{itemize}
 					\item Recherche séquentielle ordonnée
 					\begin{itemize}
-						\item coût min : 1, coût max : N
+						\item coût min : $1$, coût max : $N$
 					\end{itemize}
 					\item Recherche dichotomique
 					\begin{itemize}
-						\item coût min : 1, coût max : $log_2$N
+						\item coût min : $1$, coût max : $log_2N$
 					\end{itemize}
 				\end{itemize}
 			\end{itemize}
@@ -224,7 +224,7 @@
 	\begin{block}{Ordonnée}
 		\begin{itemize}
 			\item Insertion à l'indice $p$ $\Rightarrow$ $N-p$ décalages %ERREUR NATHALIE, pas de N-P+1!
-			\item Coût min : 1, coût max: N
+			\item Coût min : $1$, coût max : $N$
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -234,18 +234,18 @@
 	\frametitle{Les listes contiguës --- Suppression}
 	\begin{block}{Non ordonnée}
 		\begin{itemize}
-			\item Recherche séquentielle de l'élément à supprimer (min : 1, max N)
+			\item Recherche séquentielle de l'élément à supprimer (min : $1$, max $N$)
 			\item Permutation avec le dernier élément
 		\end{itemize}
 	\end{block}
-	\begin{block}{Ordonnée --- suppression à l'indice p}
+	\begin{block}{Ordonnée --- suppression à l'indice $p$}
 		\begin{itemize}
 			\item Recherche dichotomique de l'élément
 			\begin{itemize}
-				\item Coût min : 1 , coût max : $log_2$N
+				\item Coût min : $1$ , coût max : $log_2N$
 			\end{itemize}
-			\item $N-p+1$ décalages (min : 1, max N)
-			\item Coût min : 1, max : N + $log_2$N
+			\item $N-p+1$ décalages (min : $1$, max : $N$)
+			\item Coût min : $1$, max : $N + log_2N$
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -304,7 +304,7 @@ l : Liste_chaînée
 		\end{itemize}
 	\end{block}
 	\vspace{1cm}
-	\begin{block}{On trouve souvent la notation p->valeur à la place de p$\uparrow$$\bullet$valeur} %Notation algorithmique sur les pointeurs}
+	\begin{block}{On trouve souvent la notation \texttt{p->valeur} à la place de \texttt{p$\uparrow$$\bullet$valeur}} %Notation algorithmique sur les pointeurs}
 	\end{block}
 \end{frame}
 
@@ -319,8 +319,8 @@ l : Liste_chaînée
 			\end{itemize}
 			\item \texttt{\underline{Action} libérer(p)}
 			\begin{itemize}
-				\item Récupère la cellule mémoire pointée par p
-				\item Valeur de p ???
+				\item Récupère la cellule mémoire pointée par \texttt{p}
+				\item Valeur de \texttt{p} ???
 			\end{itemize}
 		\end{itemize}
 	\end{block}
@@ -334,12 +334,12 @@ l : Liste_chaînée
 			\item Par position
 			\begin{itemize}
 				\item Parcours du chaînage jusqu'au kième élément \\
-                (coût = k)
+                (coût = \texttt{k})
 			\end{itemize}
 			\item Par valeur
 			\begin{itemize}
-				\item Séquentielle (coût min : 1, max : N)
-				\item Séquentielle ordonnée (coût min : 1, max : N)
+				\item Séquentielle (coût min : $1$, max : $N$)
+				\item Séquentielle ordonnée (coût min : $1$, max : $N$)
 				\item Pas de dichotomie possible
 			\end{itemize}
 		\end{itemize}
