@@ -141,14 +141,14 @@
 	c.imag := c1.imag + c2.imag
 	résultat: c
 |\underline{finfonction}|
-	\end{minted}			
+	\end{minted}
 	\vspace{-0.9cm} \myline  \vspace{-0.5cm}	
 Utilisation:	
 	\begin{minted}[mathescape=true,escapeinside=||]{text}
 
 c1,c2,c3 : Complexe
 c3 := plus(c1,c2)
-	\end{minted}			
+	\end{minted}
 \end{frame}
 
 
@@ -358,7 +358,7 @@ typedef <un_type> <synonyme_du_type>
 typedef unsigned char octet;
 typedef struct ma_structure * ma_struct;
 typedef struct S S;
-			\end{minted}				
+			\end{minted}
 		\end{block}
 	\end{itemize}
 \end{frame}
@@ -478,7 +478,7 @@ sizeof(Date); /* taille de la structure Date = 3*sizeof(int) */
 d1.jour = d2.jour;
 scanf("%d",&d2.jour);
 /* équivalent à scanf("%d", &(d2.jour)); */
-			\end{minted}				
+			\end{minted}
 		\end{block}
 	\end{itemize}
 \end{frame}
@@ -657,7 +657,7 @@ y.titre[50 - 1] = '\0';   //garantir fin de chaine
 
 /* Ou concatener avec une chaine vide: */
 *y.titre = '\0'; strncat(y.titre, x.titre, 50-1);
-				\end{minted}				
+				\end{minted}
 			\end{adjustwidth}
 		\end{block}
 	\end{itemize}
@@ -686,7 +686,7 @@ typedef struct Fiche {
 
 //Déclaration et Initialization en 1:
 Fiche f = {{23,"H. Potter"}, {12,5,2006}}; //C99
-				\end{minted}				
+				\end{minted}
 			\end{adjustwidth}
 	\begin{itemize}
 		\begin{block}{Accès aux champs}
@@ -726,7 +726,7 @@ tableau_fiches[0].emprunt=o1; tableau_fiches[0].date=d1;
 Fiche f2 = (Fiche) {{23,"H. Potter"}, {15,7,2006}};//C99
 Fiche f3 = (Fiche) {{30,"Hamlet"}, {12,5,2006}};   //C99
 tableau_fiches[1]=f2; tableau_fiches[2]=f3;
-				\end{minted}				
+				\end{minted}
 			\end{adjustwidth}
 	\begin{itemize}
 		\begin{block}{Accès aux champs}
@@ -761,7 +761,7 @@ Fiche tableau_fiches [3] = {
 		{{30,"Hamlet"}, {12,5,2006}},
 		{{35,"Don Quichotte"}, {12,5,2006}}
 };
-				\end{minted}				
+				\end{minted}
 			\end{adjustwidth}
 	\vspace{-0.7cm}
 	\begin{itemize}
@@ -808,7 +808,7 @@ Complexe plus (Complexe c1, Complexe c2) {
 	r.imag = c1.imag + c2.imag;
 	return r;
 }
-				\end{minted}				
+				\end{minted}
 %			\end{adjustwidth}
 %	\begin{itemize}
 %		\begin{block}{}
@@ -850,7 +850,7 @@ int main () {
 	scanf("%d%d", &p.x, &p.y);
 	translater(&p,10);
 }
-				\end{minted}				
+				\end{minted}
 %			\end{adjustwidth}
 %	\begin{itemize}
 %		\begin{block}{}
@@ -900,7 +900,7 @@ pointeur->champ    |$\Longleftrightarrow$|   (*pointeur).champ
 void translater (Point *pp, int dx) {
 	pp->x = pp->x + dx;
 }
-				\end{minted}				
+				\end{minted}
 \end{frame}
 
 

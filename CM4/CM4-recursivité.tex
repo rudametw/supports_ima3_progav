@@ -49,7 +49,7 @@
 		\begin{block}{Déclaration} %Gestion dynamique de la mémoire}
 			\begin{minted}[mathescape=true,escapeinside=||,tabsize=4,fontsize=\footnotesize,]{c}
 	type Liste = pointeur de Cellule
-	type Cellule = structure 
+	type Cellule = structure
 		 valeur : <T>
 		 suivant : Liste
 	fin
@@ -72,8 +72,8 @@
 		\vspace{-0.8cm}
 		\begin{block}{} %Gestion dynamique de la mémoire}
 			\begin{itemize}
-				\item Une entité (SD, algorithme) est récursive si elle se définit à partir d'elle 
-				même		
+				\item Une entité (SD, algorithme) est récursive si elle se définit à partir d'elle
+				même
 				\item Algorithmes récursifs (exemple : factorielle, fibonacci)
 				%\begin{itemize}
 				\vspace{0.3cm}
@@ -81,7 +81,7 @@
 					\item Analyse récurrente
 					\begin{itemize}
 						\item $ n! = n * (n-1)!$
-						\item $ 0! = 1 $								
+						\item $ 0! = 1 $
 					\end{itemize}
 				\vspace{0.5cm}
 				\hspace{-2cm}
@@ -96,7 +96,7 @@
 			%		\setlength{\columnseprule}{0.4pt}
 					\hspace{-0.3cm}
 					\vrule{}
-					\hspace{0cm}	
+					\hspace{0cm}
 					\begin{column}{0.45\textwidth}
 						\begin{itemize}
 							\item Cas général, récursif
@@ -113,7 +113,7 @@
 			%		\setlength{\columnseprule}{0.4pt}
 					\hspace{-0.3cm}
 					\vrule{}
-					\hspace{0cm}	
+					\hspace{0cm}
 %					\vspace{5cm}
 					\begin{column}{0.45\textwidth}
 						\begin{itemize}
@@ -121,7 +121,7 @@
 						\end{itemize}
 				    \end{column}
 				\end{columns}
-				\end{block}					
+				\end{block}
 				%\end{itemize}
 			\end{itemize}
 		\end{block}
@@ -138,20 +138,20 @@
 fonction fact(n) : entier
 	D : n : entier
 	L : f : entier
-	si n = 0 alors 
+	si n = 0 alors
 		f |$\leftarrow$| 1
 	sinon
 		f |$\leftarrow$| n * fact(n­1)
 	fsi
 	retourner(f)
 ffonction
-						\end{minted}		
-					\end{block}			
+						\end{minted}
+					\end{block}
 					\end{column}
 			%		\setlength{\columnseprule}{0.4pt}
 %					\hspace{-0.25cm}
 					\vrule{}
-%					\hspace{0cm}	
+%					\hspace{0cm}
 %					\vspace{5cm}
 				  	\begin{column}{0.55\textwidth}
 				  	\begin{block}{Fonction en C}
@@ -162,8 +162,8 @@ int fact (int n) {
 	else
 		return(n * fact(n-1));
 }
-						\end{minted}					
-					\end{block}	
+						\end{minted}
+					\end{block}
 					\end{column}
 				\end{columns}
 \end{frame}
@@ -179,7 +179,7 @@ int fact (int n) {
 		\begin{itemize}
 			\item \textbf{Cas généraux récursifs:} \\ Résolution du problème par lui même
 			\item \textbf{Cas terminaux non récursifs:} \\ Résolution immédiate du problème)
-			\item \textbf{Conditions de terminaison} 
+			\item \textbf{Conditions de terminaison}
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -221,12 +221,12 @@ int fact (int n) {
 	\node[rect2] at (0,\offset) { };
 	\node[rect] (middle) at (2.5*\szwidth,\offset) { };
 	\node[rect2] at (5*\szwidth,\offset) { };
-%	\node[rect] (last) at (8*\szwidth,\offset) {  };	
+%	\node[rect] (last) at (8*\szwidth,\offset) {  };
 	\node[indices] at (0*\szwidth,2*\offset) { \texttt{G} };
 %	\node[indices] at (2*\szwidth,0) {  };
 	\node[indices] at (2.5*\szwidth,2*\offset) { \texttt{M} };
 %	\node[indices] at (6*\szwidth,0) {  };
-	\node[indices] at (5*\szwidth,2*\offset) { \texttt{D} };				
+	\node[indices] at (5*\szwidth,2*\offset) { \texttt{D} };
 %	\foreach \item in \dateone {
 %		\addtocounter{ind}{1};
 %		\node[block] at (\theind*\sz,0) { \item };
@@ -238,8 +238,8 @@ int fact (int n) {
 %	\draw[<->]([yshift=-8mm]first.south) edge ([yshift=-8mm]middle.south);
 %	\draw[<->]([yshift=-8mm]last.south) edge ([yshift=-8mm]middle.south);
 	\draw[<->,line width = 0.3mm] (-2.35,-0.1) -- node[below] {$\le$ \texttt{L.espace[M]}} (2.3,-0.1);
-	\draw[<->,line width = 0.3mm](3.65,-0.1) --node[below] {$\ge$ \texttt{L.espace[M]}} (8.37,-0.1);	
-	
+	\draw[<->,line width = 0.3mm](3.65,-0.1) --node[below] {$\ge$ \texttt{L.espace[M]}} (8.37,-0.1);
+
 	\setcounter{ind}{0};
 	%\node[plain] at (0,\offset) { d1 };
 %	\foreach \item in \datetwo {
@@ -254,7 +254,7 @@ int fact (int n) {
 			\item Dichotomie sur \texttt{L.espace}
 			\item \textbf{Cas général:} \texttt{X $\ne$ L.espace[M]}  $\Rightarrow$ dichotomie à gauche ou à droite
 			\item \textbf{Cas terminal :} \texttt{X = L.espace[M]}
-			\item \textbf{Condition de terminaison :} \texttt{G > D} (non trouvé)	
+			\item \textbf{Condition de terminaison :} \texttt{G > D} (non trouvé)
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -285,7 +285,7 @@ int fact (int n) {
 		|\underline{Fsi}|
 	|\underline{Fsi}|
 |\underline{Faction}|
-	\end{minted}		
+	\end{minted}
 \end{frame}
 
 \begin{frame}[fragile=singleslide]
@@ -295,9 +295,9 @@ int fact (int n) {
 		\begin{itemize}
 			\item \texttt{<liste> ::= $\emptyset$	|	<elt> <liste>} \\
 			\vspace{0.5cm}
-			
+
 			où :
-			\begin{itemize}			
+			\begin{itemize}
 			\item $\emptyset$ $\rightarrow$ cas terminal
 			\item \texttt{<elt>} $\rightarrow$ traitement de l'élément (éventuellement cas terminal)
 			\item \texttt{<liste>} $\rightarrow$ traitement récursif (cas général)
@@ -416,7 +416,7 @@ void inverse(){
 	\vspace{-0.2cm}
 	\begin{block}{}
 		\begin{itemize}
-			\item Fournit une méthode pour traduire itérativement (à l'aide d'une pile) des 
+			\item Fournit une méthode pour traduire itérativement (à l'aide d'une pile) des
 			algorithmes récursifs = la dérécursivisation
 			\item Récursivité $\Rightarrow$ surcoût dû à la pile
 			\begin{itemize}
@@ -510,4 +510,4 @@ void ajoutTête(liste *pL, int x){
 % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 	\vspace{-0.9cm} \begin{center} \noindent\makebox[\linewidth]{\line(2,0){500}} \end{center}  \vspace{-0.7cm}
-	\vspace{-0.9cm} \begin{center} \noindent\makebox[\linewidth]{\rule{\paperwidth}{1.5pt}}  \end{center}  \vspace{-0.7cm}	
+	\vspace{-0.9cm} \begin{center} \noindent\makebox[\linewidth]{\rule{\paperwidth}{1.5pt}}  \end{center}  \vspace{-0.7cm}

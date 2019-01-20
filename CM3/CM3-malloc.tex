@@ -64,7 +64,7 @@ int * allouer_entier() {
 \begin{frame}[fragile=singleslide]
 	\frametitle{Allocation dynamique --- Exemples}
 		\begin{block}{Allocation dynamique d'un entier} %Gestion dynamique de la mémoire}
-			\begin{minted}[mathescape=true,escapeinside=||,tabsize=4]{c}			
+			\begin{minted}[mathescape=true,escapeinside=||,tabsize=4]{c}
 	int *pt;
 	//pt = (int *) malloc(sizeof(int));
 	pt = malloc(sizeof(int));
@@ -211,7 +211,7 @@ int * allouer_entier() {
 		\begin{itemize}
 			\item Exemple d'utilisation:\\\textit{Suppression du dernier élément de la liste}
 		\end{itemize}
-		\begin{minted}[mathescape=true,escapeinside=||,tabsize=4]{c}			
+		\begin{minted}[mathescape=true,escapeinside=||,tabsize=4]{c}
 		free(l.espace[l.dernier]);
 		l.dernier -= 1;
 		\end{minted}

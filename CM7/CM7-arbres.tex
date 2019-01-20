@@ -32,7 +32,7 @@
 	\vspace{-4em}
 	\begin{block}{}
     \begin{adjustwidth}{-0.9cm}{}
-		
+
 		\begin{center}
 		{\includegraphics[scale=0.58]{../common-images/arbre.pdf}}
 		\end{center}
@@ -48,7 +48,7 @@
 			\item \underline{\textbf{Niveau d'un nœud}} : nombre d'arêtes entre le nœud et la racine (ex : niveau de s3.2 = 2)
 			\item \underline{\textbf{Hauteur d'un arbre}} : niveau maximum de l'arbre (3 pour l'exemple)
 			\item \underline{\textbf{Arbre ordonné}} : l'ordre des fils de chaque nœud est spécifié
-			\item \underline{\textbf{Degré d'un nœud}} : nombre de fils que le nœud possède
+			\item \underline{\textbf{Degré sortant d'un nœud}} : nombre de fils que le nœud possède
 			\item \underline{\textbf{Arbre n-aire}} : les nœuds sont de degré n
 		\end{itemize}
 	\end{block}
@@ -59,16 +59,16 @@
 	\frametitle{Les arbres binaires}
 	\vspace{1cm}
 	\begin{block}{Définition}
-		\vspace{0.5em}		
-		\texttt{B = $\emptyset$ | < R, G, D >}
+		\vspace{0.5em}
+		\texttt{AB = $\emptyset$ | < R, G, D >}
 %	\begin{itemize}
-%		\item 
+%		\item
 %		\mintinline{c}{FILE *fopen (char *nom, char *mode)} où
 		\vspace{0.5em}
 		\small
 		\[
 		\hspace{-5cm}
-		\texttt{où} 
+		\texttt{où}
 		\begin{cases}
 		\texttt{R}: & \text{Noeud Racine}\\
 		\texttt{G}: & \text{Sous-arbre gauche}\\
@@ -82,7 +82,7 @@
 	\vspace{1cm}
 	\begin{block}{Exemple}
 %		\IMAGE
-		\vspace{-2.5cm}
+		\vspace{-3.5cm}
 		\begin{flushright}
 			{\includegraphics[scale=0.5]{../common-images/arbre2.pdf}}
 		\end{flushright}
@@ -105,10 +105,10 @@
 			\item \texttt{valeur(A)} : retourne la valeur de la racine
 			\item \texttt{gauche(A)} : retourne le sous-arbre gauche de \texttt{A}
 			\item \texttt{droite(A)} : retourne le sous-arbre droit
-			\item \texttt{put\_valeur(A,V)} : range la valeur de \texttt{V} à la racine
+			\item \texttt{put\_valeur(A,v)} : range la valeur de \texttt{v} à la racine
 			\item \texttt{put\_droite(A,D)} : \texttt{D} devient le sous-­arbre droit de \texttt{A}
-			\item \texttt{put\_gauche(A,G)} : \texttt{G} devient le sous-arbre gauche de \texttt{A} 
-			\item \texttt{cons(R, G, D)} : construit l'arbre \texttt{<R, G, D>}
+			\item \texttt{put\_gauche(A,G)} : \texttt{G} devient le sous-arbre gauche de \texttt{A}
+			\item \texttt{cons(v, G, D)} : construit l'arbre \texttt{<v, G, D>}
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -119,7 +119,7 @@
 %	\vspace{-1em}
 	\begin{block}{} %Déclaration}
 		\begin{itemize}
-			\item Fonction qui teste si un arbre est une feuille\\(1 seul nœud)			
+			\item Fonction qui teste si un arbre est une feuille\\(1 seul nœud)
 		\end{itemize}
 	\end{block}
 	\begin{block}{}
@@ -131,8 +131,8 @@
 		|\underline{Sinon}|
 			retourner( vide(gauche(A)) et vide(droite(A)) )
 		|\underline{Fsi}|
-	|\underline{Ffonction}|		
-		\end{minted}		
+	|\underline{Ffonction}|
+		\end{minted}
 	\end{block}
 \end{frame}
 
@@ -146,20 +146,20 @@
 	\end{block}
 
 	\begin{block}{}%Définition}
-%		\vspace{0.5em}		
+%		\vspace{0.5em}
 %		\texttt{B = $\emptyset$ | < R, G, D >}
 		%	\begin{itemize}
-		%		\item 
+		%		\item
 		%		\mintinline{c}{FILE *fopen (char *nom, char *mode)} où
 		\vspace{-1.5em}
 		\small
 		\[
 		\hspace{-0.5cm}
-		\texttt{nb\_noeuds(A)} 
+		\texttt{nb\_noeuds(A)}
 		\begin{cases}
 		\texttt{A = $\emptyset$}: & \texttt{0}\\
 		\texttt{A = <R,G,D>}: & \texttt{1} + \texttt{nb\_noeuds(G)} + \texttt{nb\_noeuds(D)}
-		
+
 		%		\texttt{rb+}: & \text{lecture/écriture}	\\\ldots
 		\end{cases}
 		\]
@@ -174,10 +174,11 @@
 		|\underline{Si}| vide(A) |\underline{Alors}|
 			retourner (0)
 		|\underline{Sinon}|
-			retourner ( 1 + nb_noeuds(G) + nb_noeuds(D) )
+			retourner ( 1 + nb_noeuds(gauche(A))
+						  + nb_noeuds(droite(A)) )
 		|\underline{Fsi}|
-	|\underline{Ffonction}|		
-		\end{minted}		
+	|\underline{Ffonction}|
+		\end{minted}
 	\end{block}
 \end{frame}
 
@@ -216,7 +217,7 @@
 %		RGD(gauche(A))
 %		RGD(droite(A))
 %	|\underline{Fsi}|
-%|\underline{Faction}|		
+%|\underline{Faction}|
 %		\end{minted}
 		\begin{columns}[T]
 %			\hspace{-0.5cm}
@@ -232,7 +233,7 @@
 		RGD(droite(A))
 	|\underline{Fsi}|
 |\underline{Faction}|
-		
+
 				\end{minted}
 			\end{column}
 			%		\setlength{\columnseprule}{0.4pt}
@@ -280,7 +281,7 @@
 		GDR(droite(A))
 		traiter(valeur(A))
 	|\underline{Fsi}|
-|\underline{Faction}|		
+|\underline{Faction}|
 				\end{minted}
 			\end{column}
 			%		\setlength{\columnseprule}{0.4pt}
@@ -293,7 +294,7 @@
 				\end{flushright}
 			\end{column}
 		\end{columns}
-		\vspace{0.5cm}		
+		\vspace{0.5cm}
 		Exemple :\\ \texttt{traiter(valeur(A)) = écrire(valeur(A))}\\
 		$\Rightarrow$ \texttt{3 1 8 - * 5 4 / +} (notation postfixée)
 	\end{block}
@@ -321,7 +322,7 @@
 			traiter(valeur(A))
 			GRD(droite(A))
 		|\underline{Fsi}|
-	|\underline{Faction}|		
+	|\underline{Faction}|
 		\end{minted}
 %		Exemple : \texttt{traiter(valeur(A)) = écrire(valeur(A))}\\
 %		$\Rightarrow$ \texttt{3 1 8 - * 5 4 / +} (notation postfixée)
@@ -363,7 +364,7 @@
 %	valeur(A)     |$\Rightarrow$|   retourner(A|$\uparrow$$\bullet$|val)
 %	gauche(A)     |$\Rightarrow$|   retourner(A|$\uparrow$$\bullet$|gauche)
 %		\end{minted}
-%			
+%
 %%		\end{itemize}
 %	\end{block}
 \end{frame}
@@ -378,18 +379,18 @@
 	valeur(A)       |$\Rightarrow$|   retourner(A|$\uparrow$$\bullet$|val)
 	gauche(A)       |$\Rightarrow$|   retourner(A|$\uparrow$$\bullet$|gauche)
 	droite(A)       |$\Rightarrow$|   retourner(A|$\uparrow$$\bullet$|droite)
-	put_valeur(A,V) |$\Rightarrow$|   A|$\uparrow$$\bullet$|val    |$\leftarrow$| V
+	put_valeur(A,v) |$\Rightarrow$|   A|$\uparrow$$\bullet$|val    |$\leftarrow$| v
 	put_gauche(A,G) |$\Rightarrow$|   A|$\uparrow$$\bullet$|gauche |$\leftarrow$| G
 	put_droite(A,D) |$\Rightarrow$|   A|$\uparrow$$\bullet$|droit  |$\leftarrow$| D
 
-	cons(V,G,D)     |$\Rightarrow$|   allouer(A)
-                         A|$\uparrow$$\bullet$|val    |$\leftarrow$| V
+	cons(v,G,D)     |$\Rightarrow$|   allouer(A)
+                         A|$\uparrow$$\bullet$|val    |$\leftarrow$| v
                          A|$\uparrow$$\bullet$|gauche |$\leftarrow$| G
                          A|$\uparrow$$\bullet$|droit  |$\leftarrow$| D
-	
-	
+
+
 		\end{minted}
-%	cons(R,G,D)     |$\Rightarrow$|   allouer(A)		
+%	cons(R,G,D)     |$\Rightarrow$|   allouer(A)
 %		TODO: VERIFY CONS(), MAYBE IT'S BETTER IF IT'S V AND NOT R
 		%		\end{itemize}
 	\end{block}
@@ -401,7 +402,7 @@
 	\begin{block}{Rappel}
 		\begin{itemize}
 			\item Liste contiguë : recherche dichotomique en $O(log_2n)$\\
-			Ajout / suppression en $O(n)$ 
+			Ajout / suppression en $O(n)$
 			\item Liste chaînée : recherche en $O(n)$\\
 			Ajout / suppression en temps constant
 		\end{itemize}
@@ -439,14 +440,14 @@
 
 \begin{frame}[fragile=singleslide]
 	\frametitle{Recherche dans un arbre binaire ordonné}
-	\begin{block}{Recherche associative d'un élément \texttt{V}}
+	\begin{block}{Recherche associative d'un élément \texttt{X}}
 		\begin{itemize}
 			\item \texttt{A} = $\emptyset$ $\Rightarrow$ non trouvé
-			\item \texttt{A = <R, G, D>}
+			\item \texttt{A = <V, G, D>}
 			\begin{itemize}
-				\item \texttt{R = X $\Rightarrow$} trouvé
-				\item \texttt{X < R $\Rightarrow$} rechercher \texttt{X} dans \texttt{G}
-				\item \texttt{X > R $\Rightarrow$} rechercher \texttt{X} dans \texttt{D}	
+				\item \texttt{V = X $\Rightarrow$} trouvé
+				\item \texttt{X < V $\Rightarrow$} rechercher \texttt{X} dans \texttt{G}
+				\item \texttt{X > V $\Rightarrow$} rechercher \texttt{X} dans \texttt{D}
 			\end{itemize}
 		\end{itemize}
 	\end{block}
@@ -466,25 +467,25 @@
 	\begin{minted}[mathescape=true,escapeinside=||,tabsize=4
 	%,fontsize=\footnotesize,
 	]{c}
-|\underline{Fonction}| existe(X, A) : booléen
-	|\underline{D}| : X : <T> ; 
+|\underline{Fonction}| existe(A, X) : booléen
+	|\underline{D}| : X : <T> ;
 		A : ArbreBinaire
 	|\underline{Si}| vide(A) |\underline{Alors}|
 		retourner(faux)
 	|\underline{Sinon}|
-		|\underline{Si}| X=valeur(A) |\underline{Alors}|
+		|\underline{Si}| X = valeur(A) |\underline{Alors}|
 			retourner(vrai)
 		|\underline{Sinon}|
-			|\underline{Si}| X < valeur(A) |\underline{Alors}| 
-				retourner(existe(X,gauche(A)))
+			|\underline{Si}| X < valeur(A) |\underline{Alors}|
+				retourner(existe(gauche(A),X))
 			|\underline{Sinon}|
-				retourner(existe(X,droite(A)))
+				retourner(existe(droite(A),X))
 			|\underline{Fsi}|
 		|\underline{Fsi}|
-	|\underline{Fsi}|		
+	|\underline{Fsi}|
 |\underline{Ffonction}|
 		\end{minted}
-		%	cons(R,G,D)     |$\Rightarrow$|   allouer(A)		
+		%	cons(R,G,D)     |$\Rightarrow$|   allouer(A)
 		%		TODO: VERIFY CONS(), MAYBE IT'S BETTER IF IT'S V AND NOT R
 		%		\end{itemize}
 %	\end{block}
@@ -516,7 +517,7 @@
 				\item \texttt{V > R $\Rightarrow$} ajouter \texttt{V} dans \texttt{droite(A)}
 			\end{itemize}
 			\item Utilisation du passage de \texttt{A} en \texttt{D/R} pour établir le lien père/fils
-			\item cf : algorithme récursif d'ajout d'un élément dans une liste chaînée			
+			\item cf : algorithme récursif d'ajout d'un élément dans une liste chaînée
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -529,21 +530,21 @@
 	\begin{minted}[mathescape=true,escapeinside=||,tabsize=4
 	%,fontsize=\footnotesize,
 	]{c}
-|\underline{Action}| ajout(V, A)
-	|\underline{D}| : V : <T> ; 
+|\underline{Action}| ajout(A, V)
+	|\underline{D}| : V : <T> ;
 	|\underline{\textbf{D/R}}| : A : ArbreBinaire de <T>
 	|\underline{Si}| vide(A) |\underline{Alors}|
 		A |$\leftarrow$| cons(V,|$\emptyset$|,|$\emptyset$|)
 	|\underline{Sinon}|
 		|\underline{Si}| V |$\leq$| valeur(A) |\underline{Alors}|
-			ajout (V, |\textbf{gauche(A)}|)
+			ajout (|\textbf{gauche(A)}|,V)
 		|\underline{Sinon}|
-			ajout (V, |\textbf{droite(A)}|)
+			ajout (|\textbf{droite(A)}|,V)
 		|\underline{Fsi}|
 	|\underline{Fsi}|
 |\underline{Faction}|
 	\end{minted}
-	%	cons(R,G,D)     |$\Rightarrow$|   allouer(A)		
+	%	cons(R,G,D)     |$\Rightarrow$|   allouer(A)
 	%		TODO: VERIFY CONS(), MAYBE IT'S BETTER IF IT'S V AND NOT R
 	%		\end{itemize}
 	%	\end{block}
