@@ -1,4 +1,4 @@
-size data types
+size of data types in bytes
 char:        1
 short:       2
 int:         4
@@ -8,7 +8,7 @@ double:      8
 long double: 16
 void:        1
 
-size pointers
+size of pointers in bytes
 char *:        8
 short *:       8
 int *:         8

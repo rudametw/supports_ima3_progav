@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-	printf("size data types\n");
+	printf("size of data types in bytes\n");
 	printf("char:        %zu\n",sizeof(char));
 	printf("short:       %lu\n",sizeof(short));
 	printf("int:         %lu\n",sizeof(int));
@@ -11,7 +11,7 @@ int main() {
 	printf("long double: %lu\n",sizeof(long double));
 	printf("void:        %lu\n",sizeof(void));
 
-	printf("\nsize pointers\n");
+	printf("\nsize of pointers in bytes\n");
 	printf("char *:        %lu\n",sizeof(char *));
 	printf("short *:       %lu\n",sizeof(short *));
 	printf("int *:         %lu\n",sizeof(int *));
