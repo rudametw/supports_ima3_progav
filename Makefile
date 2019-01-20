@@ -1,9 +1,11 @@
 # BASE PDF FILES
 
-# Default rule
-all: 1pp 4pp 6pp
+# README: Error, using Fixpagenumbers as a workaround because pdf's not properly updated
 
-base = CM0/CM0-Intro.pdf CM1/CM1-structures.pdf CM2/CM2-listes.pdf CM3/CM3-malloc.pdf CM4/CM4-recursivité.pdf CM5/CM5-fichiers.pdf CM6/CM6-Listes_variantes.pdf CM7/CM7-arbres.pdf CM8-Vincent_Aranega/CM8-pointeur-de-fonction.pdf
+# Default rule
+all: 1pp 4pp 6pp 8pp
+
+base = CM0/CM0-Intro.pdf CM1/CM1-structures.pdf CM2/CM2-listes.pdf CM3/CM3-malloc.pdf CM4/CM4-recursivite.pdf CM5/CM5-fichiers.pdf CM6/CM6-Listes_variantes.pdf CM7/CM7-arbres.pdf CM8-Vincent_Aranega/CM8-pointeur-de-fonction.pdf
 base: ${base}
 
 CM%.pdf: CM%.tex common-images
@@ -30,6 +32,8 @@ common-images/%.pdf: common-images/%.svg
 4pp: $(patsubst %.pdf,%-handouts-4pp.pdf,${1pp})
 # 6 slides / page
 6pp: $(patsubst %.pdf,%-handouts-6pp.pdf,${1pp})
+# 8 slides / page
+8pp: $(patsubst %.pdf,%-handouts-8pp.pdf,${1pp})
 
 # Where to search for PDF files in the following rules
 vpath %.pdf $(wildcard CM*)
@@ -41,6 +45,10 @@ PDFs/CM%-handouts-4pp.pdf: CM%.pdf
 PDFs/CM%-handouts-6pp.pdf: CM%.pdf
 	cd PDFs; pdflatex CM-handouts-6pp.tex "$(shell basename "$<")"
 	mv PDFs/CM-handouts-6pp.pdf "$@"
+
+PDFs/CM%-handouts-8pp.pdf: CM%.pdf
+	cd PDFs; pdflatex CM-handouts-8pp.tex "$(shell basename "$<")"
+	mv PDFs/CM-handouts-8pp.pdf "$@"
 
 PDFs/CM%.pdf: CM%.pdf slides.pdf
 	cp "$<" "$@"
@@ -56,5 +64,5 @@ clean:
 	rm -rf CM*/*_minted-*
 
 # Rules that do not represent a file
-.PHONY: base 1pp 4pp 6pp clean
+.PHONY: base 1pp 4pp 6pp 8pp clean
 
