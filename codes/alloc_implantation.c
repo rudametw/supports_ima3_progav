@@ -7,7 +7,7 @@ typedef struct cellule {
 	struct cellule *suivant;
 } Cellule;
 
-typedef Cellule *Liste, *Ptcellule;
+typedef Cellule *Liste, *Ptcellule; //optionnel
 
 void main2(){
 /* liste vide */
@@ -21,27 +21,28 @@ Ptcellule p ; //N'oubliez pas de l'initialiser
 
 }
 
-//Fonction pour allouer des Cellules
-Ptcellule allouer2(){
-	return( malloc(sizeof(Cellule)) ) ;
-}
-
 //Fonction qui alloue une cellule en mémoire
 Ptcellule allouer(){
 	return( (Ptcellule) malloc(sizeof(Cellule)) ) ;
 }
 
+struct cellule * allouer_sans_typedef(){
+	return( malloc(sizeof(struct cellule)) ) ;
+}
+
 void use_cellule(){
 //Allocation d'une cellule
-Ptcellule p = allouer();
+/*avec typedef*/ Ptcellule p2 = allouer();
+/*sans*/  struct cellule * p1 = allouer_sans_typedef();
 
 //Libération d'une cellule
-free(p);
+free(p1);
+free(p2);
 }
 
 
+//Rappel:  Liste ==> struct cellule *
 
-//Exemple
 int recherche(int x, Liste l) {
 	int existe ; Ptcellule p;
 	p = l;
@@ -53,9 +54,9 @@ int recherche(int x, Liste l) {
 }
 
 
-
+//Rappel:  Liste * ==> struct cellule **
 void ajout_tete (int x, Liste *pL){
-	/* pL en D/R */
+                            // pL en D/R
 	Ptcellule p;
 	p = allouer();
 	p->valeur = x;

@@ -25,7 +25,7 @@ scanf("%d", &n); //nb de pointeurs à Date
 
 l.espace = malloc (n * sizeof *l.espace);
 /* Alternative
-l.espace = (PtDate *) malloc (n * sizeof (PtDate)); */
+l.espace = malloc (n * sizeof (PtDate)); */
 
 printf("\nSizeof : %lu %lu %lu %lu\n", sizeof l.espace,sizeof *l.espace, sizeof **l.espace, sizeof (PtDate));
 /*printf("Address : %p %d %d %p\n", l.espace,(l.espace[0]->j),((*l.espace)->j),(&l.espace));*/
@@ -45,7 +45,7 @@ printf("\nAllocate:\n");
 for(int i=0 ; i<n ; i++){
 	l.dernier+=1;
 	l.espace[l.dernier] = malloc(sizeof **l.espace);
-/*l.espace[l.dernier] = (PtDate) malloc(sizeof(Date));*/
+/*l.espace[l.dernier] = malloc(sizeof(Date));*/
 	l.espace[l.dernier]->j=i;
 	l.espace[l.dernier]->m=i;
 	l.espace[l.dernier]->a=i;
