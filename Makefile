@@ -3,7 +3,7 @@
 # README: Error, using Fixpagenumbers as a workaround because pdf's not properly updated
 
 # Default rule
-all: 1pp 4pp 6pp 8pp
+all: base 1pp 4pp 6pp 8pp
 
 base = CM0/CM0-Intro.pdf CM1/CM1-structures.pdf CM2/CM2-listes.pdf CM3/CM3-malloc.pdf CM4/CM4-recursivite.pdf CM5/CM5-fichiers.pdf CM6/CM6-Listes_variantes.pdf CM7/CM7-arbres.pdf CM8-Vincent_Aranega/CM8-pointeur-de-fonction.pdf
 base: ${base}
@@ -50,7 +50,7 @@ PDFs/CM%-handouts-8pp.pdf: CM%.pdf
 	cd PDFs; pdflatex CM-handouts-8pp.tex "$(shell basename "$<")"
 	mv PDFs/CM-handouts-8pp.pdf "$@"
 
-PDFs/CM%.pdf: CM%.pdf slides.pdf
+PDFs/CM%.pdf: CM%.pdf
 	cp "$<" "$@"
 
 fixPageNumbers:
