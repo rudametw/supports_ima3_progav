@@ -45,7 +45,7 @@
 		
 		\draw (array-1-1.north)--++(90:3mm) node [above] (first) {Premier indice};
 		\draw (array-1-10.east)--++(0:3mm) node [right]{Indices};
-		\node [align=center, anchor=south] at (array-2-9.north west|-first.south) (8) {Élement\\ (à l'indice 8)};
+		\node [align=center, anchor=south] at (array-2-9.north west|-first.south) (8) {Élément\\ (à l'indice 8)};
 		\draw (8)--(box);
 		%
 		\end{tikzpicture}
@@ -274,7 +274,7 @@ f: Fiche ; f |$\leftarrow$| locations[3]
 		\end{block}
 		où:
 		\item \texttt{<désignateur>} est le nom (facultatif) du modèle
-		\item \texttt{<declarations de champ>} comme des déclarations de var mais sans initialisation
+		\item \texttt{<déclarations de champ>} comme des déclarations de var mais sans initialisation
 	\end{itemize}
 \end{frame}
 
@@ -296,7 +296,7 @@ struct date {int j,m,a;};
 /*2 variables selon le modèle date*/
 struct date d1, d2;
 
-/*definition et utilisation immédiate*/
+/*définition et utilisation immédiate*/
 struct complexe {float reelle, imag;} c1, c2;
 
 /*rappel du même modèle*/
@@ -342,7 +342,7 @@ typedef <un_type> <synonyme_du_type>
 		\end{block}
 		\vspace{-0.3cm}
 		\begin{block}{}
-			\item Donne des noms plus simples pour faciliter l'écriture et augmenter la lisibilité 
+			\item Donnez des noms plus simples pour faciliter l'écriture et augmenter la lisibilité 
 		\end{block}
 		\begin{block}{}
 			\item Examples :
@@ -547,7 +547,7 @@ free(sp1.p);
 			\item Attention aux passage des structures dans des fonctions (passage-par-copie des structs, implique "Shallow Copy")
 		\end{block}
 		\vspace{1cm}
-		\begin{block}{\Large Beacoup de choses à programmer\\ \textit{à la main} !!!}
+		\begin{block}{\Large Beaucoup de choses à programmer\\ \textit{à la main} !!!}
 		\end{block}		
 	\end{itemize}
 \end{frame}
@@ -636,7 +636,7 @@ Ouvrage x,y; //variables
 			\item \texttt{y.titre = x.titre    } {\includegraphics[scale=0.40]{../common-images/attention.pdf}} \BAD{IMPOSSIBLE} 
 			\begin{itemize}
 				\item Copiez les caractères un par un
-				\item Ou utilisez les fonctions de C dédiés : \texttt{strcpy, strncpy, strncat, \ldots}
+				\item Ou utilisez les fonctions de C dédiées : \texttt{strcpy, strncpy, strncat, \ldots}
 			\end{itemize}
 			\vspace{0.5cm}
 			\begin{adjustwidth}{-1.6em}{-1.5em}
@@ -655,7 +655,7 @@ strcpy(y.titre, x.titre);
 strncpy(y.titre, x.titre, 50); //donnez la taille
 y.titre[50 - 1] = '\0';   //garantir fin de chaine
 
-/* Ou concatener avec une chaine vide: */
+/* Ou concaténer avec une chaine vide: */
 *y.titre = '\0'; strncat(y.titre, x.titre, 50-1);
 				\end{minted}
 			\end{adjustwidth}
@@ -737,7 +737,7 @@ tableau_fiches[1]=f2; tableau_fiches[2]=f3;
 \end{frame}
 
 \begin{frame}[fragile=singleslide]
-	\frametitle{Tableaux de structures: initialisation avancé }
+	\frametitle{Tableaux de structures: initialisation avancée }
 	\vspace{-0.7cm}
 	\begin{itemize}
 		\begin{block}{}
@@ -755,7 +755,7 @@ tableau_fiches[1]=f2; tableau_fiches[2]=f3;
 					fontsize=\footnotesize,
 					linenos
 			]{c}
-//Définition et initilisation
+//Définition et initialisation
 Fiche tableau_fiches [3] = {
 		{{23,"H. Potter"}, {15,7,2006}},
 		{{30,"Hamlet"}, {12,5,2006}},
