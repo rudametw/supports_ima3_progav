@@ -55,8 +55,7 @@ int recherche(int x, Liste l) {
 
 
 //Rappel:  Liste * ==> struct cellule **
-void ajout_tete (int x, Liste *pL){
-                            // pL en D/R
+void ajout_tete (int x, Liste *pL){    // pL en D/R
 	Ptcellule p;
 	p = allouer();
 	p->valeur = x;
@@ -70,4 +69,18 @@ int main(){
 		ajout_tete(x, &l);
 		scanf("%d", &x);
 	}
+	imprimer_liste(l);
 }
+
+void imprimer_liste(Liste l) {
+	Ptcellule p;
+	p = l;
+	while ( (p != NULL) ) {
+		printf ("%d -> ", p->valeur);
+		p = p->suivant;
+	}
+	printf("\n");
+	return;
+}
+
+
