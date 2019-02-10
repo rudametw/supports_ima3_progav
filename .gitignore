@@ -226,8 +226,8 @@ CM[0-9]/CM[0-9]-*.pdf
 
 #Regex doesn't work, only globs in gitignore.
 #TP/TP+([0-9])/TP+([0-9]).pdf
-TP/TP[0-9]/TP[0-9].pdf
-TP/TP[0-9][0-9]/TP[0-9][0-9].pdf
+TP/TP[0-9]*/TP[0-9]*.pdf
+TP/TP[0-9][0-9]*/TP[0-9][0-9]*.pdf
 
 #Pulled with wget in Make
 CM8-Vincent_Aranega/CM8-pointeur-de-fonction.pdf

@@ -212,14 +212,18 @@
 			\item \texttt{int fscanf(FILE *fp, char *format, \ldots)}
 			\begin{itemize}
 				\item scanf(\ldots) $\Leftrightarrow$ fscanf(stdin, \ldots)
-				\item Retourne le nombre d'items lus
+				\item Retourne le nombre d'items lus, à vérifier à \underline{chaque utilisation}
 			\end{itemize}
 			
 			\item \texttt{char * fgets(char *chaine, int taille,} \\
 			\hspace{7em} \texttt{FILE *fp)}
 			\item \texttt{int feof(FILE *fp)}
 			\begin{itemize}
-				\item Retourne une valeur différent à zéro si la fin du fichier a été rencontrée lors d'une opération de lecture (valeur lue indéterminée)
+				\item Retourne une valeur différent à zéro si la fin du fichier a été rencontrée lors d'une opération de lecture
+			\end{itemize}
+			\item \texttt{int ferror(FILE *fp)}
+			\begin{itemize}
+				\item Retourne une valeur différent à zéro si un erreur a été rencontrée lors d'une opération de lecture
 			\end{itemize}
 			
 		\end{itemize}
@@ -244,7 +248,7 @@
 
 %NATHALIE: tester pointeur avant fermeture! Sinon, segfault
 \begin{frame}[fragile=singleslide]
-	\frametitle{Fichiers texte: exemple}
+	\frametitle{Fichiers texte: exemple (MAUVAISE)}
 	\begin{block}{} %Gestion dynamique de la mémoire}
 		\vspace{-0.5cm}
 		\inputminted[
@@ -256,9 +260,27 @@
 		tabsize=4,
 		%		bgcolor=light-gray
 		]
-		{c}{../codes/file3.c}
+		{c}{../codes/file3.bad.c}
 	\end{block}	
 \end{frame}
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Fichiers texte: exemple (BONNE)}
+	\begin{block}{} %Gestion dynamique de la mémoire}
+		\vspace{-0.5cm}
+		\inputminted[
+		%		frame=lines,
+		%		framesep=2.5mm,
+		baselinestretch=0.7,
+		fontsize=\footnotesize,
+		linenos,
+		tabsize=4,
+		%		bgcolor=light-gray
+		]
+		{c}{../codes/file3.good.c}
+	\end{block}	
+\end{frame}
+
 
 
 \begin{frame}[fragile=singleslide]
@@ -340,7 +362,7 @@
 
 
 \begin{frame}[fragile=singleslide]
-	\frametitle{Fichiers binaire: lecture}
+	\frametitle{Fichiers binaire: lecture (MAUVAISE)}
 	\begin{block}{} %Gestion dynamique de la mémoire}
 		\vspace{-0.5cm}
 		\inputminted[
@@ -352,9 +374,26 @@
 		tabsize=4,
 		%		bgcolor=light-gray
 		]
-		{c}{../codes/file_binary_persons.c}
+		{c}{../codes/file_binary_persons.bad.c}
 	\end{block}	
 \end{frame}
+\begin{frame}[fragile=singleslide]
+	\frametitle{Fichiers binaire: lecture (BONNE)}
+%	\begin{block}{} %Gestion dynamique de la mémoire}
+%		\vspace{-0.5cm}
+%		\inputminted[
+%		%		frame=lines,
+%		%		framesep=2.5mm,
+%		baselinestretch=0.7,
+%		fontsize=\footnotesize,
+%		linenos,
+%		tabsize=4,
+%		%		bgcolor=light-gray
+%		]
+%		{c}{../codes/file_binary_persons.good.c}
+%	\end{block}	
+\end{frame}
+
 
 
 \begin{frame}[fragile=singleslide]

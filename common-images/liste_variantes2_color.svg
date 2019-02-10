@@ -17,7 +17,7 @@
    font-size="12"
    id="svg2"
    version="1.1"
-   inkscape:version="0.92.0 r"
+   inkscape:version="0.92.2 2405546, 2018-03-11"
    sodipodi:docname="liste_variantes2_color.svg"
    style="font-style:normal;font-weight:normal;font-size:12px;font-family:Dialog;color-interpolation:auto;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto"
    inkscape:export-filename="/home/marcia/Dropbox/Software Architecture Adaptation and Evolution/images/Instance migration 2.png"
@@ -45,12 +45,12 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="2560"
-     inkscape:window-height="1361"
+     inkscape:window-height="1363"
      id="namedview84"
      showgrid="false"
      inkscape:zoom="1.5952602"
-     inkscape:cx="7.6672212"
-     inkscape:cy="216.51994"
+     inkscape:cx="292.26029"
+     inkscape:cy="186.11738"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -1461,4 +1461,4 @@
          x="966.08917"
          y="-300.85461" /></flowRegion><flowPara
        id="flowPara4714"
-       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22px;line-height:normal;font-family:'Mad\'s Scrawl (BRK)';-inkscape-font-specification:'Mad\'s Scrawl (BRK)';fill:#828282;fill-opacity:1">optionel mais utile</flowPara></flowRoot></svg>
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22px;line-height:normal;font-family:'Mad\'s Scrawl (BRK)';-inkscape-font-specification:'Mad\'s Scrawl (BRK)';fill:#828282;fill-opacity:1">optionnel mais utile</flowPara></flowRoot></svg>

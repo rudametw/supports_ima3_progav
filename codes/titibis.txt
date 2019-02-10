@@ -1,3 +1,5 @@
+dddqsdfqsdf
+
 #include <stdio.h>
 #include <stdlib.h>
 /* UTILISÃ‰ DANS CM3!!!!*/
@@ -70,3 +72,4 @@ int main(){
 		scanf("%d", &x);
 	}
 }
+ÿ
