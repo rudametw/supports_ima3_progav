@@ -5,7 +5,7 @@
 # Default rule
 all: base 1pp 4pp 6pp 8pp
 
-base = CM0/CM0-Intro.pdf CM1/CM1-structures.pdf CM2/CM2-listes.pdf CM3/CM3-malloc.pdf CM4/CM4-recursivite.pdf CM5/CM5-fichiers.pdf CM6/CM6-Listes_variantes.pdf CM7/CM7-arbres.pdf CM8-Vincent_Aranega/CM8-pointeur-de-fonction.pdf
+base = CM0/CM0-Intro.pdf CM1/CM1-structures.pdf CM2/CM2-listes.pdf CM3/CM3-malloc.pdf CM4/CM4-recursivite.pdf CM5/CM5-fichiers.pdf CM6/CM6-Listes_variantes.pdf CM7/CM7-arbres.pdf CM8-Vincent_Aranega/CM8-pointeur-de-fonction-current.pdf CM8-Vincent_Aranega/CM8-hash-current.pdf
 base: ${base}
 
 CM%.pdf: CM%.tex common-images CM-preamble.sty

@@ -1,0 +1,18 @@
+http://www.ilay.org/yann/articles/mem/
+
+
+https://stackoverflow.com/questions/14588767/where-in-memory-are-my-variables-stored-in-c#14588866
+And
+
+You got some of these right, but whoever wrote the questions tricked you on at least one question:
+
+global variables -------> data (correct)
+static variables -------> data (correct)
+constant data types -----> code and/or data. Consider string literals for a situation when a constant itself would be stored in the data segment, and references to it would be embedded in the code
+local variables(declared and defined in functions) --------> stack (correct)
+variables declared and defined in main function -----> heap also stack (the teacher was trying to trick you)
+pointers(ex: char *arr, int *arr) -------> heap data or stack, depending on the context. C lets you declare a global or a static pointer, in which case the pointer itself would end up in the data segment.
+dynamically allocated space(using malloc, calloc, realloc) --------> stack heap
+It is worth mentioning that "stack" is officially called "automatic storage class".
+
+
