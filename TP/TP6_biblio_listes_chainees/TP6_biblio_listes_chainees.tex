@@ -162,7 +162,7 @@ breaklinks   = true,        % so long urls are correctly broken across lines
 \let\OldTexttt\texttt
 \renewcommand{\texttt}[1]{\OldTexttt{\hl{#1}}}
 
-\newcommand{\codes}{../codes/TP7}
+\newcommand{\codes}{../codes/TP6_biblio_listes_chainees}
 \newcommand{\images}{../images}
 
 
@@ -204,33 +204,33 @@ maximale \texttt{MAXSIZE} fixée à \texttt{30}.
 
 % Avant de commencer, récupérez le fichier \url{~wrudamet/public/IMA3/TP6/tp6_gdb.tgz} à la ligne de commande. Désarchivez le dans votre répertoire de \textit{Programmation Avancé} (vous pouvez utiliser la commande \texttt{tar} pour décompresser et désarchivez ce fichier !).
 
-\begin{alertinfo}{Important}
-	\textbf{IMPORTANT : Ce TP sera réutilisé dans le futur. Il servira d'inspiration pour le TP8 et votre librairie sera entièrement repris pour le TP9}
+\begin{alertinfo}{}
+	\textbf{IMPORTANT : Ce TP sera réutilisé. Il servira d'inspiration pour le \textit{TP7 Arbres} et votre librairie sera entièrement repris pour le \\ \textit{TP8 Tables de Hachage}}
 \end{alertinfo}
 
 \section{Questions du TP \large (à faire impérativement)}
-Avant de commencer, récupérer les fichiers \url{~wrudamet/public/IMA3/TP7/listechaines.h}  et \url{~wrudamet/public/IMA3/TP7/accompttp7.c}
+Avant de commencer, récupérer les fichiers \url{~wrudamet/public/IMA3/TP6/listechaines.h}  et \url{~wrudamet/public/IMA3/TP6/accompttp.c}
 
 \subsection{Copier/coller rapides et ajustements}
 À partir des codes dont vous disposez, créer un fichier \texttt{listechaines.c} conforme au \texttt{.h} fourni en récupérant et adaptant les fonctions déjà écrites. Les fonctions de chargement à partir d'un fichier et d'insertion dans l'ordre alphabétique sont données dans
-le fichier \texttt{accompttp7.c}.\\
+le fichier \texttt{accompttp.c}.\\
 Écrire dans \texttt{listechaines.c} la fonction main permettant de tester toutes les fonctions.
 
 \subsection{Compilation séparée, librairie statique}
 \begin{enumerate}
-	\item Déplacer le main de \texttt{listechaines.c} dans un fichier nommé \texttt{tp7.c}
-	\item Compiler les deux \texttt{.c} précédents (avec l'option \texttt{-c}) et lier les deux fichiers.o obtenus pour produire un exécutable nommé \texttt{tp7} (cf cours).
-	\item Si vous modifiez \texttt{tp7.c} (et uniquement ce fichier là), quelles lignes de compilation/liaison devez-vous faire ?
+	\item Déplacer le main de \texttt{listechaines.c} dans un fichier nommé \texttt{tp6.c}
+	\item Compiler les deux \texttt{.c} précédents (avec l'option \texttt{-c}) et lier les deux fichiers.o obtenus pour produire un exécutable nommé \texttt{tp6} (cf cours).
+	\item Si vous modifiez \texttt{tp6.c} (et uniquement ce fichier là), quelles lignes de compilation/liaison devez-vous faire ?
 	\item Créer une librairie statique de nom \texttt{liblistechaines.a} à partir de \texttt{listechaines.o} (commande \texttt{ar})
-	\item Quelle commande permet de lier \texttt{tp7.o} et la librairie \texttt{liblistechaines.a} ?
+	\item Quelle commande permet de lier \texttt{tp6.o} et la librairie \texttt{liblistechaines.a} ?
 	\item Lancer le programme et tester.
-	\item Si vous modifiez \texttt{tp7.c}, quelles commandes de compilation/liaison devez-vous faire ?
+	\item Si vous modifiez \texttt{tp6.c}, quelles commandes de compilation/liaison devez-vous faire ?
 \end{enumerate}
 
 \section{Questions s’il vous reste du temps}
 \begin{enumerate}
 	\item Vérifier que vous pouvez utiliser la librairie du voisin (copier son \texttt{.a} dans le répertoire courant)
-	\item Observer le contenu des binaires \texttt{tp7.o} et \texttt{listechaines.o} à l'aide de la commande \texttt{nm}
+	\item Observer le contenu des binaires \texttt{tp6.o} et \texttt{listechaines.o} à l'aide de la commande \texttt{nm}
 	\item Construire le \texttt{Makefile} pour la compilation séparée avec création de librairie statique
 \end{enumerate}
 
@@ -238,4 +238,54 @@ le fichier \texttt{accompttp7.c}.\\
 %\section{Annexes}
 %\vspace{-0.5cm}
 
+\pagebreak
+\section{Annexes}
+%\vspace{-0.5cm}
+\begin{figure}[!h]
+	\begin{minipage}[c]{0.45\textwidth}
+		\centering
+		\inputminted[
+		%frame=lines,
+		%framesep=2.5mm,
+		%baselinestretch=0.8,
+		fontsize=\small,
+		linenos,
+		tabsize=2,
+		breaklines,
+		xleftmargin=-25pt,
+		numbersep=7pt,		
+		%firstline=14,lastline=28
+		%bgcolor=light-gray
+		]
+%		{c}{\codes/accompttp.c}
+%		\caption{\texttt{accompttp.c}}
+		{c}{\codes/listechaines.h}
+		\caption{\texttt{listechaines.h}}
+
+	\end{minipage}
+	\hspace{0.15cm}
+	\vrule{}
+	\hspace{0.3cm}
+	\begin{minipage}[c]{0.62\textwidth}
+%		\centering
+		\inputminted[
+		%frame=lines,
+		%framesep=2.5mm,
+		%baselinestretch=0.8,
+		fontsize=\small,
+		linenos,
+		tabsize=4,
+		breaklines,
+		xleftmargin=4pt,
+		numbersep=7pt,
+%		breaksymbolleft=,
+		%firstline=14,lastline=28
+		%bgcolor=light-gray
+		]
+%		{c}{\codes/listechaines.h}
+%		\caption{\texttt{listechaines.h}}
+		{c}{\codes/accompttp.c}
+		\caption{Fichier d'accompagnement \texttt{accompttp.c}}		
+	\end{minipage}
+\end{figure}
 \end{document}

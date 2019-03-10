@@ -60,7 +60,7 @@ void collisions(Hashtable ht) {
 /*returns max_word such that hash(max_word)=hmax*/
 void max_hash(FILE *fp, char *max_word, int *hmax) {
   //TODO
-}	
+}
 
 /*Main function*/
 int main (int argc, char *argv[]) {
@@ -71,20 +71,20 @@ int main (int argc, char *argv[]) {
     fp=fopen(argv[1], "r");
     if (fp==NULL) {
       fprintf(stderr, "no such file, or unreachable: %s\n", argv[1]);
-    } else { 
+    } else {
       //using lists !
       Liste mylist = NULL;
-      chargeFichier(fp,&mylist);
+      charge_fichier(fp,&mylist);
       //      afficherListe(mylist);
 
 
       // replace by declaration and use of hashtables!
       //TODO !
-      
-      
+
+
       printf("Fin de traitement!\n");
     }//end of else
   }
-  
+
   return 0;
 }

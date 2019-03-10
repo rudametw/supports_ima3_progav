@@ -162,14 +162,14 @@ hics[scale=0.25]{\images/information.pdf}
 \let\OldTexttt\texttt	
 \renewcommand{\texttt}[1]{\OldTexttt{\hl{#1}}}
 
-\newcommand{\codes}{../codes/TP9}
+\newcommand{\codes}{../codes/TP8}
 \newcommand{\images}{../images}
 
 %\title{GBIAAL 4$^{\mbox{\`eme}}$ année \\ Devoir Surveillé --- Base de données \\ 13 janvier 2016  \\ 1 heure}
 \title{IMA 3$^{\mbox{\`eme}}$ année\\ Programmation Avancé
 	%\\TP1 Structures, Listes contiguës, Redirections}
 }
-\author{\huge \textbf{TP9 Table de hachage, utilisation de bibliothèque}}
+\author{\huge \textbf{TP8 Table de hachage, utilisation de bibliothèque}}
 \setlength{\parindent}{0pt}
 \pagestyle{empty}
 \date{}
@@ -197,7 +197,7 @@ hics[scale=0.25]{\images/information.pdf}
 Dans ce TP, nous allons construire et utiliser une table de hachage. Les tables de hachage étant classiquement utilisées pour coder des dictionnaires, nous allons réaliser un dictionnaire anglais sommaire.
 
 %\begin{alertinfo}{}
-%	\textbf{IMPORTANT : Ce TP sera réutilisé dans le futur. Il servira d'inspiration pour le TP8 et votre librairie sera entièrement repris pour le TP9}
+%	\textbf{IMPORTANT : Ce TP sera réutilisé dans le futur. Il servira d'inspiration pour le TP8 et votre librairie sera entièrement repris pour le TP8}
 %\end{alertinfo}
 
 \section{Questions du TP \large (à faire impérativement)}
@@ -205,10 +205,10 @@ Dans ce TP, nous allons construire et utiliser une table de hachage. Les tables 
 \subsection{Récupération de fichiers}
 
 \begin{enumerate}
-	\item Récupérez votre librairie et votre fichier en-tête du TP7 (\texttt{listechaines.h} et \texttt{listechaines.a}).
-	\item Copier les fichiers \texttt{hash.c}, \texttt{dico.english} et \texttt{Makefile} fournis dans \url{~wrudamet/public/IMA3/TP9/}
-	\item Vérifier que le Makefile fonctionne : commande \texttt{make}.
-	\item Lancer le programme (que fait-il?) et noter son temps d'exécution (commande \texttt{time}).
+	\item Copier les fichiers \texttt{hash.c}, \texttt{dico.english} et \texttt{Makefile} fournis dans \url{~wrudamet/public/IMA3/TP8/}
+	\item Récupérez votre librairie et votre fichier en-tête du \textit{TP6 Bibliothèque de listes chaînées de chaînes} (\texttt{listechaines.h} et \texttt{liblistechaines.a}).
+	\item Vérifier que le Makefile fonctionne (commande \texttt{make}), et lisez le Makefile pour comprendre ce qu'il fait.
+	\item Lancer le programme (que fait-il?) et noter son temps d'exécution (utiliser la commande \texttt{time}).
 \end{enumerate}	
 
 
@@ -220,17 +220,17 @@ Lire attentivement l'annexe.
 	Dans le fichier fourni \texttt{hash.c} :
 
 \begin{enumerate}
-	\item Déclarer le type \texttt{Hashtable} (vecteur de taille \texttt{TABLE\_SIZE} de \texttt{Liste}).
-	\item Écrire une fonction \texttt{void init\_ht(Hashtable ht)} qui initialise \texttt{ht} (listes à \texttt{NULL}).
-	\item Écrire une fonction \texttt{void update\_ht(char *word, Hashtable ht)} qui ajoute \texttt{word} dans \texttt{ht} (fonction \texttt{ajout\_alphab} fournie) à la liste d'indice \texttt{hash(word)}.
-	La fonction de hachage est fournie dans le \texttt{.c}.
-	\item Écrire une fonction load\_ht(FILE *f, Hashtable ht) analogue à \texttt{charge\_fichier} qui charge les mots du fichier dans ht.
+	\item Déclarer le type \texttt{Hashtable} (vecteur de taille \texttt{TABLE\_SIZE} de \texttt{struct cell *}, ou son équivalent, \texttt{Liste}).
+	\item Écrire une fonction \texttt{void init\_ht(Hashtable ht)} qui initialise \texttt{ht} (c.a.d., positionne toutes les listes à \texttt{NULL}).
+	\item Écrire une fonction \texttt{void update\_ht(char *word, Hashtable ht)} qui ajoute \texttt{word} dans \texttt{ht} (fonction \texttt{ajout\_alphab} fournie) à la liste d'indice retourné par \texttt{get\_hashed\_index(word)}.
+	La fonction de hachage est fournie dans \texttt{hash.c}.
+	\item Écrire une fonction \texttt{load\_ht(FILE *fp, Hashtable ht)} analogue à \texttt{charge\_fichier} qui charge les mots du fichier dans \texttt{ht}.
 	\item Modifier la fonction \texttt{main} en remplaçant la liste par une Hashtable.
 	\item Comparer les temps d'exécution avec la liste (version précédente)\footnote{N'oubliez pas de comparer ce qui est comparable en mettant en commentaire les traces ou affichages éventuels.}. Expérimenter avec des valeurs progressives de \texttt{TABLE\_SIZE} :\\
 	\texttt{TABLE\_SIZE = 1} (vous devriez retrouver des performances très comparables)\\
 	\texttt{TABLE\_SIZE = 10, 20, \ldots, 100, 200, 300, 400}
 	\item Ecrire une fonction \texttt{void collisions(Hashtable ht)} qui affiche, pour chaque indice \texttt{i}, la taille de la liste \texttt{ht[i]}.
-	Sur l'exemple, (avec \texttt{TABLE\_SIZE=50}) : %\\
+	Sur l'exemple, avec le fichier \texttt{dico.english} et \texttt{TABLE\_SIZE=50} : %\\
 
 %	\texttt{0 335}\\
 %	\texttt{1 309}\\
@@ -246,7 +246,7 @@ Lire attentivement l'annexe.
 	3 318
 	|\ldots|
 	\end{minted}
-	
+
 \end{enumerate}
 
 \section{Questions s'il vous reste du temps}

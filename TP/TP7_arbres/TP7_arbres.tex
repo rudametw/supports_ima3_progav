@@ -161,7 +161,7 @@ breaklinks   = true,        % so long urls are correctly broken across lines
 \let\OldTexttt\texttt	
 \renewcommand{\texttt}[1]{\OldTexttt{\hl{#1}}}
 
-\newcommand{\codes}{../codes/TP8}
+\newcommand{\codes}{../codes/TP7}
 \newcommand{\images}{../images}
 
 %\title{GBIAAL 4$^{\mbox{\`eme}}$ année \\ Devoir Surveillé --- Base de données \\ 13 janvier 2016  \\ 1 heure}
@@ -175,14 +175,14 @@ breaklinks   = true,        % so long urls are correctly broken across lines
 
 
 \begin{document}
-%\vspace{-15cm}
-\posttitle{\par\end{center}}
-\setlength{\droptitle}{-45pt}
+%\vspace{-13cm}
+%\posttitle{\par\end{center}}
+\setlength{\droptitle}{-90pt}
 \maketitle
 %\thispagestyle{empty}
 
 %\section{Schéma conceptuel}
-\vspace{-1.7cm}
+\vspace{-2.1cm}
 \section{Objectifs}
 
 \begin{itemize}
@@ -192,38 +192,47 @@ breaklinks   = true,        % so long urls are correctly broken across lines
 
 %\paragraph{Contexte et préparation : } Avant de commencer, récupérez le fichier \url{~wrudamet/public/IMA3/TP6/tp6_gdb.tgz} à la ligne de commande. Désarchivez\footnote{Vous pouvez utiliser la commande \texttt{tar} pour décompresser et désarchivez ce fichier} le dans votre répertoire de \textit{Programmation Avancé} (toujours à la ligne de commande !).
 
-\paragraph{Préparation : } Avant de commencer, copier le répertoire \url{~wrudamet/public/IMA3/TP8/} qui contient :
+\paragraph{Préparation : } Avant de commencer, copier le répertoire \url{~wrudamet/public/IMA3/TP7/} qui contient :
 
 \begin{itemize}
 	\item Les fichiers \texttt{trees.c} et \texttt{trees.h}, contenant des fonctions de base de traitement d'arbres
 	\item Un fichier \texttt{main.c} utilisant ces fonctions
 	\item Un sous-répertoire \texttt{samples/} qui contient des fichiers de données \texttt{.txt} et des fichiers \texttt{.dot} et \texttt{.pdf} qui permettent de visualiser les arbres correspondant à ces données (section 2).
-	\item Un sous répertoire \texttt{part2/} contenant un autre \texttt{main.c}.
+	\item Un fichier \texttt{tree2pdf.c} qui contient un deuxième main.
 \end{itemize}
 
-%\begin{alertinfo}{}
-%	\textbf{IMPORTANT : Ce TP sera réutilisé dans le futur. Il servira d'inspiration pour le TP8 et votre librairie sera entièrement repris pour le TP9}
-%\end{alertinfo}
 
 \section{Fonctions de base dans les ABR}
-Dans cette première partie, il vous est demandé d'implémenter les fonctions suivantes non implémentées dans \texttt{tree.h}, en utilisant le \texttt{main} fourni pour tester :
+Dans cette première partie, il vous est demandé d'implémenter les fonctions définis dans \texttt{tree.h} en utilisant le \texttt{main} fourni pour tester (corriger tous les \textit{warnings} à la compilation et utilisez \textit{valgrind}) :
 
 \begin{enumerate}
-	\item Ajout d'un élément dans un ABR (arbre binaire de recherche, donc ordonné !). (Fait en cours)
-	\item Construction d'un ABR à partir d'un fichier de données. Pour cette fonction, on s'inspirera de la fonction \texttt{charge\_fichier} donnée dans le TP7 (attention, on ajoute des entiers et non des chaînes)
-	\item Impression d'un ABR par parcours récursif (fait en cours)
-	\item Vérifier que la fonction de parcours précédente donne la même suite de valeurs pour les trois fichiers \texttt{unspecified.txt}, \texttt{balanced.txt}, \texttt{degenerated.txt} alors que ce sont des arbres différents (voir les dessins dans le répertoire \texttt{samples/})
-	\item Écrire une autre fonction d'impression qui imprime les couples (père, fils) d'un arbre donné. On fera attention à ne pas imprimer les sous-arbres vides
-	\item Vérifier que l'impression donne des arbres correspondant aux fichiers pdf fournis dans le répertoire \texttt{samples/}
+	\item \mintinline{C}{cons_tree(...)} qui construit un ABR \textit{(fait en cours)}.
+	%Pour cette fonction, on s'inspirera de la fonction \texttt{charge\_fichier} donnée dans le \textit{TP6 Bibliothèque de listes chaînées de chaînes}
+	%On ajoute des entiers et non des chaînes.
+	
+	\item \mintinline{C}{mk_empty_tree(...)}, \mintinline{C}{is_empty(...)} et \mintinline{C}{is_leaf(...)}, tous des fonctions auxiliaires. \textit{(Fait en cours)}
+	
+	\item \mintinline{C}{add(...)} qui ajout un élément dans un ABR (arbre binaire de recherche, donc \textbf{ordonné} !). \textit{(Fait en cours)}
+	
+	\item \mintinline{C}{print_tree(...)} qui imprime un ABR par parcours récursif, en ordre ascendant (\textit{infixe}).
+	
+	Vérifier que la fonction de parcours précédente donne la même suite de valeurs pour les trois fichiers \texttt{unspecified.txt}, \texttt{balanced.txt}, \texttt{degenerated.txt} alors que ce sont des arbres différents (voir les dessins dans le répertoire \texttt{samples/})
+	
+	\item \mintinline{C}{load_tree(...)} qui construit un arbre d'entiers à partir d'un fichier.
+	\item \mintinline{C}{free_tree(...)} qui libère la mémoire utilisé par un arbre binaire.
+	
+	\item Écrire une fonction d'impression \mintinline{C}{print_rec_edges(...)} qui imprime les couples \textit{(père =L=> fils)} pour les fils gauches, et \textit{(père =R=> fils)} pour les fils droits, d'un arbre donné. Ne pas imprimer les sous-arbres vides.
+	À part la flèche \textit{=L/R=>}, l'impression donne des arbres correspondant aux fichiers .dot fournis dans le répertoire \texttt{samples/}
+	
 	\item Archiver le fichier \texttt{trees.o} dans une bibliothèque \texttt{libtrees.a} (commande \texttt{ar}).
 \end{enumerate}
 
 
-\section{ Impression des arbres sous forme graphique}
+\section{Impression des arbres sous forme graphique}
 Les fichiers \texttt{.pdf} ont été générés à partir des fichiers \texttt{.dot} (fournis dans \texttt{samples/}).
 Le format \texttt{.dot} est un format de représentation textuelle simple d'arbres\footnote{Et plus généralement de graphes exploitables par des logiciels tels que \url{http://www.graphviz.org}}.
 Visualisez le format de ces fichiers dans votre éditeur de texte préféré ou par la commande \texttt{less}\footnote{digraph signifie \textit{directed graph}, les arbres en font partie du fait de leur orientation \texttt{pere->fils}}.
-À partir de ce format \texttt{.dot}, la commande \texttt{dot} permet de générer une version visualisable (.pdf, .png, \ldots) comme suit (en pdf par exemple) :
+À partir de ce format .dot, la commande \texttt{dot} permet de générer une version visualisable (.pdf, .png, \ldots) comme suit (en pdf par exemple) :
 
 \begin{minted}[mathescape=true,escapeinside=||,tabsize=4,
 %fontsize=\footnotesize,
@@ -233,20 +242,190 @@ Visualisez le format de ces fichiers dans votre éditeur de texte préféré ou 
 
 L'objectif est alors de générer de tels fichiers pour des arbres construits à partir de fichiers de données (tels que ceux fournis dans \texttt{samples/*.txt}).
 					
-\paragraph{Préparation :} Vous pouvez copier votre bibliothèque \texttt{libtrees.a} dans le répertoire \texttt{part2/}. Dans ce répertoire, un \texttt{main.c} plus conséquent est fourni qui :
+\paragraph{Préparation :} Un fichier \texttt{tree2pdf.c} plus conséquent est fourni qui :
 \begin{enumerate}
-	\item Génère, par appel à la fonction \texttt{generate\_dot}, les fichiers \texttt{.dot} correspondants aux fichiers de données dont les noms ont été passés en paramètre.
+	\item Génère, par appel à la fonction \texttt{generate\_dot}, les fichiers \texttt{.dot} correspondants aux fichiers de données dont les noms ont été passés en paramètre (e.g. à partir de \texttt{samples/balanced.txt} on génère \texttt{samples/balanced.dot}).
 	\item Transforme ces fichiers \texttt{.dot} en \texttt{.pdf} par appel système à la commande \texttt{dot}.
 \end{enumerate}
 
 \paragraph{Travail à faire :}
 \begin{enumerate}
 	\item Programmer la fonction \texttt{recursive\_dot} qui traite le cas général
-	\item Tester ensuite par la commande : \texttt{./trees ../samples/*.txt}
-Vous devez retrouver les fichiers \texttt{.dot} et \texttt{.pdf} fournis.
+	\item Tester ensuite par la commande : \texttt{./tree2pdf samples/*.txt}
+Vous devez retrouver les fichiers \texttt{.dot} et \texttt{.pdf}.
 \end{enumerate}
 
 %\section{Annexes}
 %\vspace{-0.5cm}
+\pagebreak
+\section{Annexes}
+%\vspace{-0.5cm}
+\begin{figure}[!h]
+	\begin{minipage}[c]{0.69\textwidth}
+		\centering
+		\inputminted[
+		%frame=lines,
+		%framesep=2.5mm,
+		%baselinestretch=0.8,
+		fontsize=\small,
+		linenos,
+		tabsize=2,
+		breaklines,
+		xleftmargin=-5pt,
+		numbersep=7pt,		
+		%firstline=14,lastline=28
+		%bgcolor=light-gray
+		]
+%		{c}{\codes/accompttp.c}
+%		\caption{\texttt{accompttp.c}}
+		{c}{\codes/trees.h}
+		\caption{\texttt{trees.h}}
+
+	\end{minipage}
+	\begin{minipage}[c]{0.36\textwidth}
+		\centering
+		\inputminted[
+		%frame=lines,
+		%framesep=2.5mm,
+		%baselinestretch=0.8,
+		fontsize=\small,
+%		linenos,
+		tabsize=2,
+		breaklines,
+		xleftmargin=10pt,
+		numbersep=7pt,		
+		%firstline=14,lastline=28
+		%bgcolor=light-gray
+		]
+%		{c}{\codes/accompttp.c}
+%		\caption{\texttt{accompttp.c}}
+		{c}{\codes/samples/balanced.txt}
+		\vspace{-0.7cm}
+		\caption{\texttt{samples/balanced.txt}}
+
+		\vspace{0.2cm}
+
+		\centering
+		\inputminted[
+		%frame=lines,
+		%framesep=2.5mm,
+		%baselinestretch=0.8,
+		fontsize=\small,
+		linenos,
+		tabsize=4,
+		breaklines,
+		xleftmargin=60pt,
+		numbersep=7pt,
+%		breaksymbolleft=,
+		%firstline=14,lastline=28
+		%bgcolor=light-gray
+		]
+%		{c}{\codes/listechaines.h}
+%		\caption{\texttt{listechaines.h}}
+		{c}{\codes/samples/balanced.dot}
+		\vspace{-0.7cm}
+		\caption{\texttt{samples/balanced.dot}}
+		
+		\vspace{2cm}
+		
+				\centering
+				\inputminted[
+				%frame=lines,
+				%framesep=2.5mm,
+				%baselinestretch=0.8,
+				fontsize=\small,
+		%		linenos,
+				tabsize=2,
+				breaklines,
+				xleftmargin=10pt,
+				numbersep=7pt,		
+				%firstline=14,lastline=28
+				%bgcolor=light-gray
+				]
+		%		{c}{\codes/accompttp.c}
+		%		\caption{\texttt{accompttp.c}}
+				{c}{\codes/samples/unspecified.txt}
+				\vspace{-0.7cm}
+				\caption{\texttt{samples/unspecified.txt}}
+		
+		\vspace{0.2cm}
+		
+				\centering
+				\inputminted[
+				%frame=lines,
+				%framesep=2.5mm,
+				%baselinestretch=0.8,
+				fontsize=\small,
+				linenos,
+				tabsize=4,
+				breaklines,
+				xleftmargin=60pt,
+				numbersep=7pt,
+		%		breaksymbolleft=,
+				%firstline=14,lastline=28
+				%bgcolor=light-gray
+				]
+		%		{c}{\codes/listechaines.h}
+		%		\caption{\texttt{listechaines.h}}
+				{c}{\codes/samples/unspecified.dot}
+				\vspace{-0.7cm}
+				\caption{\texttt{samples/unspecified.dot}}
+		
+	\end{minipage}
+\end{figure}
+%
+%\begin{figure}[!h]
+%	\begin{minipage}[c]{0.9\textwidth}
+%		\centering
+%		\inputminted[
+%		%frame=lines,
+%		%framesep=2.5mm,
+%		%baselinestretch=0.8,
+%		fontsize=\small,
+%		linenos,
+%		tabsize=2,
+%		breaklines,
+%		xleftmargin=20pt,
+%		numbersep=7pt,		
+%		%firstline=14,lastline=28
+%		%bgcolor=light-gray
+%		]
+%%		{c}{\codes/accompttp.c}
+%%		\caption{\texttt{accompttp.c}}
+%		{c}{\codes/samples/balanced.txt}
+%		\caption{\texttt{samples/balanced.txt}}
+%
+%	\end{minipage}
+%	\hspace{0.15cm}
+%	\vrule{}
+%	\hspace{0.3cm}
+%	\begin{minipage}[c]{0.75\textwidth}
+%%		\centering
+%		\inputminted[
+%		%frame=lines,
+%		%framesep=2.5mm,
+%		%baselinestretch=0.8,
+%		fontsize=\small,
+%		linenos,
+%		tabsize=4,
+%		breaklines,
+%		xleftmargin=4pt,
+%		numbersep=7pt,
+%%		breaksymbolleft=,
+%		%firstline=14,lastline=28
+%		%bgcolor=light-gray
+%		]
+%%		{c}{\codes/listechaines.h}
+%%		\caption{\texttt{listechaines.h}}
+%		{c}{\codes/samples/balanced.dot}
+%		\caption{\texttt{samples/balanced.dot}}
+%	\end{minipage}
+%\end{figure}
+%
+
+
+\end{document}
+
+
 
 \end{document}
