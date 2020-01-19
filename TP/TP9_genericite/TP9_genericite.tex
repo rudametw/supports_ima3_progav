@@ -2,21 +2,23 @@
 
 %\documentclass[a4paper]{article}
 %\documentclass[final, pdftex, a4paper, 12pt, openbib, ]{article}
-\documentclass[final, pdftex, a4paper, openbib, ]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[francais]{babel}
+%\documentclass[final, pdftex, a4paper, openbib, ]{article} %careful breaks lualatex
+\documentclass[final, a4paper, openbib, ]{article} %careful breaks lualatex
+%\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
 %\usepackage{lmodern}
 \usepackage[T1]{fontenc}
 %\usepackage{graphicx}
 \usepackage{alltt}
 \usepackage{float}
-%\usepackage{times}
-%\usepackage{a4wide}
+%\usepackage{times} %obsolete
+%\usepackage{pslatex} %obsolete
+%\usepackage{a4wide} %obsolete
 \usepackage{upquote,textcomp}
 \usepackage{geometry}
 %\usepackage{hyperref}
 \usepackage[
-pdftex,
+%pdftex,   %careful breaks lualatex
 final,                      % if you do    want to have clickable-colorful links
 pdfstartview = FitV,
 linktocpage  = false,       % ToC, LoF, LoT place hyperlink on page number, rather than entry text
@@ -24,7 +26,7 @@ breaklinks   = true,        % so long urls are correctly broken across lines
 % pagebackref  = false,     % add page number in bibliography and link to position in document where cited
 ]{hyperref}
 \usepackage{mathtools}
-\geometry{a4paper, portrait, margin=2cm}
+\geometry{a4paper, portrait, margin=1.85cm}
 %\addtolength{\textheight}{2 cm}
 %\addtolength{\oddsidemargin}{-1cm}
 %\addtolength{\topmargin}{-1cm}
@@ -35,14 +37,15 @@ breaklinks   = true,        % so long urls are correctly broken across lines
 %\usepackage{eulervm} % only changes math fonts, i checked
 %\usepackage[ttdefault=true]{AnonymousPro} %Only changes tt fonts
 % WHICH ONE TO CHOOSE?
-\usepackage{pslatex}
+%\usepackage{pslatex}
+%\usepackage{mathptmx}
 %\usepackage[ttdefault=true]{AnonymousPro} %Only changes tt fonts
 % \usepackage[varg, cmintegrals, cmbraces, ]{newtxtext,newtxmath} % libertine, uprightGreek (U.S.) or slantedGreek (ISO), 
 % \usepackage{tgtermes}
 % \usepackage{txfonts}
-% \usepackage{mathptmx}
+ \usepackage{mathptmx}
 % \usepackage[scaled=.90]{helvet}
-% \usepackage{courier}
+ \usepackage{courier}
 % \usepackage{textcomp}     % required for special glyphs
 % \usepackage{bm}   
 
@@ -75,7 +78,6 @@ breaklinks   = true,        % so long urls are correctly broken across lines
 %\AtBeginEnvironment{minted}{\singlespacing%
 %	\fontsize{14}{14}\selectfont}
 %\newminted{java}{fontsize=\footnotesize}
-\usepackage{caption}
 
 %\usepackage{multicol}
 %\usepackage{vwcol}
@@ -104,7 +106,7 @@ breaklinks   = true,        % so long urls are correctly broken across lines
 }
 
 
-\usepackage{xcolor}
+%\usepackage{xcolor}
 
 %\definecolor{infobackground}{RGB}{217,237,247}
 %\definecolor{infoforeground}{RGB}{58,135,173}
@@ -231,8 +233,8 @@ On pourra se référer par exemple au document \url{http://www.newty.de/ftp/zip/
 \begin{enumerate}
 	\item Récupérer dans vos codes de TP précédents un tri de tableau d'entiers.
 	\item Que faut-il modifier pour faire un tri décroissant ?
-	\item Écrire une fonction \texttt{superieur(int a, int b)} qui renvoie \texttt{1} si \texttt{a} est strictement supérieur à \texttt{b}, \texttt{0} si \texttt{a=b}, \texttt{-1}	sinon.
-	\item Ecrire une fonction inferieur sur le même principe.
+	\item Écrire une fonction \texttt{superieur(int, int)} qui renvoie un entier positif (\textit{e.g.}, \texttt{1}) si \texttt{a} est strictement supérieur à \texttt{b}, \texttt{0} si \texttt{a=b}, et un entier négatif (\textit{e.g.}, \texttt{-1}) sinon.
+	\item Écrire une fonction inférieur sur le même principe.
 	\item Rendre votre fonction de tri générique en passant une fonction \texttt{compare} en paramètre.
 	\item Tester dans le main.
 \end{enumerate}

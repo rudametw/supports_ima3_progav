@@ -3,8 +3,8 @@
 %\documentclass[a4paper]{article}
 %\documentclass[final, pdftex, a4paper, 12pt, openbib, ]{article}
 \documentclass[final, pdftex, a4paper, openbib, ]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[francais]{babel}
+%\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
 %\usepackage{lmodern}
 \usepackage[T1]{fontenc}
 %\usepackage{graphicx}
@@ -231,7 +231,6 @@ Lire attentivement l'annexe.
 	\texttt{TABLE\_SIZE = 10, 20, \ldots, 100, 200, 300, 400}
 	\item Ecrire une fonction \texttt{void collisions(Hashtable ht)} qui affiche, pour chaque indice \texttt{i}, la taille de la liste \texttt{ht[i]}.
 	Sur l'exemple, avec le fichier \texttt{dico.english} et \texttt{TABLE\_SIZE=50} : %\\
-
 %	\texttt{0 335}\\
 %	\texttt{1 309}\\
 %	\texttt{2 308}\\
@@ -247,6 +246,7 @@ Lire attentivement l'annexe.
 	|\ldots|
 	\end{minted}
 
+	\item Écrire une fonction \texttt{free\_ht(\ldots)} qui libère toute la mémoire dynamique utilisé par une table de hachage passé en paramètre. Tester avec \textit{Valgrind}.
 \end{enumerate}
 
 \section{Questions s'il vous reste du temps}
@@ -290,7 +290,6 @@ Il reste à trouver une fonction $hash$ adéquate :
        	\node[scale=1]
        	{
        		\includegraphics[scale=0.58]{hashtable.pdf}
-       		%                    \includegraphics[scale=0.15]{\images/information.pdf}                    
        	};
 \end{minipage}%
 
