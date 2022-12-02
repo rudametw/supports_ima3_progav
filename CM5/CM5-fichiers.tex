@@ -201,31 +201,39 @@
 %NATHALIE: non null for feof is incorrect, it's non zéro
 \begin{frame}[fragile=singleslide]
 	\frametitle{Fichiers texte: lecture}
+	\vspace{-0.8cm}
 	\begin{block}{}
 		\begin{itemize}
 
-			\item \texttt{char getc (FILE *fp)}
-			\begin{itemize}
-				\item \texttt{getchar()} $\Leftrightarrow$ \texttt{getc(stdin)}
-			\end{itemize}
+			\item \texttt{char getc (FILE *fp)} \\
+			\hspace{1cm} \footnotesize{\texttt{getchar()} $\Leftrightarrow$ \texttt{getc(stdin)}}
+%			\begin{itemize}
+%				\item \texttt{getchar()} $\Leftrightarrow$ \texttt{getc(stdin)}
+%			\end{itemize}
 
-			\item \texttt{int fscanf(FILE *fp, char *format, \ldots)}
-			\begin{itemize}
-				\item scanf(\ldots) $\Leftrightarrow$ fscanf(stdin, \ldots)
-				\item Retourne le nombre d'items lus, à vérifier à \underline{chaque utilisation}
-			\end{itemize}
+%			\item \texttt{int fscanf(FILE *fp, char *format, \ldots)}
+%			\begin{itemize}
+%				\item scanf(\ldots) $\Leftrightarrow$ fscanf(stdin, \ldots)
+%				\item Retourne le nombre d'items lus, à vérifier à \underline{chaque utilisation}
+%			\end{itemize}
+			\item \normalsize \texttt{\textbf{int fscanf}(FILE *fp, char *format, \ldots)} \\
+			\hspace{1cm}\footnotesize \texttt{scanf(\ldots)} $\Leftrightarrow$ \texttt{fscanf(stdin, \ldots)} \\
+			\footnotesize Retourne le nombre d'items lus, \textbf{à vérifier à \underline{chaque utilisation}}
+
 			
-			\item \texttt{char * fgets(char *chaine, int taille,} \\
-			\hspace{7em} \texttt{FILE *fp)}
-			\item \texttt{int feof(FILE *fp)}
-			\begin{itemize}
-				\item Retourne une valeur différent à zéro si la fin du fichier a été rencontrée lors d'une opération de lecture
-			\end{itemize}
-			\item \texttt{int ferror(FILE *fp)}
-			\begin{itemize}
-				\item Retourne une valeur différent à zéro si un erreur a été rencontrée lors d'une opération de lecture
-			\end{itemize}
-			
+			\item \small \texttt{char * fgets(char *chaine, int taille,FILE *fp)} \\
+%			\hspace{7em} \texttt{FILE *fp)}
+			\item \texttt{int feof(FILE *fp)} \\
+%			\begin{itemize}
+				%\item 
+				\footnotesize Retourne une valeur différent à zéro si la fin du fichier a été rencontrée lors d'une opération de lecture
+%			\end{itemize}
+			\item \texttt{int ferror(FILE *fp)} \\
+%			\begin{itemize}
+%				\item 
+				\footnotesize Retourne une valeur différent à zéro si un erreur a été rencontrée lors d'une opération de lecture
+%			\end{itemize}
+			 \item \texttt{void clearerr(FILE *stream)} \\ remet à zéro l'indicateur d'erreur pour le flux de caractères considéré
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -281,6 +289,23 @@
 	\end{block}	
 \end{frame}
 
+\begin{frame}[fragile=singleslide]
+	\frametitle{Fichiers texte: exemple (clauses de garde)}
+	\begin{block}{} %Gestion dynamique de la mémoire}
+		\vspace{-0.7cm}
+		\inputminted[
+		%		frame=lines,
+		%		framesep=2.5mm,
+		baselinestretch=0.1,
+		fontsize=\footnotesize,
+		linenos,
+		tabsize=2,
+		%		bgcolor=light-gray
+		]
+		{c}{../codes/file3.good2_garde.c}
+	\end{block}	
+\end{frame}
+
 
 
 \begin{frame}[fragile=singleslide]
@@ -321,9 +346,10 @@
 	\end{block}
 	\begin{block}{Écriture (mode création ou lecture/écriture)}
 		\begin{itemize}
-			\item \texttt{int fwrite(void *pt, int taille, int nb,}\\
-			\hspace{6em} \texttt{FILE *fp)}\\
-			Écrit sur le fichier \texttt{fp}, à partir de la position suivant le curseur, \texttt{nb} objets, chacun de taille \texttt{taille}, qui se trouvent contiguëment dans la zone mémoire pointée par \texttt{pt}.
+%			\item \texttt{int fwrite(void *pt, int taille, int nb,}\\
+%			\hspace{6em} \texttt{FILE *fp)}\\
+			\item \texttt{size\_t fwrite(const void *pt, \\ \hspace{7em} size\_t taille, size\_t nb, \\ \hspace{7em} FILE *fp);}\\
+			Écrit sur le fichier \texttt{fp}, à partir de la position suivant le curseur, \texttt{nb} objets, chacun de taille \texttt{taille}, qui se trouvent contiguëment dans la zone mémoire pointée par \texttt{pt}. \underline{Et la valeur de retour ?}
 			\item Utilisation courante :\\
 			\texttt{FILE *fp; <T> x; \\fwrite(\&x, sizeof(x), 1, fp);}
 		\end{itemize}
@@ -351,9 +377,11 @@
 	\frametitle{Fichiers binaires: lecture}
 	\begin{block}{}
 		\begin{itemize}
-			\item \texttt{int fread(void *pt, int taille, int nb, FILE *fp)}\\
-			Lire nb objets de taille <taille> et les copier dans l'espace pointé par pt\\
-			\vspace{1cm}
+%			\item \texttt{int fread(void *pt, int taille, int nb, FILE *fp)}\\
+%			Lire nb objets de taille <taille> et les copier dans l'espace pointé par pt\\
+			\item \texttt{size\_t fread(void *pt, size\_t taille, \\ \hspace{6.5em} size\_t nb, FILE *fp);}\\
+			Lire \texttt{nb} objets de taille \texttt{taille} et les copier dans l'espace pointé par \texttt{pt}.\\
+			\vspace{0.5cm}
 			\item Utilisation courante :\\
 			\texttt{<T> x; \\fread(\&x, sizeof(<T>), 1, fp);}
 		\end{itemize}

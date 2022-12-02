@@ -108,7 +108,7 @@
 			\item \texttt{put\_valeur(A,v)} : range la valeur de \texttt{v} à la racine
 			\item \texttt{put\_droite(A,D)} : \texttt{D} devient le sous-­arbre droit de \texttt{A}
 			\item \texttt{put\_gauche(A,G)} : \texttt{G} devient le sous-arbre gauche de \texttt{A}
-			\item \texttt{cons(v, G, D)} : construit l'arbre \texttt{<v, G, D>}
+			\item \texttt{cons\_arbre(v, G, D)} : construit l'arbre \texttt{<v, G, D>}
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -401,13 +401,23 @@
 	\frametitle{Les arbres binaires ordonnées}
 	\begin{block}{Rappel}
 		\begin{itemize}
-			\item Liste contiguë : recherche dichotomique en $O(log_2n)$\\
-			Ajout / suppression en $O(n)$
-			\item Liste chaînée : recherche en $O(n)$\\
-			Ajout / suppression en temps constant
+			\item Liste contiguë ordonnée : 
+			\begin{itemize}
+				\item recherche dichotomique $O(log_2n)$\\
+				\item ajout / suppression en $O(n)$
+			\end{itemize}
+			\item Liste chaînée ordonnée :
+			\begin{itemize}
+				\item recherche, ajout, suppression $O(n)$\\
+			\end{itemize}
+			\item Liste chaînée non-ordonnée :
+			\begin{itemize}
+				\item recherche $O(n)$
+				\item ajout, suppression en temps constant $O(1)$
+			\end{itemize}
 		\end{itemize}
 	\end{block}
-	\begin{block}{Arbre binaire ordonné (ou arbre de recherche)}
+	\begin{block}{Arbre Binaire de Recherche $\Rightarrow$ arbre ordonné}
 		\begin{itemize}
 			\item Recherche / ajout / suppression : même efficacité
 			\item Au mieux (arbre équilibré) en $log_2(n)$
@@ -440,14 +450,14 @@
 
 \begin{frame}[fragile=singleslide]
 	\frametitle{Recherche dans un arbre binaire ordonné}
-	\begin{block}{Recherche associative d'un élément \texttt{X}}
+	\begin{block}{Recherche associative d'un élément \texttt{x}}
 		\begin{itemize}
 			\item \texttt{A} = $\emptyset$ $\Rightarrow$ non trouvé
-			\item \texttt{A = <V, G, D>}
+			\item \texttt{A = <v, G, D>}
 			\begin{itemize}
-				\item \texttt{V = X $\Rightarrow$} trouvé
-				\item \texttt{X < V $\Rightarrow$} rechercher \texttt{X} dans \texttt{G}
-				\item \texttt{X > V $\Rightarrow$} rechercher \texttt{X} dans \texttt{D}
+				\item \texttt{v = x $\Rightarrow$} trouvé
+				\item \texttt{x < v $\Rightarrow$} rechercher \texttt{x} dans \texttt{G}
+				\item \texttt{x > v $\Rightarrow$} rechercher \texttt{x} dans \texttt{D}
 			\end{itemize}
 		\end{itemize}
 	\end{block}

@@ -1,0 +1,351 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="author" content="Vincent Aranega"><title>Pointeurs de fonctions</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+tex2jax: {
+  inlineMath: [["\\(", "\\)"]],
+  displayMath: [["\\[", "\\]"]],
+  ignoreClass: "nostem|nolatexmath"
+},
+asciimath2jax: {
+  delimiters: [["\\$", "\\$"]],
+  ignoreClass: "nostem|noasciimath"
+},
+TeX: { equationNumbers: { autoNumber: "none" } }
+});</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.4.0/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>Pointeurs de fonctions</h1><h2>Vincent Aranega</h2></section><section id="_problmes_exemple_1"><h2>Problèmes: exemple 1</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="c language-c">void tri_croissant(int *tab, int length)
+{
+    int i, j;
+    for (i = length - 1; i &gt; 0; i--) {
+        for (j = 0; j &lt; i; j++) {
+            if (tab[i] &gt; tab[j]) {
+                int temp = tab[j];
+                tab[j] = tab[i];
+                tab[i] = temp;
+            }
+        }
+    }
+}</code></pre></div></div>
+<div class="paragraph"><p>Si tri décroissant ?</p></div></section>
+<section id="_problmes_exemple_2"><h2>Problèmes: exemple 1</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="c language-c">void tri_decroissant(int *tab, int length)
+{
+    int i, j;
+    for (i = length - 1; i &gt; 0; i--) {
+        for (j = 0; j &lt; i; j++) {
+            if (tab[i] &lt; tab[j]) {  // Seule modification...
+                int temp = tab[j];
+                tab[j] = tab[i];
+                tab[i] = temp;
+            }
+        }
+    }
+}</code></pre></div></div></section>
+<section id="_problmes_exemple_2_2"><h2>Problèmes: exemple 2</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="c language-c">void a(){ printf("You choose 0\n"); }
+void b(){ printf("You choose 1\n"); }
+// c(), d() ...etc
+
+int main(void) {
+    int choice = -1;
+    scanf("%d", &amp;choice);
+    switch (choice) {
+      case 0:
+        a();
+        break;
+      case 1:
+        b();
+        break;
+// ..etc
+    }
+}</code></pre></div></div></section>
+<section id="_pointeur_de_fonction"><h2>Pointeur de fonction</h2><div class="ulist"><ul><li><p>Comment déclarer un pointeur de fonction ?</p></li><li><p>Comment appeler une fonction référencée ?</p></li><li><p>Comment accepter un pointeur de fonction en paramètre ?</p></li><li><p>Peut-on définir un tableau de pointeurs de fonction ? Comment ?</p></li></ul></div></section>
+<section id="_rappels_sur_les_pointeurs"><h2>Rappels sur les pointeurs</h2><div class="ulist"><ul><li><p>Toute variable est stockée soit dans la pile, soit dans le segment de données (.data ou .bss)</p></li><li><p>Ce stockage lui confère une adresse propre qui peut être stockée dans une variable de type pointeur</p></li><li><p>Un pointeur = adresse mémoire + type cible</p><div class="ulist"><ul><li><p><code>int * p_int</code></p></li><li><p><code>float * p_float</code></p></li><li><p><code>char * p_char</code></p></li></ul></div></li></ul></div></section>
+<section id="_rappels"><h2>Rappels</h2><div class="ulist"><ul><li><p>Le code du programme est stocké dans une zone mémoire appelée segment de code (.text)</p></li><li><p>Toute fonction, comme tout autre objet du programme, a donc également une adresse mémoire</p></li><li><p>Pour la manipuler, il faut connaître son "type", comme pour une variable</p></li></ul></div></section>
+<section id="_exemple"><h2>Exemple</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="c language-c">void foo(void) {
+    print("foo\n");
+}
+
+int main(void) {
+    printf("@foo:%p\n", foo);
+    return 0;
+}</code></pre></div></div>
+<div class="ulist"><ul><li><p>le nom de la fonction correspond à un pointeur statique vers celle-ci</p></li></ul></div></section>
+<section id="_type_dun_pointeur_de_fonction"><h2>Type d&#8217;un pointeur de fonction</h2><div class="ulist"><ul><li><p>Un pointeur de fonction a un type précis dépendant du prototype de la fonction pointée</p></li><li><p>Ce type est défini à l’aide du type de retour et au nombre ainsi qu’aux types des arguments de la fonction</p></li><li><p>La déclaration d’un pointeur de fonction s’effectue ainsi:</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="highlight"><code class="c language-c">type_retour (* nom_variable)(type_param1, type_param2, ...);</code></pre></div></div></section>
+<section id="_exemples"><h2>Exemples</h2><div class="ulist"><ul><li><p>Déclaration de pointeurs de fonctions ne retournant rien</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="highlight"><code class="c language-c">void foo_1(void) {...}
+void foo_2(int i, char * s, size_t l){...}
+
+int main(void) {
+    void (*ptr_1)(void);
+    void (*ptr_2)(int, char *, size_t);
+
+    ptr_1 = foo_1;
+    ptr_2 = foo_2;
+
+    printf("%p - %p\n", ptr_1, ptr_2);
+    return 0;
+}</code></pre></div></div></section>
+<section id="_exemples_2"><h2>Exemples</h2><div class="ulist"><ul><li><p>Déclaration de pointeurs de fonctions retournant un résultat</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="highlight"><code class="c language-c">int foo_1(void) {...}
+char * foo_2(int i, char * s, size_t l){...}
+
+int main(void) {
+    int (*ptr_1)(void);
+    char * (*ptr_2)(int, char *, size_t);
+
+    ptr_1 = foo_1;
+    ptr_2 = foo_2;
+
+    printf("%p - %p\n", ptr_1, ptr_2);
+    return 0;
+}</code></pre></div></div></section>
+<section id="_rappel_appel_de_fonction"><h2>Rappel: appel de fonction</h2><div class="ulist"><ul><li><p>L’appel d’une fonction s’effectue simplement en utilisant son nom suivi entre parenthèses des arguments</p></li><li><p>Le compilateur va remplacer cet appel par la demande de l’exécution du code correspondant à la fonction
+(à l’aide de son adresse) et en positionnant sur la pile l’évaluation des arguments et variables locales</p></li></ul></div></section>
+<section id="_rappel_appel_de_fonction_2"><h2>Rappel: appel de fonction</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="c language-c">int foo(int i){
+    return i*2;
+}
+int main(void){
+    int j=1;
+    int k=0;
+    k = foo(j);  // Le compilateur remplace ça par un "call"
+                 // de l'@ de foo en asm
+    return 0;
+}</code></pre></div></div></section>
+<section id="_appel_de_fonction"><h2>Appel de fonction</h2><div class="paragraph"><p><code>(* nom_ptr)(arg0, arg1, &#8230;&#8203;);</code></p></div>
+<div class="paragraph"><p>ou</p></div>
+<div class="paragraph"><p><code>nom_ptr(arg0, arg1, &#8230;&#8203;);</code></p></div>
+<div class="listingblock"><div class="content"><pre class="highlight"><code class="c language-c">void foo_1(void){ printf("foo_1\n"); }
+void foo_2(int i){ printf("foo_2:%d\n",i); }
+int foo_3(int i, char * s, size_t l){
+    printf("foo_3:%d,%s,%d\n",i,s,l);
+    return 1;
+}
+int main(void){
+    void (*ptr_1)(void) = foo_1;
+    void (*ptr_2)(int) = foo_2;
+    int (*ptr_3)(int, char *, size_t) = foo_3;
+
+    (*ptr_1)();
+    ptr_2(2);
+    printf("Return value: %d\n", ptr_3(2,"Hello",5));
+    return 0;
+}</code></pre></div></div></section>
+<section id="_pointeur_de_fonction_en_paramtre"><h2>Pointeur de fonction en paramètre</h2><div class="ulist"><ul><li><p>Pour passer un pointeur de fonctions en paramètre, il suffit de déclarer le paramètre comme une variable classique</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="highlight"><code class="c language-c">void foo_1(int i, char * s){
+    printf(”%s : %d\n”, s, i);
+}
+
+void foo_2(int i, char * s){
+    printf(”%s - %d\n”, s, i);
+}
+
+void foo_3(int n, void bar(int, char *)){
+    bar(n,"Hello");
+}
+
+int main(void) {
+    foo_3(1, foo_1);
+    foo_3(2, foo_2);
+    return 0;
+}</code></pre></div></div></section>
+<section id="_pointeur_de_fonction_en_paramtre_avec_un_typedef"><h2>Pointeur de fonction en paramètre (avec un typedef)</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="c language-c">typedef void(*t_ptrf)(int, char*);
+void foo_1(int i, char * s){
+    printf(”%s : %d\n”, s, i);
+}
+
+void foo_2(int i, char * s){
+    printf(”%s - %d\n”, s, i);
+}
+
+void foo_3(int n, t_ptrf bar){
+    bar(n,"Hello");
+}
+
+int main(void) {
+    foo_3(1, foo_1);
+    foo_3(2, foo_2);
+    return 0;
+}</code></pre></div></div></section>
+<section id="_retour_sur_le_premier_exemple_1"><h2>Retour sur le premier exemple (1)</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="c language-c">void tri(int *tab, int length, int comp(int, int))
+{
+    int i, j;
+    for (i = length - 1; i &gt; 0; i--) {
+        for (j = 0; j &lt; i; j++) {
+            if (comp(tab[i], tab[j])) {
+                int temp = tab[j];
+                tab[j] = tab[i];
+                tab[i] = temp;
+            }
+        }
+    }
+}</code></pre></div></div></section>
+<section id="_retour_sur_le_premier_exemple_2"><h2>Retour sur le premier exemple (2)</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="c language-c">int croissant(int a, int b)
+{
+    return a &lt; b;
+}
+
+int decroissant(int a, int b)
+{
+    return a &gt; b;
+}
+
+int main(void) {
+    int tab[10] = {...};
+    tri(tab, 10, croissant);
+    tri(tab, 10, decroissant);
+
+    return 0;
+}</code></pre></div></div></section>
+<section id="_retourner_un_pointeur_de_fonction"><h2>Retourner un pointeur de fonction</h2><div class="ulist"><ul><li><p>Il peut être souhaitable de retourner un pointeur de fonctions</p></li><li><p>Les prototypes de la fonction renvoyant le pointeur (disons <code>foo</code>) et du type de fonctions pointées s’entremêlent ainsi :</p></li></ul></div>
+<div class="paragraph"><p><code>type_ret_fct  (* foo(args_foo)) (types_fct);</code></p></div>
+<div class="ulist"><ul><li><p>où la fonction <code>foo</code> prend en paramètre une liste d’arguments (i.e. <code>args_foo</code>) et retourne un
+pointeur vers des fonctions dont le prototype est <code>type_ret_fct fct(types_fct);</code></p></li></ul></div></section>
+<section id="_exemple_2"><h2>Exemple</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="c language-c">void foo_1(void){ printf(", World!\n"); }
+int foo_2(char * s){ return printf("%s", s); }
+
+void (* foo_3(int i))(void) {
+    printf("%d\n", i);
+    return foo_1;
+}
+int (* foo_4(int i))(char *) {
+    printf("%d\n", i);
+    return foo_2;
+}
+int main(void) {
+    void (*ptr_1)(void) = foo_3(1);
+    void (*ptr_2)(char *) = foo_4(2);
+    ptr_2(”Hello”);
+    ptr_1();
+    return 0;
+}</code></pre></div></div>
+<div class="paragraph"><p>Que ce code affiche-il ?</p></div></section>
+<section id="_utilisation_dun_typedef"><h2>Utilisation d’un typedef</h2><div class="ulist"><ul><li><p>Alléger la syntaxe en déclarant un nouveau type</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="highlight"><code class="c language-c">typedef void (*t_ptrf_1)(void);
+
+void foo_1(void) { ... }
+
+t_ptrf_1 foo_2(int i) {
+    printf("%d\n",i);
+    return foo_1;
+}
+
+int main(void) {
+    t_ptrf_1 ptr_foo = foo2(1);
+    ptr_foo();
+    return 1;
+}</code></pre></div></div>
+<div class="ulist"><ul><li><p>Masque la nature réelle du type</p></li></ul></div></section>
+<section id="_tableau_de_pointeurs_de_fonctions"><h2>Tableau de pointeurs de fonctions</h2><div class="ulist"><ul><li><p>Comme un pointeur de fonction est une adresse, il est possible d&#8217;en stocker plusieurs dans un tableau</p></li><li><p>A l’instar de la déclaration d’un tableau d’un type "simple" (e.g., <code>int tab[TAILLE]</code>),
+la déclaration d’un tableau de pointeurs de fonctions se fait généralement sous la forme suivante :</p></li></ul></div>
+<div class="paragraph"><p><code>type_retour (* tab[TAILLE])(type_param1, type_param2);</code></p></div>
+<div class="ulist"><ul><li><p>L’écriture est très similaire à la déclaration d’un pointeur de fonction, c’est l’ajout des [] et de la taille qui fait toute la différence</p></li></ul></div></section>
+<section id="_tableau_de_pointeurs_de_fonctions_2"><h2>Tableau de pointeurs de fonctions</h2><div class="ulist"><ul><li><p>Ces tableaux sont soumis aux mêmes règles d’utilisation que les tableaux "standards":</p><div class="ulist"><ul><li><p>indice commence à <code>0</code></p></li><li><p>un tableau ne connait pas sa taille</p></li><li><p>Tous les éléments contenus (ici des pointeurs) doivent être de même type – les fonctions
+dont on stockera les adresses devront avoir un prototype commun (i.e. même type de retour
+et mêmes types et ordre des arguments)</p></li></ul></div></li></ul></div></section>
+<section id="_retour_sur_lutilit"><h2>Retour sur l&#8217;utilité</h2><div class="ulist"><ul><li><p>Nous proposons d’implémenter une simple calculatrice basée sur le cahier des charges simpliste suivant</p></li></ul></div>
+<div class="paragraph"><p>”” Le programme permet d’effectuer un calcul simple
+décrit comme un argument du programme. Les
+opérations admises sont l’addition, la soustraction, la
+multiplication et la division. Un calcul est composé d’un
+premier opérande suivi d’un numéro d&#8217;opération et d’un second
+opérande. Le programme affiche le résultat. ””</p></div>
+<div class="paragraph"><p>Exemple: <code>./calc 4 0 3  =&#8658; 4 + 3 = 7</code></p></div></section>
+<section id="_retour_sur_lutilit_exemple"><h2>Retour sur l&#8217;utilité: Exemple</h2><div class="ulist"><ul><li><p>Les opérations de calcul sont implémentées comme suit et "stockées" dans un tableau de pointeurs de fonctions</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="highlight"><code class="c language-c">double add(double a, double b){
+    return a + b;
+}
+double substract(double a, double b){
+    return a - b;
+}
+double multiply(double a, double b){
+    return a * b;
+}
+double divide(double a, double b){
+    return a / b;
+}
+
+double (*operations[4])(double,double) = {add, substract, multiply, divide};</code></pre></div></div></section>
+<section id="_retour_sur_lutilit_exemple_2"><h2>Retour sur l&#8217;utilité: Exemple</h2><div class="ulist"><ul><li><p>Le main (attention des vérifications manquent pour que le code soit complet)</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="highlight"><code class="c language-c">int main(int argc, char *argv[]) {
+    double a = atof(argv[1]);
+    double b = atof(argv[3]);
+    int op_number = atoi(argv[2])
+    op = operation[op_number];
+    printf("%f\n", op(a,b));
+    return 0;
+}</code></pre></div></div></section>
+<section id="_conclusion"><h2>Conclusion</h2></section>
+<section id="_pointeur_de_fonction_2"><h2>Pointeur de fonction</h2><div class="ulist"><ul><li><p>Permet de référencer directement une fonction</p></li><li><p>Permet de passer une fonction en paramètre d&#8217;une autre</p></li><li><p>Permet d&#8217;associer une fonction à une structure</p></li><li><p>Introduit une certaine flexibilité dans le code</p></li><li><p>La déclaration de type, variable, argument ou tableau utilisant un pointeur de fonction doit respecter le prototype de fonction correspondante</p></li><li><p>Les erreurs sont faciles et définir un pointeur de fonction nécessite une grande vigilance</p></li></ul></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: false,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: true,
+  // Push each slide change to the browser history
+  history: true,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: false,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'solarized',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'slide',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'fast',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 960,
+  height: 700,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>

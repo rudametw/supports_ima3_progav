@@ -63,7 +63,7 @@ int * allouer_entier() {
 
 \begin{frame}[fragile=singleslide]
 	\frametitle{Allocation dynamique --- Exemples}
-		\begin{block}{Allocation dynamique d'un entier} %Gestion dynamique de la mémoire}
+		\begin{block}{Allocation dynamique d'un \textbf{entier}} %Gestion dynamique de la mémoire}
 			\begin{minted}[mathescape=true,escapeinside=||,tabsize=4]{c}
 	int *pt;
 	//pt = (int *) malloc(sizeof(int));
@@ -71,13 +71,14 @@ int * allouer_entier() {
 	*pt = 42; //utilisation
 			\end{minted}
 		\end{block}
-		\begin{block}{Allocation dynamique d'un tableau d'entiers}
+		\begin{block}{Allocation dynamique d'un \textbf{tableau d'entiers}}
 %			\begin{itemize}
-			\begin{minted}[mathescape=true,escapeinside=||,tabsize=4]{c}
+			\begin{minted}[mathescape=true,escapeinside=||,tabsize=2]{c}
 	int n; int *pt;
 	scanf("%d", &n);
-	pt = (int *) malloc(n*sizeof(int)); 
-	//Accès
+	pt = malloc(n*sizeof(int)); //pas besoin de cast
+
+	//Différents façon d'y accèder
 	*pt = 11;          //premier élément
 	*(pt+1) = 22 ;     //deuxième
 	pt[2] = 33 ;       //troisième
@@ -151,9 +152,9 @@ int * allouer_entier() {
 %		framesep=2.5mm,
 %		baselinestretch=0.8,
 		fontsize=\small,
-%		linenos,
+		linenos,
 		tabsize=2,
-		firstline=16,lastline=27
+		firstline=17,lastline=33
 %		bgcolor=light-gray
 		]
 		{c}{../codes/struct_declare_array.c}
@@ -171,7 +172,7 @@ int * allouer_entier() {
 		fontsize=\small,
 %		linenos,
 		tabsize=2,
-		firstline=14,lastline=28
+		firstline=15,lastline=29
 %		bgcolor=light-gray
 		]
 		{c}{../codes/alloc_listes_double_pointer.c}
@@ -189,7 +190,7 @@ int * allouer_entier() {
 		fontsize=\small,
 %		linenos,
 		tabsize=2,
-		firstline=44,lastline=58
+		firstline=46,lastline=64
 %		bgcolor=light-gray
 		]
 		{c}{../codes/alloc_listes_double_pointer.c}
@@ -229,12 +230,12 @@ int * allouer_entier() {
 		fontsize=\small,
 %		linenos,
 		tabsize=2,
-		firstline=4,lastline=10
+		firstline=5,lastline=9
 %		bgcolor=light-gray
 		]
 		{c}{../codes/alloc_implantation.c}
 %		\end{block}
-	\vspace{-0.9cm} \begin{center} \noindent\makebox[\linewidth]{\line(2,0){500}} \end{center}  \vspace{-0.7cm}
+	\vspace{-0.4cm} \begin{center} \noindent\makebox[\linewidth]{\line(2,0){500}} \end{center}  \vspace{-0.4cm}
 		\inputminted[
 %		frame=lines,
 %		framesep=2.5mm,
@@ -242,10 +243,10 @@ int * allouer_entier() {
 		fontsize=\small,
 %		linenos,
 		tabsize=2,
-		firstline=13,lastline=14
+		firstline=14,lastline=15
 		]
 		{c}{../codes/alloc_implantation.c}
-	\vspace{-0.9cm} \begin{center} \noindent\makebox[\linewidth]{\line(2,0){500}} \end{center}  \vspace{-0.7cm}
+	\vspace{-0.4cm} \begin{center} \noindent\makebox[\linewidth]{\line(2,0){500}} \end{center}  \vspace{-0.4cm}
 		\inputminted[
 %		frame=lines,
 %		framesep=2.5mm,
@@ -253,42 +254,42 @@ int * allouer_entier() {
 		fontsize=\small,
 %		linenos,
 		tabsize=2,
-		firstline=16,lastline=20
-		]
-		{c}{../codes/alloc_implantation.c}
-\end{frame}
-
-\begin{frame}[fragile=singleslide]
-	\frametitle{Listes chaînées --- Implantation en C}
-%		\begin{block}{}
-%		\vspace{-0.5cm}
-		\inputminted[
-%		frame=lines,
-%		framesep=2.5mm,
-%		baselinestretch=0.8,
-		fontsize=\small,
-%		linenos,
-		tabsize=2,
-		firstline=24,lastline=31
-%		bgcolor=light-gray
-		]
-		{c}{../codes/alloc_implantation.c}
-%		\end{block}
-		\begin{center} \noindent\makebox[\linewidth]{\line(2,0){500}} \end{center} 
-		\inputminted[
-%		frame=lines,
-%		framesep=2.5mm,
-%		baselinestretch=0.8,
-		fontsize=\small,
-%		linenos,
-		tabsize=2,
-		firstline=34,lastline=40
+		firstline=17,lastline=21
 		]
 		{c}{../codes/alloc_implantation.c}
 \end{frame}
 
+%\begin{frame}[fragile=singleslide]
+%	\frametitle{Listes chaînées --- Initialisation manuelle}
+%%%		\begin{block}{}
+%%%		\vspace{-0.5cm}
+%%		\inputminted[
+%%%		frame=lines,
+%%%		framesep=2.5mm,
+%%%		baselinestretch=0.8,
+%%		fontsize=\small,
+%%%		linenos,
+%%		tabsize=2,
+%%		firstline=24,lastline=31
+%%%		bgcolor=light-gray
+%%		]
+%%		{c}{../codes/alloc_implantation.c}
+%%		\end{block}
+%%		\begin{center} \noindent\makebox[\linewidth]{\line(2,0){500}} \end{center} 
+%		\inputminted[
+%%		frame=lines,
+%%		framesep=2.5mm,
+%%		baselinestretch=0.8,
+%		fontsize=\small,
+%%		linenos,
+%		tabsize=2,
+%		firstline=38,lastline=50
+%		]
+%		{c}{../codes/alloc_implantation.c}
+%\end{frame}
+
 \begin{frame}[fragile=singleslide]
-	\frametitle{Listes chaînées --- Recherche d'un élément}
+	\frametitle{Listes chaînées --- Impression d'une liste}
 		\inputminted[
 %		frame=lines,
 %		framesep=2.5mm,
@@ -296,7 +297,35 @@ int * allouer_entier() {
 %		fontsize=\small,
 %		linenos,
 		tabsize=4,
-		firstline=44,lastline=54
+		firstline=93,lastline=103
+		]
+		{c}{../codes/alloc_implantation.c}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Listes chaînées --- Recherche d'un élément v1}
+		\inputminted[
+%		frame=lines,
+%		framesep=2.5mm,
+%		baselinestretch=0.8,
+%		fontsize=\small,
+%		linenos,
+		tabsize=4,
+		firstline=53,lastline=67
+		]
+		{c}{../codes/alloc_implantation.c}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Listes chaînées --- Recherche d'un élément v2}
+		\inputminted[
+%		frame=lines,
+%		framesep=2.5mm,
+%		baselinestretch=0.8,
+%		fontsize=\small,
+%		linenos,
+		tabsize=4,
+		firstline=69,lastline=82
 		]
 		{c}{../codes/alloc_implantation.c}
 \end{frame}
@@ -310,10 +339,63 @@ int * allouer_entier() {
 %		fontsize=\small,
 %		linenos,
 		tabsize=4,
-		firstline=57,lastline=74
+		firstline=84,lastline=91
 		]
 		{c}{../codes/alloc_implantation.c}
 \end{frame}
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Listes chaînées --- Exemple: main}
+		\inputminted[
+%		frame=lines,
+%		framesep=2.5mm,
+%		baselinestretch=0.8,
+%		fontsize=\small,
+%		linenos,
+		tabsize=4,
+		firstline=127,lastline=140
+		]
+		{c}{../codes/alloc_implantation.c}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Algorithmes à implémenter}
+		\begin{block}{Fonction \texttt{sup\_tête}}
+			\begin{itemize}
+				\item L'inverse d'\texttt{ajout\_tête}
+			\end{itemize}
+		\end{block}
+		\begin{block}{Fonction \texttt{liberer\_liste}}
+			\begin{itemize}
+				\item Astuce : Peut se servir de \texttt{sup\_tete}
+			\end{itemize}
+		\end{block}
+		\begin{block}{Fonction \texttt{insertion\_ordonnée}}
+			\begin{itemize}
+				\item Doit chercher le bon emplacement			
+				\item Astuce : Peut se servir d'\texttt{ajout\_tête}
+			\end{itemize}
+		\end{block}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+	\frametitle{Fonctions d'allocation dynamique}
+\begin{minted}[mathescape=true,escapeinside=||,tabsize=0]{c}
+	#include <stdlib.h>
+
+	void *malloc(size_t size);
+	void free(void *ptr);
+	
+	void *calloc(size_t nmemb, size_t size);
+	
+	void *realloc(void *ptr, size_t size);
+	void *reallocarray(void *ptr,
+	                   size_t nmemb,
+	                   size_t size);
+\end{minted}
+\end{frame}
+
+
 %
 %\begin{frame}
 %\huge \center END

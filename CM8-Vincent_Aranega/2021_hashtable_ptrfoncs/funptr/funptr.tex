@@ -1,0 +1,65 @@
+\documentclass{beamer}
+
+\usepackage[frenchb]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\AtBeginSection[]
+{
+   \begin{frame}
+       \frametitle{Outline}
+       \tableofcontents[
+       currentsubsection,
+       sectionstyle=show/shaded,
+       subsectionstyle=hide,
+       ]
+   \end{frame}
+}
+
+\usetheme{Rochester}
+\setbeamertemplate{footline}[frame number]
+
+\title[Short Paper Title]{Pointeur de fonctions}
+%\subtitle{Programmation Avancée}
+\author{Vincent Aranega\\%
+\texttt{vincent.aranega@genmymodel.com}\\%
+Pompé sur le cours de G. Bianchi, Université de Bordeaux}
+\date{\today}
+\beamertemplatenavigationsymbolsempty{}
+
+\begin{document}
+
+  \maketitle
+
+  \begin{frame}{Rappel}
+    \begin{itemize}
+      \item{Variable $\rightarrow$ stockée soit dans la pile, soit dans le segment de données (\texttt{.data} ou \texttt{.bss})}
+      \item{Une variable à une adresse qui peut être stockée dans un pointeur}
+      \item{Un pointeur = (adresse mémoire + type cible)}
+      \begin{itemize}
+        \item{\texttt{int *p\_int;}}
+        \item{\texttt{float *p\_float;}}
+        \item{\texttt{char * p\_char;}}
+        \item{\texttt{double *p\_double;}}
+      \end{itemize}
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Rappel}
+    \begin{itemize}
+      \item{Le code d'un programme est stocké dans une zone mémoire : le segment de code (\texttt{.text})}
+      \item{Toute fonction, comme tout autre objet du programme, a donc également une adresse mémoire}
+      \item{Afin de manipuler cette dernière, il faudra avoir connaissancedu ``type'' de la fonction (à l’instar des variables)}
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Récupération de l'adresse d'une fonction}
+    \begin{minipage}{.5\textwidth}
+      TEXT 1
+    \end{minipage}% This must go next to `\end{minipage}`
+    \begin{minipage}{.5\textwidth}
+      TEXT 2
+    \end{minipage}
+  \end{frame}
+
+\end{document}

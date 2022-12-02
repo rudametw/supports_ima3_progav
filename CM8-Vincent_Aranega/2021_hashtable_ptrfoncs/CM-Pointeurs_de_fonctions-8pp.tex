@@ -1,0 +1,37 @@
+
+% UNCOMMENT FOLLOWING LINE FOR TESTING PURPOSES
+%
+%\newcommand{\CommandLineArg}{../CM1/CM1-Intro.pdf}
+
+\def\ReadCommandLineArg#1 {%
+  \def\CommandLineArg{#1}%
+  \input{\jobname}}
+\unless\ifdefined\CommandLineArg
+\endinput\expandafter\expandafter\expandafter\ReadCommandLineArg\fi
+
+\documentclass[a4paper]{article}
+\usepackage{pdfpages}
+
+%\setlength{\fboxsep}{0pt}
+%\setlength{\fboxrule}{1pt}
+\setlength{\fboxrule}{0.01pt}
+
+\newcommand{\cfbox}[1]{%
+  \colorlet{currentcolor}{.}%
+  {\color{red}%
+  \fbox{\color{currentcolor}#1}}%
+}
+
+
+
+\begin{document}
+% https://wiki.bath.ac.uk/display/latextricks/Making+handouts+from+your+beamer+presentation
+%4 slides per page
+%\includepdf[pages=1-last,nup=2x2,landscape=true,frame=true,noautoscale=true,scale=1,delta=5mm 5mm]{\CommandLineArg}
+
+%6 slides per page
+%\includepdf[pages=1-last,nup=2x3,landscape=false,frame=true,noautoscale=true,scale=0.75,delta=2mm 20mm]{CM2-structures.pdf}
+%\includepdf[pages=1-last,nup=2x3,landscape=false,frame=true,noautoscale=true,scale=0.75,delta=2mm 28mm]
+\includepdf[pages=1-last,nup=2x4,landscape=false,frame=true,noautoscale=true,scale=0.33,delta=12mm 1.5mm]{\CommandLineArg}
+
+\end{document}

@@ -91,14 +91,16 @@
 	\def\szwidth{12mm}
 	\def\offset{0.6}
 	% node style definition
-	\tikzstyle{block} = [draw, fill=orange!40, rectangle, minimum height=\sz, minimum width=\sz ];
+%	\tikzstyle{block} = [draw, fill=orange!40, rectangle, minimum height=\sz, minimum width=\sz ];
 	\tikzstyle{rect} = [draw, fill=orange!40, rectangle, minimum height=\sz, minimum width=\szwidth ];
+	\tikzstyle{rectLight} = [draw, fill=orange!15, rectangle, minimum height=\sz, minimum width=\szwidth ];
 	\tikzstyle{rect2} = [draw, fill=orange!40, rectangle, minimum height=\sz, minimum width=\szwidth*3 ];
+	\tikzstyle{rect3} = [draw, fill=orange!08, rectangle, minimum height=\sz, minimum width=\szwidth*3 ];
 	\tikzstyle{indices} = [rectangle, minimum height=\sz, minimum width=\szwidth ];
 	\tikzstyle{plain} = [draw=none,fill=none];
 	% array element definition
-	\def\dateone{$A_0$,\ldots \ldots,$A_n$,,};
-	\def\datetwo{0,,dernier,,MAX-1};
+%	\def\dateone{$A_0$,\ldots \ldots,$A_n$,,};
+%	\def\datetwo{0,,dernier,,MAX-1};
 	%\def\x{0}; % x pos of arr
 	%\def\y{0}; % y pos of arr
 	\newcounter{ind};
@@ -107,8 +109,8 @@
 	\node[rect] (first) at (0*\szwidth,\offset) { $A_1$ };
 	\node[rect2] at (2*\szwidth,\offset) { \ldots\ldots };
 	\node[rect] (middle) at (4*\szwidth,\offset) { $A_n$ };
-	\node[rect2] at (6*\szwidth,\offset) {  };
-	\node[rect] (last) at (8*\szwidth,\offset) {  };	
+	\node[rect3] at (6*\szwidth,\offset) {  };
+	\node[rectLight] (last) at (8*\szwidth,\offset) {  };	
 	\node[indices] at (0*\szwidth,0) { \texttt{0} };
 	\node[indices] at (2*\szwidth,0) {  };
 	\node[indices] at (4*\szwidth,0) { \texttt{dernier} };
