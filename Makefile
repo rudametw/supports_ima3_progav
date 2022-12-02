@@ -3,25 +3,38 @@
 # README: Error, using Fixpagenumbers as a workaround because pdf's not properly updated
 
 # Default rule
-all: base 1pp 4pp 6pp 8pp
+all: base 1pp 4pp 6pp 8pp heap
 
 base = CM0/CM0-Intro.pdf CM1/CM1-structures.pdf CM2/CM2-listes.pdf CM3/CM3-malloc.pdf CM4/CM4-recursivite.pdf CM5/CM5-fichiers.pdf CM6/CM6-Listes_variantes.pdf CM7/CM7-arbres.pdf CM8-Vincent_Aranega/CM8-pointeur-de-fonction-current.pdf CM8-Vincent_Aranega/CM8-hash-current.pdf
+
 base: ${base}
 
+#Heap is only code, not slides, no need to 8pp it
+heap: CM9-Heap_Tas/binary_heap.2pp.pdf
+
 CM%.pdf: CM%.tex common-images CM-preamble.sty
-	cd "$(shell dirname "$<")"; pdflatex -shell-escape "$(shell basename "$<")"
+	cd "$(shell dirname "$<")"; lualatex -shell-escape "$(shell basename "$<")"
 #Second run to fix the damn page numbers problem
-	cd "$(shell dirname "$<")"; pdflatex -shell-escape "$(shell basename "$<")"
+	cd "$(shell dirname "$<")"; lualatex -shell-escape "$(shell basename "$<")"
 
 CM8-Vincent_Aranega/CM8-pointeur-de-fonction.pdf:
-	wget http://dept-info.labri.fr/ENSEIGNEMENT/programmation1/cours/CM_14___Pointeur_de_fonction.pdf -O "$@"
+	wget http://dept-info.labr.i.fr/ENSEIGNEMENT/programmation1/cours/CM_14___Pointeur_de_fonction.pdf -O "$@"
+
+CM9-Heap_Tas/binary_heap.2pp.pdf: CM9-Heap_Tas/binary_heap.c
+	cd "$(shell dirname "$<")";                                                           \
+	sed  's/\t/    /g' binary_heap.c  |                                                   \
+	  a2pdf --noperl-syntax --title "Binary Heap / Tas Binaire" --output binary_heap.pdf  \
+	        --margins 20 --font-size 15 --page-width 592 --page-height 842 ;              \
+	pdfjam --nup 2x1 binary_heap.pdf --outfile binary_heap.2pp.pdf --landscape --a4paper
+	cp "$@" -t PDFs/;
 
 # COMMON IMAGES
 
 common-images: $(patsubst %.svg,%.pdf,$(wildcard common-images/*))
 
 common-images/%.pdf: common-images/%.svg
-	inkscape -A "$@" "$<"
+	#inkscape -A "$@" "$<"
+	inkscape "$<" --export-area-drawing --batch-process --export-type=pdf --export-filename="$@"
 
 # PDFs FOLDER
 
@@ -39,15 +52,15 @@ common-images/%.pdf: common-images/%.svg
 vpath %.pdf $(wildcard CM*)
 
 PDFs/CM%-handouts-4pp.pdf: CM%.pdf
-	cd PDFs; pdflatex CM-handouts-4pp.tex "$(shell basename "$<")"
+	cd PDFs; lualatex CM-handouts-4pp.tex "$(shell basename "$<")"
 	mv PDFs/CM-handouts-4pp.pdf "$@"
 
 PDFs/CM%-handouts-6pp.pdf: CM%.pdf
-	cd PDFs; pdflatex CM-handouts-6pp.tex "$(shell basename "$<")"
+	cd PDFs; lualatex CM-handouts-6pp.tex "$(shell basename "$<")"
 	mv PDFs/CM-handouts-6pp.pdf "$@"
 
 PDFs/CM%-handouts-8pp.pdf: CM%.pdf
-	cd PDFs; pdflatex CM-handouts-8pp.tex "$(shell basename "$<")"
+	cd PDFs; lualatex CM-handouts-8pp.tex "$(shell basename "$<")"
 	mv PDFs/CM-handouts-8pp.pdf "$@"
 
 PDFs/CM%.pdf: CM%.pdf

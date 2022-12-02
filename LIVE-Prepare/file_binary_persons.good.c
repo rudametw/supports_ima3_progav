@@ -7,6 +7,8 @@ typedef struct personne{
 	int age;
 } Personne;
 
+//NEEDS TO BE FIXED. MAYBE PERSONNS FILE IS NO GOOD
+
 void read_personnes(){
 	struct personne P;
 
@@ -30,7 +32,9 @@ void write_personnes(){
 
 	if(f==NULL) exit(EXIT_FAILURE);
 
+	//créer un tableau de personnes
 	struct personne p_tab[4] = { {"Walter Rudametkin", 75}, {"Pierre Garcia", 45}, {"Camille Sobrico", 28}, {"Alphonse Marquez", 43} };
+
 	int nb = fwrite(&p_tab, sizeof(struct personne), (sizeof p_tab / sizeof p_tab[0]), f);
 
 	printf("Sizeof p_tab=%ld, nb=%d\n",(sizeof p_tab / sizeof p_tab[0]), nb);

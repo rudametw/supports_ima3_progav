@@ -1,0 +1,34 @@
+Bonjour,
+
+Voici le code corrigé de ce matin (oui, le code où j'ai bloqué en CM !).
+
+Il manquait un seul petit miniscule `fclose(f)` dans la fonction `write_personnes`. Le fait de ne pas avoir fait le `fclose` faisait qu'on demandait 2 `fopen` à la suite sur le même fichier, un avec le mode `w` et l'autre avec le mode `r`, mais le mode `r` était ignoré car le fichier n'était pas fermé et rouvert avec ce nouveau mode. Du coup, un fichier ouvert en mode `w` ne permet pas de lire.
+
+On n'aurait pas vu le problème avec un mode `w+`, mais ça aurait malheuresement caché le problème.
+
+Voici quelques commandes pour compiler le code, pour rappel je vous conseille d'afficher les toutes les erreurs possible quand vous compilez votre code :
+
+```bash
+gcc -o ecriture_lecture_fichiers_binaires   ecriture_lecture_fichiers_binaires.c  -Wall -Wextra -pedantic -g -O0
+./ecriture_lecture_fichiers_binaires
+```
+
+On verra plus tard l'utilisation de `-g` et `-O0` mais ça permet de faire des tests avec l'outil `valgrind`. Par exemple :
+```bash
+valgrind ./ecriture_lecture_fichiers_binaires"
+```
+
+Concernant le code, j'ai fait un programme assez verbeux où j'essaye de mettre en évidence :
+ - les valeurs de retour des `fwrite/fread` (à faire aussi pour `fscanf` et toutes les autres fonctions d'entrée/sortie)
+ - `feof` et `ferror` pour tester l'état du fichier
+ - fermeture des ressources, `fclose` ici
+ - utilisation de `fprintf` de temps en temps
+ - valeurs de retour des fonctions pour indiquer `EXIT_FAILURE` et `EXIT_SUCCESS`
+
+Pour info, on peut tester un main qui renvoie correctement son état en bash, par exemple :
+```
+./ecriture_lecture_fichiers_binaires ; printf "\nDid the command fail ? : $?\n"
+```
+Le `$?` affiche le résultat du `return` du `main`, `0` indique que tout va bien.
+
+N'hésitez pas à éditer ou même casser le programme (changer les noms des fichiers dans les `fopen`), pour voir comment il réagit et quels sont les cas d'erreur. 

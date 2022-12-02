@@ -1,28 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct {
-	int j,m,a;
-} Date;
+struct date {
+	int j, m, a;
+};
 
 /* README:
    DO NOT MODIFY LINE NUMBERS, USED IN CM3
 */
 
-int main(){
+int main()
+{
 	/*Date *pDate = (Date *) malloc(sizeof(Date));*/
 	printf("Structure array\n");
 
 	int n;
-	Date *pt;
+	struct date *pt; // tableau !
+	printf("Taille : ");
 	scanf("%d", &n);
-	/*pt = (Date *) malloc( n * sizeof(Date));*/
-	pt = malloc(n * sizeof *pt);
+	pt = malloc(n * sizeof(struct date));
+	//pt = malloc(n * sizeof *pt); // Alternative!
 
-	/*utilisation: notation equivalent*/
-	scanf("%d%d%d", &(pt[0].j),
-                  &((*(pt+0)).m),
-                  &pt[0].a);
-	printf("Date %d/%d/%d\n", pt[0].j, pt[0].m, pt[0].a);
-	free(pt); pt = NULL;
+	for (int i = 0; i < n; i++) {
+		scanf("%d%d%d", &pt[i].j,
+										&pt[i].m,
+										&pt[i].a // ou &((*(pt+0)).a)
+		);
+	}
+	//printf("Date %d/%d/%d\n", pt[0].j, pt[0].m, pt[0].a);
+	free(pt);
+	pt = NULL;
 }

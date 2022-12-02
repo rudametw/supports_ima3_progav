@@ -5,7 +5,7 @@ int main() {
 	if ((fp1 = fopen("titi.txt", "r")) != NULL) {
 		if ((fp2 = fopen("titibis.txt","w")) != NULL) {
 			int c = getc(fp1);
-			while (!feof(fp1)){   //mauvais façon de faire!
+			while (!feof(fp1)){   //mauvaise façon de faire!
 					putc(c, fp2);
 					c = getc(fp1);
 					printf("%c",c);

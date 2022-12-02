@@ -1,0 +1,10 @@
+See note : SE3/IMA3 Programmation Avancé --- Notes pour Cours 
+
+https://www.nongnu.org/avr-libc/user-manual/mem_sections.html
+https://en.wikipedia.org/wiki/Data_segment
+https://fr.wikipedia.org/wiki/Allocation_de_m%C3%A9moire
+https://en.wikipedia.org/wiki/Malloc
+
+
+Good for CM1 and CM3.
+https://stackoverflow.com/questions/330793/how-to-initialize-a-struct-in-accordance-with-c-programming-language-standards
